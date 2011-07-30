@@ -31,6 +31,7 @@ INPDRIVER_PROVIDES = xserver-xorg-input-$(INPUTABI), xorg-driver-input
 # Package names
 PKG_driver           := nvidia-current
 PKG_driver_dev       := $(PKG_driver)-dev
+PKG_modalias         := $(PKG_driver)-modaliases
 PKG_version          := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
 PKG_source           := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 PKG_module           := $(PKG_driver)
@@ -90,7 +91,6 @@ vdpaudir             := $(libdir)/vdpau
 tlsdir               := $(libdir)/tls
 vdpaudir32           := $(libdir32)/vdpau
 tlsdir32             := $(libdir32)/tls
-grub_blacklistdir    := /usr/share/grub-gfxpayload-lists/blacklist
 
 # This is a hack to make sure that
 # the blacklist file is available
@@ -179,7 +179,6 @@ regen-from-templates:
 			-e "s|#PKGTLSDIR#|$(PKG_tlsdir)|g" \
 			-e "s|#PKGTLSDIR32#|$(PKG_tlsdir32)|g" \
 			-e "s|#PKGLIBCONFDIR#|$(PKG_libconfdir)|g" \
-			-e "s|#GRUBBLKLISTDIR#|$(grub_blacklistdir)|g" \
 			debian/$$i.in > debian/$$i;      \
 	done
 ifeq ($(DEB_BUILD_ARCH),amd64)
@@ -261,9 +260,7 @@ endif
 		nvidia_current $(PKG_driver) \
 		$(dirname)/README.txt \
 		$(dirname)/kernel/nv-kernel.o \
-		> $(CURDIR)/debian/$(PKG_driver).modaliases
-	dh_modaliases
-	rm $(CURDIR)/debian/$(PKG_driver).modaliases
+		> $(CURDIR)/debian/$(PKG_driver)-modaliases/usr/share/jockey/modaliases/$(PKG_driver)
 
 	# Configuration stuff
 

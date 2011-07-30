@@ -89,4 +89,3 @@ device_ids() {
 device_ids "$@"
 
 # vim:set et sw=2 sts=2:
-
