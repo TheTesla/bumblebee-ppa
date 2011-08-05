@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (280.13-0ppa~natty1) natty; urgency=low
+
+  * New upstream release.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Fri, 05 Aug 2011 11:05:25 +0200
+
 nvidia-graphics-drivers (280.04-0~nattyubuntu4) natty; urgency=low
 
   * Fix for alternatives by Lekensteyn...
