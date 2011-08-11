@@ -14,20 +14,20 @@
 
 override_dh_auto_configure:
 ifeq ($(DEB_BUILD_ARCH), amd64)
-    mkdir build32 && cd build32 && \
-        ./configure --prefix=/usr --libdir=/usr/lib32 \
-        --host i686-pc-linux-gnu CFLAGS='-O3 -m32' LDFLAGS=-m32
+	mkdir build32 && cd build32 && \
+		./configure --prefix=/usr --libdir=/usr/lib32 \
+		--host i686-pc-linux-gnu CFLAGS='-O3 -m32' LDFLAGS=-m32
 endif
-mkdir build && cd build && ./configure --prefix=/usr
+	mkdir build && cd build && ./configure --prefix=/usr
 
 override_dh_auto_build:
-ifeq ($(DEB_BUILD_ARCH), amd64)
-    cd build32 && make
+ifeq ($(DEB_BUILD_ARCH),amd64)
+	cd build32 && make
 fi
-cd build && make
+	cd build && make
 
 override_dh_auto_install:
 ifeq ($(DEB_BUILD_ARCH), amd64)
-    cd build32 && make install DESTDIR=../debian/libjpeg-turbo
+	cd build32 && make install DESTDIR=../debian/libjpeg-turbo
 fi
-cd build && make install DESTDIR=../debian/libjpeg-turbo
+	cd build && make install DESTDIR=../debian/libjpeg-turbo
