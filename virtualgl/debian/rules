@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ 
+
+override_dh_auto_configure:
+
+ifeq ($(DEB_BUILD_ARCH), amd64)
+    # all we need are the 32-bit compatibility libraries
+    mkdir build32 && \
+        CFLAGS=-m32 CXXFLAGS=-m32 LDFLAGS=-m32 \
+        cmake -G "Unix Makefiles" -DTJPEG_LIBRARY=/usr/lib/libturbojpeg.a \
+        -DCMAKE_INSTALL_PREFIX=/usr -DVGL_FAKELIBDIR=/usr/lib32/virtualgl/fakelib \
+        -DVGL_DOCDIR=/usr/share/doc/virtualgl -DVGL_INCLUDEDIR=/usr/include \
+        -DVGL_LIBDIR=/usr/lib32 -DVGL_BINDIR=/usr/bin \
+        -DX11_X11_LIB=/usr/lib32/libX11.so -DX11_Xext_LIB=/usr/lib32/libXext.so \
+        -DOPENGL_gl_LIBRARY=/usr/lib32/libGL.so ../
+endif
+
+    cmake -G "Unix Makefiles" -DTJPEG_LIBRARY=/usr/lib/libturbojpeg.a \
+        -DCMAKE_INSTALL_PREFIX=/usr -DVGL_FAKELIBDIR=/usr/lib/virtualgl/fakelib \
+        -DVGL_DOCDIR=/usr/share/doc/virtualgl -DVGL_INCLUDEDIR=/usr/include \
+        -DVGL_LIBDIR=/usr/lib -DVGL_BINDIR=/usr/bin
