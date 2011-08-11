@@ -13,8 +13,7 @@
 	dh $@ 
 
 override_dh_auto_clean:
-	rm -rf build32
-	make clean
+	rm -rf build build32
 
 override_dh_auto_configure:
 
@@ -30,7 +29,20 @@ ifeq ($(DEB_BUILD_ARCH), amd64)
 		-DOPENGL_gl_LIBRARY=/usr/lib32/libGL.so ../
 endif
 
-	cmake -G "Unix Makefiles" -DTJPEG_LIBRARY=/usr/lib/libturbojpeg.a \
+	mkdir -p build && cd build && \
+        cmake -G "Unix Makefiles" -DTJPEG_LIBRARY=/usr/lib/libturbojpeg.a \
 		-DCMAKE_INSTALL_PREFIX=/usr -DVGL_FAKELIBDIR=/usr/lib/virtualgl/fakelib \
 		-DVGL_DOCDIR=/usr/share/doc/virtualgl -DVGL_INCLUDEDIR=/usr/include \
-		-DVGL_LIBDIR=/usr/lib -DVGL_BINDIR=/usr/bin
+		-DVGL_LIBDIR=/usr/lib -DVGL_BINDIR=/usr/bin ../
+
+override_dh_auto_make:
+ifeq ($(DEB_BUILD_ARCH), amd64)
+	cd build32 && make
+endif
+	cd build && make
+
+override_dh_auto_install:
+ifeq ($(DEB_BUILD_ARCH), amd64)
+	cd build32 && make install DESTDIR=$(CURDIR)/debian/virtualgl
+endif
+	cd build && make install DESTDIR=$(CURDIR)/debian/virtualgl
