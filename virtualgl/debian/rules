@@ -13,8 +13,8 @@
 	dh $@ 
 
 override_dh_auto_clean:
-    rm -rf build32
-    make clean
+	rm -rf build32
+	make clean
 
 override_dh_auto_configure:
 
