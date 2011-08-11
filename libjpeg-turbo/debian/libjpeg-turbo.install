@@ -1,0 +1,4 @@
+usr/share/doc/libjpeg-turbo
+usr/lib/libturbojpeg.*
+usr/include/turbojpeg.h
+usr/lib32/libturbojpeg.*
