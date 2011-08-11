@@ -2,12 +2,11 @@ Source: libjpeg-turbo
 Section: misc
 Priority: optional
 Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
-Build-Depends: debhelper (>= 7.0.50~), autoconf (>= 2.56), automake (>= 1,7),
+Build-Depends: debhelper (>= 7.0.50~), autoconf (>= 2.56), automake (>= 1.7),
  libtool (>= 1.4), nasm (>= 2.01), gcc (>= 4.1)
 Standards-Version: 3.9.1
 
 Package: libjpeg-turbo
-Section: misc
 Priority: optional
 Architecture: i386 amd64
 Section: misc
