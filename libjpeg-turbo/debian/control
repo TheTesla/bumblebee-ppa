@@ -11,9 +11,8 @@ Priority: optional
 Architecture: i386 amd64
 Section: misc
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Essential: no
 Homepage: http://www.libjpeg-turbo.org/
-Description: A SIMD-accelerated JPEG codec which provides both the libjpeg and TurboJPEG APIs
+Description: SIMD-accelerated JPEG codec providing libjpeg and TurboJPEG APIs
  libjpeg-turbo is a derivative of libjpeg which uses SIMD instructions (MMX,
  SSE2, etc.) to accelerate baseline JPEG compression and decompression on x86
  and x86-64 systems.  On such systems, libjpeg-turbo is generally 2-4x as fast
