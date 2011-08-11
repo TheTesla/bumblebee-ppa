@@ -23,11 +23,11 @@ endif
 override_dh_auto_build:
 ifeq ($(DEB_BUILD_ARCH),amd64)
 	cd build32 && make
-fi
+endif
 	cd build && make
 
 override_dh_auto_install:
 ifeq ($(DEB_BUILD_ARCH), amd64)
 	cd build32 && make install DESTDIR=../debian/libjpeg-turbo
-fi
+endif
 	cd build && make install DESTDIR=../debian/libjpeg-turbo
