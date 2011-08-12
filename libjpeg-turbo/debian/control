@@ -3,7 +3,7 @@ Section: misc
 Priority: optional
 Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
 Build-Depends: debhelper (>= 7.0.50~), autoconf (>= 2.56), automake (>= 1.7),
- libtool (>= 1.4), nasm (>= 2.01), gcc (>= 4.1)
+ libtool (>= 1.4), nasm (>= 2.01), gcc (>= 4.1), gcc-multilib [amd64]
 Standards-Version: 3.9.1
 
 Package: libjpeg-turbo
