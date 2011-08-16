@@ -1,0 +1,11 @@
+virtualgl (2.2.90-1~UNRELEASEDppa2) UNRELEASED; urgency=low
+
+  * Remove glxinfo as a newer version is already provided by mesa-utils.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 15 Aug 2011 19:15:40 +0200
+
+virtualgl (2.2.90-1~UNRELEASEDppa1) UNRELEASED; urgency=low
+
+  * Initial release.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 15 Aug 2011 12:34:47 +0200

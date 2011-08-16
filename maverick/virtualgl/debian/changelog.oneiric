@@ -1,0 +1,17 @@
+virtualgl (2.2.90-1~oneiricppa3) oneiric; urgency=low
+
+  * Do not hardcode library paths for X11, Xext and GL.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 16 Aug 2011 00:02:50 +0200
+
+virtualgl (2.2.90-1~oneiricppa2) oneiric; urgency=low
+
+  * Remove glxinfo as a newer version is already provided by mesa-utils.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 15 Aug 2011 19:30:22 +0200
+
+virtualgl (2.2.90-1~oneiricppa1) oneiric; urgency=low
+
+  * Initial release.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 15 Aug 2011 12:34:47 +0200
