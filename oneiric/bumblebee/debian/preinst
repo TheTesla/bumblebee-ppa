@@ -1,0 +1,31 @@
+#!/bin/sh
+# preinst script for bumblebee
+#
+# see: dh_installdeb(1)
+
+set -e
+
+case "$1" in
+  install|upgrade)
+    # check for ancient versions
+    if [ -f /etc/bumblebee ]; then
+        # XXX: check if the cleanup utility is really needed
+        echo "An ancient installation of Bumblebee has been detected." >&2
+        echo "Please run the cleanup utility from" >&2
+        echo "https://raw.github.com/Bumblebee-Project/Bumblebee/master/cleanup" >&2
+        exit 1
+    fi
+    ;;
+
+  abort-upgrade)
+    ;;
+
+  *)
+    echo "preinst called with unknown argument \`$1'" >&2
+    exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

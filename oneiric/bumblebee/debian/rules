@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ 
+
+build:
+	./install --actions=build --sbindir=/usr/sbin --bindir=/usr/bin \
+		--libdir=/usr/lib/bumblebee
+
+override_dh_install:
+	./install --actions=install --dest-dir=debian/bumblebee \
+		--sbindir=/usr/sbin --bindir=/usr/bin --libdir=/usr/lib/bumblebee
