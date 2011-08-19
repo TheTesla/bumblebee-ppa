@@ -1,0 +1,51 @@
+#!/bin/sh
+# postinst script for bumblebee
+#
+# see: dh_installdeb(1)
+
+set -e
+
+case "$1" in
+  configure)
+    # perhaps this section can be retrieved from stages/ubuntu/configure?
+    if ! grep -rqE "^ *blacklist +nouveau\b" /etc/modprobe.d; then
+        echo "blacklist nouveau" >> /etc/modprobe.d/nouveau-blacklist.conf
+    fi
+    NVIDIABUSID=$(lspci -d 10de: -n | grep '030[02]:' | cut -d' ' -f1 | tr . :)
+    re_busid='^( *BusID +")[^"]*'
+
+    sed -E -i /etc/bumblebee/xorg.conf.nvidia -e "s,$re_busid,\1$NVIDIABUSID,"
+    groupadd bumblebee || true
+
+    # Repair GL on the intel display
+    for arch in x86_64-linux-gnu i386-linux-gnu; do
+            # check if the link exist to prevent error messages
+            if update-alternatives --list ${arch}_gl_conf >/dev/null 2>&1; then
+                update-alternatives --force --set \
+                    ${arch}_gl_conf /usr/lib/$arch/mesa/ld.so.conf
+            fi
+    done
+
+    # versions before Oneiric without multiarch
+    if update-alternatives --list gl_conf >/dev/null 2>&1; then
+        update-alternatives --force --set gl_conf /usr/lib/mesa/ld.so.conf
+    fi
+
+    ldconfig
+
+    update-rc.d bumblebee defaults
+    /etc/init.d/bumblebee start || true
+    ;;
+
+  abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+  *)
+    echo "postinst called with unknown argument \`$1'" >&2
+    exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
