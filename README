@@ -1,3 +1,5 @@
-Repository for the Bumblebee ppa:
+Bumblebee's git repository is available on:
+https://github.com/Bumblebee-Project/Bumblebee
 
-https://launchpad.net/~mj-casalogic/+archive/bumblebee/
+The packages built from this git repository are available on:
+https://launchpad.net/~bumblebee/+archive/stable
