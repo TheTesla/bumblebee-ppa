@@ -12,4 +12,7 @@ Package: bumblebee
 Architecture: any
 Depends: ${misc:Depends}, virtualgl, nvidia-current
 Description: nVidia Optimus support
- <insert long description, indented with spaces>
+ Bumblebee aims to provide support for nVidia Optimus laptops. These laptops
+ are built in such a way that the nVidia graphics card can usually not be used.
+ With Bumblebee, a X server for the nVidia card is started and frames are
+ transferred to the Intel GPU using VirtualGL.
