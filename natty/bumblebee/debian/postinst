@@ -34,7 +34,11 @@ case "$1" in
     ldconfig
 
     update-rc.d bumblebee defaults
-    /etc/init.d/bumblebee start || true
+    if [ -x /usr/sbin/invoke-rc.d ]; then
+        invoke-rc.d bumblebee start
+    else
+        /etc/init.d/bumblebee start
+    fi
     ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
