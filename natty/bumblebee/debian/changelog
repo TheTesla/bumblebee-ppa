@@ -1,3 +1,12 @@
+bumblebee (2.3.1-1~nattyppa1) natty; urgency=low
+
+  * Some fixes
+    - Fixed an issue people with DFP-0 monitor were encountering
+    - Fixed an issue with 32bit Ubuntu running a multiarch X.org server
+      (i.e. xorg-edgers users)
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 22 Aug 2011 22:59:35 +0200
+
 bumblebee (2.3.0-1~nattyppa1) natty; urgency=low
 
   * Initial release
