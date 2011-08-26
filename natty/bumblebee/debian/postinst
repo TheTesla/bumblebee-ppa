@@ -18,25 +18,14 @@ case "$1" in
     groupadd bumblebee || true
 
     # Repair GL on the intel display
-
-    # Multiarch X server on a 32bit Ubuntu does not have a x86_64 mesa ld.so
-    ARCH=$(uname -m)
-    X_ARCH=i386-linux-gnu
-    if [ "$ARCH" = 'x86_64' ]; then
-        X_ARCH="$X_ARCH x86_64-linux-gnu"
-    fi
-
-    for arch in $X_ARCH; do
-        # check if the link exist to prevent error messages
-        if update-alternatives --list ${arch}_gl_conf >/dev/null 2>&1; then
-            update-alternatives --force --set ${arch}_gl_conf /usr/lib/$arch/mesa/ld.so.conf
-        fi
+    for arch in x86_64-linux-gnu i386-linux-gnu; do
+        update-alternatives --force --set \
+            ${arch}_gl_conf /usr/lib/$arch/mesa/ld.so.conf 2>/dev/null || true
     done
 
     # versions before Oneiric without multiarch
-    if update-alternatives --list gl_conf >/dev/null 2>&1; then
-        update-alternatives --force --set gl_conf /usr/lib/mesa/ld.so.conf
-    fi
+    update-alternatives --force --set \
+        gl_conf /usr/lib/mesa/ld.so.conf 2>/dev/null || true
 
     ldconfig
 
