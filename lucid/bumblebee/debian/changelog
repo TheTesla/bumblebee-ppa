@@ -1,3 +1,10 @@
+bumblebee (2.3.1-1~lucidppa2) lucid; urgency=low
+
+  * debian/postinst: ignore non-existing alternatives and try to set 64-bit
+    alternatives on 32-bit systems (Closes GH-57)
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 28 Aug 2011 16:41:49 +0200
+
 bumblebee (2.3.1-1~lucidppa1) lucid; urgency=low
 
   * Some fixes
