@@ -1,0 +1,99 @@
+#!/bin/bash
+# Helper for updating changelogs
+#
+# Author : Lekensteyn <lekensteyn@gmail.com>
+# License: GPLv3+
+if [ -z "$DEBFULLNAME" -o -z "$DEBEMAIL" ]; then
+    echo "The environment variables DEBFULLNAME or DEBEMAIL are unset."
+    echo "Please set those before running this program"
+    exit 1
+fi
+DISTS=(lucid maverick natty oneiric)
+IFS='|'
+distreplaces="UNRELEASED|${DISTS[*]}"
+IFS=$' \t\n'
+
+cd "$(dirname "$(dirname "$(readlink -f "$0")")")"
+
+pkg="$1"
+while :; do
+    for dist in "${DISTS[@]}"; do
+        [ -d "$dist/$pkg/debian" ] && break 2
+    done
+    echo "Unknown package: $pkg"
+    echo "Not known by dists: ${DISTS[*]}"
+    echo "Usage: $0 package-name"
+    exit 2
+done
+
+tmpdir="$(mktemp -d)"
+msgfile="$tmpdir/changelog-entry"
+
+oldversion=0
+
+for dist in "${DISTS[@]}"; do
+    [ -s "$dist/$pkg/debian/changelog" ] || continue
+    dist_version="$(head -1 "$dist/$pkg/debian/changelog" \
+        | cut -d')' -f1 | cut -d'(' -f2)"
+    if dpkg --compare-versions "$dist_version" gt "$oldversion"; then
+        oldversion="$(sed -r "s/$distreplaces/UNRELEASED/g" <<<"$dist_version")"
+    fi
+done
+
+cat > "$msgfile" <<MSG
+# Comments like these are ignored in the changelog
+# distributions like lucid, maverick, natty and oneiric as well as UNRELEASED
+# inside the version are replaced by the  targetted distribution
+#
+# When in less, use :n to jump to the next file, :p to the previous, v to start
+# editing and q to finish editing. If you do not make modifications, the
+# changelog will be skipped.
+# Old version: $oldversion
+#
+$pkg ($oldversion) UNRELEASED; urgency=low
+
+  * 
+
+ -- $DEBFULLNAME <$DEBEMAIL>  $(date -R)
+MSG
+
+sum="$(md5sum "$msgfile")"
+nano +12,5 "$msgfile"
+if md5sum -c --status <<<"$sum" || [ ! -s "$msgfile" ]; then
+    echo "Unmodified changelog, exiting..."
+    exit 3
+fi
+
+sed '/^#/d' -i "$msgfile"
+
+version="$(head -1 "$msgfile" | cut -d')' -f1 | cut -d'(' -f2)"
+
+edits=()
+for dist in "${DISTS[@]}"; do
+    [ -d "$dist/$pkg/debian" ] || continue
+    changelog="$tmpdir/changelog.$dist"
+    orig_changelog="$dist/$pkg/debian/changelog"
+    sed -r "1s/$distreplaces/$dist/g" "$msgfile" > "$changelog"
+    if [ -s "$orig_changelog" ]; then
+        echo >> "$changelog"
+        cat "$orig_changelog" >> "$changelog"
+    fi
+    edits[${#edits[@]}]="$changelog"
+done
+
+LESSEDIT="nano +1,$((3 + ${#pkg} + ${#version})) %f" less "${edits[@]}"
+
+for dist in "${DISTS[@]}"; do
+    [ -s "$tmpdir/changelog.$dist" ] || continue
+    changelog="$tmpdir/changelog.$dist"
+    orig_changelog="$dist/$pkg/debian/changelog"
+    while :; do
+        read -p "Update $dist? (y/n) " yn
+        case "$yn" in
+          [Yy]*) break ;;
+          [Nn]*) continue 2;;
+        esac
+    done
+    echo "Updated $orig_changelog"
+    cat "$changelog" > "$orig_changelog"
+done
