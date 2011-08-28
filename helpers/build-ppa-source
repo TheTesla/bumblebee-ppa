@@ -59,20 +59,20 @@ fi
 
 tmpdir="$(mktemp -d)"
 pkgdir="$tmpdir/${pkg}-${version}"
+cp -v "$tarball" "$tmpdir/$ballname"
 mkdir "$pkgdir"
 cd "$pkgdir"
-cp -v "$tarball" "$tmpdir/$ballname"
 tar xf "$tmpdir/$ballname" --strip-components=1
 for dist in "${tobuild[@]}"; do
     echo "Building for $dist..."
-    rm -r "$pkgdir/debian"
+    rm -rf "$pkgdir/debian"
     cp -r "$distsdir/$dist/$pkg/debian" "$pkgdir/debian"
     debuild -S
 done
 
 tobeuploaded=()
 for pkg_version in "${versions[@]}"; do
-    tobeuploaded[${#tobeuploaded[@]}]="${pkg}-${pkg_version}_source.changes"
+    tobeuploaded[${#tobeuploaded[@]}]="${pkg}_${pkg_version}_source.changes"
 done
 cd "$tmpdir"
 ls -l "${tobeuploaded[@]}"
