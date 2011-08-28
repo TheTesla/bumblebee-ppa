@@ -1,0 +1,5 @@
+acpi-call (1.0-1~maverickppa1) maverick; urgency=low
+
+  * Initial release
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sun, 28 Aug 2011 23:36:47 +0200
