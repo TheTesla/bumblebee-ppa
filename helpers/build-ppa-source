@@ -76,5 +76,6 @@ for pkg_version in "${versions[@]}"; do
 done
 cd "$tmpdir"
 ls -l "${tobeuploaded[@]}"
-echo "Please check if the packages work and publish these by running:"
+echo "Please check if the packages work and then publish them:"
+echo "cd $tmpdir"
 echo "dput ppa:bumblebee/testing ${tobeuploaded[*]}"
