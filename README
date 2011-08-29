@@ -3,3 +3,27 @@ https://github.com/Bumblebee-Project/Bumblebee
 
 The packages built from this git repository are available on:
 https://launchpad.net/~bumblebee/+archive/stable
+
+There are some helper scripts in the helpers/ directory:
+
+## update-changelog
+Usage: update-changelog PACKAGE
+PACKAGE can be any directory in the root folder of this git repo which contains
+a debian directory. The helper file must not be moved as it used its parent
+directory to determine the packages and changelogs. The working directory does
+not have to be equal to the root directory, though.
+Opens the nano editor in which a changelog entry can be filled and the version
+number adjusted. After making modifications and saving these, less will be
+opened for each distribution changelog. You can press `v` to edit the contents,
+`:n` to jump to the next changelog and `:p` to the previous one. When done in
+less, press `q`. After that, you'll be prompted whether you want to update the
+changelogs in git.
+
+## build-ppa-source
+Usage: build-ppa-source PACKAGE PACKAGE_VERSION.orig.tar.gz
+See update-changelog for PACKAGE. PACKAGE_VERSION.orig.tar.gz is the path to
+the tarball containing the source code. You must rename your tarball if needed.
+When executed, you'll be asked which distros need to be packaged for. After
+the distros have been selected, the source packages will be built and the dput
+command is displayed. The temporary directory is not removed, you'll need to
+change the directory to that tempdir, and then you'll be able to run dput.
