@@ -25,8 +25,7 @@ ifeq ($(DEB_BUILD_ARCH), amd64)
 		-DCMAKE_INSTALL_PREFIX=/usr -DVGL_FAKELIBDIR=/usr/lib32/virtualgl/fakelib \
 		-DVGL_DOCDIR=/usr/share/doc/virtualgl -DVGL_INCLUDEDIR=/usr/include \
 		-DVGL_LIBDIR=/usr/lib32 -DVGL_BINDIR=/usr/bin \
-		-DX11_X11_LIB=/usr/lib32/libX11.so -DX11_Xext_LIB=/usr/lib32/libXext.so \
-		-DOPENGL_gl_LIBRARY=/usr/lib32/libGL.so ../
+		-DCMAKE_LIBRARY_PATH='/usr/lib32;/usr/lib/i386-linux-gnu' ../
 endif
 
 	mkdir -p build && cd build && \
