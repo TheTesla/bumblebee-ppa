@@ -49,5 +49,5 @@ endif
 
 ifeq ($(DEB_BUILD_ARCH), amd64)
 override_dh_shlibdeps:
-	dh $@ --exclude=debian/virtualgl/usr/lib32
+	dh_shlibdeps --exclude=debian/virtualgl/usr/lib32
 endif
