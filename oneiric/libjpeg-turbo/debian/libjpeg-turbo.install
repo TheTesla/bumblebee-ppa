@@ -1,2 +1,2 @@
-usr/lib/libturbojpeg.*
+usr/lib/*/libturbojpeg.*
 usr/include/turbojpeg.h
