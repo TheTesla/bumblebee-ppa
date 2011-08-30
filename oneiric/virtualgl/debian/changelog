@@ -1,3 +1,11 @@
+virtualgl (2.2.90-1~oneiricppa4) oneiric; urgency=low
+
+  * Multi-arch support
+  * Set a library search path instead of a fixed path to allow builds for other
+    architectures.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 30 Aug 2011 18:38:32 +0200
+
 virtualgl (2.2.90-1~oneiricppa3) oneiric; urgency=low
 
   * Do not hardcode library paths for X11, Xext and GL.

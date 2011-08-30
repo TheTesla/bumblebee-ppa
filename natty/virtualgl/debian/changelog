@@ -1,3 +1,9 @@
+virtualgl (2.2.90-1~nattyppa4) natty; urgency=low
+
+  * Do not depend on ia32-libs
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 30 Aug 2011 18:38:32 +0200
+
 virtualgl (2.2.90-1~nattyppa2) natty; urgency=low
 
   * Remove glxinfo as a newer version is already provided by mesa-utils.
