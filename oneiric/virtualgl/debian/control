@@ -49,4 +49,6 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, virtualgl
 Homepage: http://www.virtualgl.org/
 Description: Library files for virtualgl
+ This package contains the libraries for virtualgl which are loaded when
+ running vglrun.
 Multi-Arch: same
