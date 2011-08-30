@@ -26,3 +26,6 @@ endif
 	-DVGL_DOCDIR=/usr/share/doc/virtualgl -DVGL_INCLUDEDIR=/usr/include \
 	-DVGL_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH) -DVGL_BINDIR=/usr/bin \
 	-DCMAKE_LIBRARY_PATH=/usr/lib/$(DEB_HOST_MULTIARCH) ../
+
+override_dh_auto_install:
+	make install DESTDIR=$(CURDIR)/debian/tmp
