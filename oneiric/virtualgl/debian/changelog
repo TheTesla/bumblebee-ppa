@@ -1,3 +1,10 @@
+virtualgl (2.2.90-1~oneiricppa5) oneiric; urgency=low
+
+  * Remove virtualgl dependency from virtualgl-libs, this allows multiple
+    architectures of virtualgl-libs to be co-installed
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Wed, 31 Aug 2011 00:54:52 +0200
+
 virtualgl (2.2.90-1~oneiricppa4) oneiric; urgency=low
 
   * Multi-arch support
