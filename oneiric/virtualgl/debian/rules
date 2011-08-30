@@ -10,22 +10,22 @@
 #export DH_VERBOSE=1
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
+ifeq ($(DEB_BUILD_ARCH), amd64)
+	FAKELIBDIR = /usr/lib/virtualgl/fakelib/64
+else
+	FAKELIBDIR = /usr/lib/virtualgl/fakelib
+endif
 %:
 	dh $@ 
 
 override_dh_auto_configure:
-
 	cmake -G "Unix Makefiles" \
 	-DTJPEG_LIBRARY=/usr/lib/$(DEB_HOST_MULTIARCH)/libturbojpeg.a \
 	-DCMAKE_INSTALL_PREFIX=/usr \
-ifeq ($(DEB_BUILD_ARCH), amd64)
-	-DVGL_FAKELIBDIR=/usr/lib32/virtualgl/fakelib \
-else
-	-DVGL_FAKELIBDIR=/usr/lib/virtualgl/fakelib \
-endif
+	-DVGL_FAKELIBDIR=$(FAKELIBDIR) \
 	-DVGL_DOCDIR=/usr/share/doc/virtualgl -DVGL_INCLUDEDIR=/usr/include \
 	-DVGL_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH) -DVGL_BINDIR=/usr/bin \
-	-DCMAKE_LIBRARY_PATH=/usr/lib/$(DEB_HOST_MULTIARCH) ../
+	-DCMAKE_LIBRARY_PATH=/usr/lib/$(DEB_HOST_MULTIARCH)
 
 override_dh_auto_install:
 	make install DESTDIR=$(CURDIR)/debian/tmp
