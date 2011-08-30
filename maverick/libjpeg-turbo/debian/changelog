@@ -1,3 +1,9 @@
+libjpeg-turbo (1.1.1-4ppa3~maverick1) maverick; urgency=low
+
+  * Run ldconfig after installation and removal
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 30 Aug 2011 18:16:05 +0200
+
 libjpeg-turbo (1.1.1-4ppa2) natty; urgency=low
 
   * Initial release.

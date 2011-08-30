@@ -1,3 +1,10 @@
+libjpeg-turbo (1.1.1-4ppa3~oneiric1) oneiric; urgency=low
+
+  * Run ldconfig after installation and removal
+  * Multi-arch support
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 30 Aug 2011 18:16:05 +0200
+
 libjpeg-turbo (1.1.1-4ppa2) natty; urgency=low
 
   * Initial release.
