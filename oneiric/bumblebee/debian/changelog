@@ -1,42 +1,17 @@
-bumblebee (2.3.1-1~oneiricppa2) oneiric; urgency=low
+bumblebee (2.4.0-2+git20110914.67052915~oneiricppa2) oneiric; urgency=low
 
-  * debian/postinst: ignore non-existing alternatives and try to set 64-bit
-    alternatives on 32-bit systems (Closes GH-57)
+  * Git checkout from commit 67052915bf
+  * Added nouveau support in the package:
+    - Removed nouveau blacklist
+    - Install both drivers, with nvidia as default
 
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 28 Aug 2011 16:41:49 +0200
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Wed, 14 Sep 2011 18:58:48 +0200
 
-bumblebee (2.3.1-1~oneiricppa1) oneiric; urgency=low
+bumblebee (2.4.0-1+git20110903.b2074620~oneiricppa1) oneiric; urgency=low
 
-  * Some fixes
-    - Fixed an issue people with DFP-0 monitor were encountering
-    - Fixed an issue with 32bit Ubuntu running a multiarch X.org server
-      (i.e. xorg-edgers users)
+  * First dev snapshot from git
+  * Snapshot for version 2.4:
+    - Added ACPI framework (backend support for ACPI)
+    - Added backend support for nouveau
 
- -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 22 Aug 2011 22:59:35 +0200
-
-bumblebee (2.3.0-1~oneiricppa1) oneiric; urgency=low
-
-  * Initial release
-    - Settings are automatically detected, therefore bumblebee-configuration
-      has been removed.
-    - Power management ("acpi calls") have temporary been removed because of
-      its instability.
-    - No sudo is needed anymore, the bumblebee daemon will start the X server
-      on request.
-    - optirun32 and optirun64 have been removed, optirun -32 have been
-      deprecated since the use of 32-bit libraries are automatically detected,
-    - Added --help options for optirun and bumblebee
-    - Trimmed xorg.conf allowing the system to autodetect settings
-    - Cleaned up the code, syntax errors do not occur anymore on exceptions
-    - Removed VGL_READBACK option as this setting should not be changed. It can
-      still be set as environment variable if needed
-    - Removed VGL_LOG as it is rarely needed to change. It's also more flexible
-      to change it using the --debug-log option of optirun
-    - Errors are logged to /var/log/bumblebee.log
-    - Better error handling if X fails to start or a driver fails to (un)load
-    - Fallback setting FALLBACK_START to configure starting of apps even if
-      nvidia cannot be loaded
-    - Improved bugreport tool
-    - Improved X security by enabling host-based authentication
-
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 21 Aug 2011 23:00:09 +0200
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sat, 03 Sep 2011 08:57:32 +0200
