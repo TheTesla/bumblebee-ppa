@@ -1,3 +1,14 @@
+bumblebee (2.4.0-1~nattyppa1) natty; urgency=low
+
+  * New upstream release
+  * Backend support for ACPI/ Power Management, disabled by default
+  * Backend support for nouveau, disabled by default (nouveau package is often too old):
+    - Not blacklisted anymore
+    - Install both drivers, with nvidia as default
+  * Enhanced cleanup script
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 15 Sep 2011 19:45:38 +0200
+
 bumblebee (2.3.1-1~nattyppa2) natty; urgency=low
 
   * debian/postinst: ignore non-existing alternatives and try to set 64-bit
