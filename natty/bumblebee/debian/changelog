@@ -1,9 +1,10 @@
-bumblebee (2.4.0-2+git20110914.67052915~nattyppa2) natty; urgency=low
+bumblebee (2.4.0-2+git20110915.a112960d~nattyppa2) natty; urgency=low
 
-  * Git checkout from commit 67052915bf
+  * Git checkout from commit a112960df3
   * Added nouveau support in the package:
     - Removed nouveau blacklist
     - Install both drivers, with nvidia as default
+  * New bugreport tool included
 
  -- Bruno Pagani <bruno.n.pagani@gmail.com>  Wed, 14 Sep 2011 18:58:48 +0200
 
