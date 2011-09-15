@@ -1,3 +1,10 @@
+bumblebee (2.4.1-1~maverickppa1) maverick; urgency=low
+
+  * Added the new bugreport tool that was forgotten in 2.4.0
+  * Fixed a little issue in cleanup
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 15 Sep 2011 20:05:58 +0200
+
 bumblebee (2.4.0-1~maverickppa1) maverick; urgency=low
 
   * New upstream release
