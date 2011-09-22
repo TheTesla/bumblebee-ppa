@@ -1,2 +1,3 @@
 remove-glxinfo.patch
 rrfakerut.cpp-fix-link-error.patch
+vgl-2.2.90-head.patch
