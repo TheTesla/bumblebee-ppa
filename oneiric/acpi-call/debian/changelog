@@ -1,3 +1,9 @@
+acpi-call (1.0.1-1~oneiricppa1) oneiric; urgency=low
+
+  * SECURITY UPDATE: Make /proc/acpi/call not world-writable
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 22 Sep 2011 19:53:58 +0200
+
 acpi-call (1.0-1~oneiricppa1) oneiric; urgency=low
 
   * Initial release
