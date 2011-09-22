@@ -1,4 +1,4 @@
-virtualgl (2.2.90-1~oneiricppa5) oneiric; urgency=low
+virtualgl (2.2.90-1~oneiricppa6) oneiric; urgency=low
 
   * debian/patches/vgl-2.2.90-head.patch: Sync with HEAD at 23 August 2011
     - Fixed a GL_INVALID_OPERATION error that would occur after a call to
