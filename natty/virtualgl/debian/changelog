@@ -1,3 +1,15 @@
+virtualgl (2.2.90-1~nattyppa5) natty; urgency=low
+
+  * debian/patches/vgl-2.2.90-head.patch: Sync with HEAD at 23 August 2011
+    - Fixed a GL_INVALID_OPERATION error that would occur after a call to
+      glXSwapBuffers() when a context with the OpenGL Core Profile was being
+      used.
+    - glXChooseFBConfig() and glXChooseFBConfigSGIX() were erroneously
+      returning an error when a NULL attribute list argument was passed to
+      them. They now behave correctly.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 22 Sep 2011 18:31:19 +0200
+
 virtualgl (2.2.90-1~nattyppa4) natty; urgency=low
 
   * Do not depend on ia32-libs
