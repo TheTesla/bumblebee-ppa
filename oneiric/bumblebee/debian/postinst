@@ -19,7 +19,10 @@ case "$1" in
     NVIDIABUSID=$(lspci -d 10de: -n | grep '030[02]:' | cut -d' ' -f1 | tr . :)
     re_busid='^( *BusID +")[^"]*'
 
-    sed -E -i /etc/bumblebee/xorg.conf.nvidia -e "s,$re_busid,\1$NVIDIABUSID,"
+    for driver in nvidia nouveau; do
+        sed -E -i /etc/bumblebee/xorg.conf.$driver \
+            -e "s,$re_busid,\1$NVIDIABUSID,"
+    done
     groupadd bumblebee || true
 
     # Repair GL on the intel display
