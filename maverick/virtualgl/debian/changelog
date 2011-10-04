@@ -1,3 +1,11 @@
+virtualgl (2.2.90-1~maverickppa7) maverick; urgency=low
+
+  * Sync with upstream
+    - Fix "terminate called after throwing an instance of 'rrerror'" error when
+      exiting virtualgl.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 04 Oct 2011 10:54:48 +0200
+
 virtualgl (2.2.90-1~maverickppa5) maverick; urgency=low
 
   * debian/patches/vgl-2.2.90-head.patch: Sync with HEAD at 23 August 2011
