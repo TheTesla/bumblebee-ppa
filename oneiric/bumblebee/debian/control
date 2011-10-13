@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/Bumblebee-Project/Bumblebee
 
 Package: bumblebee
 Architecture: any
-Depends: ${misc:Depends}, virtualgl, nvidia-current
+Depends: ${misc:Depends}, virtualgl, nvidia-current (>= 260.19.12~)
 Description: nVidia Optimus support
  Bumblebee aims to provide support for nVidia Optimus laptops. These laptops
  are built in such a way that the nVidia graphics card can usually not be used.
