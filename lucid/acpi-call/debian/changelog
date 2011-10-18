@@ -1,3 +1,11 @@
+acpi-call (1.0.2-1~lucidppa1) lucid; urgency=low
+
+  * Fix kernel error on some machines
+    - A buffer overflow could occur if the return values, method name or
+      arguments were too large.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 18 Oct 2011 23:30:04 +0200
+
 acpi-call (1.0.1-1~lucidppa1) lucid; urgency=low
 
   * SECURITY UPDATE: Make /proc/acpi/call not world-writable
