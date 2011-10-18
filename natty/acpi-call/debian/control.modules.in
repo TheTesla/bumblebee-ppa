@@ -1,7 +1,7 @@
 Source: acpi-call
 Section: kernel
 Priority: optional
-Maintainer: Bruno Pagani <bruno.n.pagani@gmail.com>
+Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 3.9.1
 
