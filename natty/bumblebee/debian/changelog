@@ -1,3 +1,14 @@
+bumblebee (2.4.1-1+git20111102.90e98d2~nattyppa1) natty; urgency=low
+
+  * New upstream snapshot
+    - Fix race condition, allowing STOP_SERVICE_ON_EXIT=Y to work when optirun
+      is started after another optirun has quit.
+    - Detect PCI Bus ID when needed, this should enable detection in case wrong
+      ACPI calls hide the device.
+    - Fix invalid attempt to unload a driver if none was loaded.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Wed, 02 Nov 2011 18:31:36 +0100
+
 bumblebee (2.4.0-2+git20110915.a112960d~nattyppa2) natty; urgency=low
 
   * Git checkout from commit a112960df3
