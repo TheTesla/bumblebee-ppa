@@ -1,3 +1,10 @@
+bumblebee (2.4.1-1+git20111102.932b245~maverickppa2) maverick; urgency=low
+
+  * Use new build system
+    - Supply own options for ./configure to fix failure to build
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Wed, 02 Nov 2011 23:17:25 +0100
+
 bumblebee (2.4.1-1+git20111102.90e98d2~maverickppa1) maverick; urgency=low
 
   * New upstream snapshot
