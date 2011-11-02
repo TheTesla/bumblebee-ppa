@@ -4,13 +4,17 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-INSTALL_OPTS=--sbindir=/usr/sbin --bindir=/usr/bin \
-	--libdir=/usr/lib/bumblebee --driver=nouveau,nvidia
 %:
 	dh $@ 
 
-build:
-	./install $(INSTALL_OPTS) --actions=build
+override_dh_auto_configure:
+	./configure --prefix=/usr --confdir=/etc --driver=nouveau,nvidia \
+		--nv-lib-path=/usr/lib/nvidia-current \
+		--nv-lib32-path=/usr/lib32/nvidia-current \
+		--xorg-module-path=/usr/lib/nvidia-current/xorg
 
-override_dh_install:
-	./install $(INSTALL_OPTS) --actions=install --dest-dir=debian/bumblebee
+override_dh_auto_install:
+	make install DESTDIR=$(CURDIR)/debian/bumblebee
+	cd $(CURDIR)/debian/bumblebee && \
+		install -D -m 755 usr/share/bumblebee/bumblebee.handler etc/init.d/bumblebee && \
+		install -D -m 644 usr/share/bumblebee/optirun.bash_completion etc/bash_completion.d/optirun
