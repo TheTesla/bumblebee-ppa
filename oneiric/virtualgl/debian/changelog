@@ -1,3 +1,13 @@
+virtualgl (2.3-1~oneiricppa1) oneiric; urgency=low
+
+  * New upstream release.
+    - Removed patches vgl-2.2.90-head.patch, vgl-2.2.90-head-fix-rrerror.patch
+      and rrfakerut.cpp-fix-link-error.patch
+    - Workaround for an issue whereby using very large fonts with glXUseXFont()
+      would cause Pixmap allocation failures with certain X servers.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Wed, 14 Dec 2011 10:51:56 +0100
+
 virtualgl (2.2.90-1~oneiricppa7) oneiric; urgency=low
 
   * Sync with upstream
