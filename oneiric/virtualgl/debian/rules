@@ -29,3 +29,5 @@ override_dh_auto_configure:
 
 override_dh_auto_install:
 	make install DESTDIR=$(CURDIR)/debian/tmp
+override_dh_strip:
+	dh_strip --dbg-package=virtualgl-libs-dbg
