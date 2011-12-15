@@ -1,3 +1,10 @@
+virtualgl (2.3.1-1~maverickppa2) maverick; urgency=low
+
+  * debian/control:
+    - Add debug package virtualgl-dbg.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 15 Dec 2011 18:30:57 +0100
+
 virtualgl (2.3.1-1~maverickppa1) maverick; urgency=low
 
   * Apply upstream patch for v2.3.1
