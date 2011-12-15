@@ -1,3 +1,12 @@
+virtualgl (2.3.1-1~lucidppa1) lucid; urgency=low
+
+  * Apply upstream patch for v2.3.1
+    - Workaround for a crash in CoreBreach
+  * debian/rules:
+    - Include debugging symbols in package virtualgl-dbg
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 15 Dec 2011 17:44:24 +0100
+
 virtualgl (2.3-1~lucidppa1) lucid; urgency=low
 
   * New upstream release.
