@@ -53,7 +53,7 @@ Description: Library files for virtualgl
  running vglrun.
 Multi-Arch: same
 
-Package: virtualgl-libs-dbg
+Package: virtualgl-dbg
 Priority: extra
 Architecture: i386 amd64
 Section: debug
@@ -65,4 +65,15 @@ Description: Toolkit for displaying OpenGL applications to thin clients - debug 
  3D data being rendered or the speed of the network.
  .
  This package contains the debugging symbols for virtualgl.
+
+Package: virtualgl-libs-dbg
+Priority: extra
+Architecture: i386 amd64
+Section: debug
+Depends: virtualgl (=${binary:Version}), ${misc:Depends}
+Description: Library files for virtualgl - debugging symbols
+ This package contains the libraries for virtualgl which are loaded when
+ running vglrun.
+ .
+ This package contains the debugging symbols for virtualgl-libs.
 Multi-Arch: same
