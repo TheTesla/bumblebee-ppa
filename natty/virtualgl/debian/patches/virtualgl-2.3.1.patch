@@ -1,0 +1,163 @@
+Workaround segfault when running CoreBreach
+diff --exclude .git -Nur a/BUILDING.txt b/BUILDING.txt
+--- a/BUILDING.txt	2011-11-07 08:33:41.000000000 +0100
++++ b/BUILDING.txt	2011-12-15 17:35:49.391403085 +0100
+@@ -443,9 +443,14 @@
+ 
+   ccmake {source_directory}
+ 
+-after initially configuring the build.  CCMake is the interactive version of
+-CMake.  It will display all variables that are relevant to the VirtualGL build,
+-their current values, and a help string describing what they do.
++or
++
++  cmake-gui {source_directory}
++
++after initially configuring the build.  CCMake is a text-based interactive
++version of CMake, and CMake-GUI is a GUI version.  Both will display all
++variables that are relevant to the VirtualGL build, their current values, and a
++help string describing what they do.
+ 
+ 
+ *******************************************************************************
+diff --exclude .git -Nur a/ChangeLog.txt b/ChangeLog.txt
+--- a/ChangeLog.txt	2011-12-09 13:20:34.000000000 +0100
++++ b/ChangeLog.txt	2011-12-15 17:35:49.395403079 +0100
+@@ -1,4 +1,12 @@
+ ===============================================================================
++2.3.1
++===============================================================================
++[1]
++Work around seg fault that occurred when running CoreBreach.
++-------------------------------------------------------------------------------
++
++
++===============================================================================
+ 2.3
+ ===============================================================================
+ [1]
+diff --exclude .git -Nur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2011-10-18 21:33:21.000000000 +0200
++++ b/CMakeLists.txt	2011-12-15 17:35:49.395403079 +0100
+@@ -11,7 +11,7 @@
+ endif()
+ 
+ project(VirtualGL)
+-set(VERSION 2.3)
++set(VERSION 2.3.1)
+ 
+ if(UNIX)
+ 	execute_process(COMMAND "date" "+%Y%m%d" OUTPUT_VARIABLE BUILD)
+diff --exclude .git -Nur a/doc/index.html b/doc/index.html
+--- a/doc/index.html	2011-12-13 13:08:53.000000000 +0100
++++ b/doc/index.html	2011-12-15 17:35:49.399403073 +0100
+@@ -3,9 +3,9 @@
+ <head>
+ <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+ <meta name="language" content="en">
+-<meta name="date" content="2011-12-13T06:07:42">
++<meta name="date" content="2011-12-15T08:57:42">
+ <meta name="generator" content="deplate.rb 0.8.5">
+-<title>User&rsquo;s Guide for VirtualGL 2.3</title>
++<title>User&rsquo;s Guide for VirtualGL 2.3.1</title>
+ <link rel="start" href="index.html" title="Frontpage">
+ <link rel="chapter" href="index.html#hd001" title="1 Legal Information">
+ <link rel="chapter" href="index.html#hd002" title="2 Overview">
+@@ -31,7 +31,7 @@
+ <body >
+ <a name="#pagetop"></a>
+ <div class="title">
+-<p class="title">User&rsquo;s Guide for VirtualGL 2.3</p>
++<p class="title">User&rsquo;s Guide for VirtualGL 2.3.1</p>
+ </div>
+ <a name="file000"></a>
+ <p><em>Intended audience:</em> System Administrators, Graphics Programmers, 
+@@ -393,7 +393,7 @@
+ Once the OpenGL rendering context has been established in a server-side 
+ Pbuffer, everything (including esoteric OpenGL extensions, 
+ fragment/vertex programs, etc.) should &ldquo;just work.&rdquo;  If an 
+-application runs locally on a 3D server/workstation, that that same 
++application runs locally on a 3D server/workstation, then that same 
+ application should run remotely from that same machine using VirtualGL.</p>
+ 
+ <p>VirtualGL has two built-in &ldquo;image transports&rdquo; that can be 
+diff --exclude .git -Nur a/doc/overview.txt b/doc/overview.txt
+--- a/doc/overview.txt	2011-12-13 12:41:50.000000000 +0100
++++ b/doc/overview.txt	2011-12-15 17:35:49.403403076 +0100
+@@ -53,7 +53,7 @@
+ client-side graphics card.  Once the OpenGL rendering context has been
+ established in a server-side Pbuffer, everything (including esoteric OpenGL
+ extensions, fragment/vertex programs, etc.) should "just work."  If an
+-application runs locally on a 3D server/workstation, that that same application
++application runs locally on a 3D server/workstation, then that same application
+ should run remotely from that same machine using VirtualGL.
+ 
+ VirtualGL has two built-in "image transports" that can be used to send
+diff --exclude .git -Nur a/doc/virtualgl.txt b/doc/virtualgl.txt
+--- a/doc/virtualgl.txt	2011-12-13 12:45:09.000000000 +0100
++++ b/doc/virtualgl.txt	2011-12-15 17:35:49.411403088 +0100
+@@ -1,5 +1,5 @@
+ #VAR: css=virtualgl.css
+-#TITLE: User's Guide for VirtualGL 2.3
++#TITLE: User's Guide for VirtualGL 2.3.1
+ #MAKETITLE
+ __Intended audience:__ System Administrators, Graphics Programmers,
+ Researchers, and others with knowledge of the Linux or Solaris operating
+diff --exclude .git -Nur a/rr/faker-winhash.h b/rr/faker-winhash.h
+--- a/rr/faker-winhash.h	2011-07-14 13:36:41.000000000 +0200
++++ b/rr/faker-winhash.h	2011-12-15 17:35:49.411403088 +0100
+@@ -147,11 +147,16 @@
+ 		bool compare(char *key1, Window key2, _winhashstruct *h)
+ 		{
+ 			pbwin *pbw=h->value;
++			char *displaystring=NULL;
++			if(pbw && pbw!=(pbwin *)-1 && pbw->get2ddpy())
++			{
++				displaystring=DisplayString(pbw->get2ddpy());
++			}
+ 			return (
+ 				// Match 2D X Server display string and Window ID stored in pbdrawable
+ 				// instance
+ 				(pbw && pbw!=(pbwin *)-1 && key1
+-					&& !strcasecmp(DisplayString(pbw->get2ddpy()), key1)
++					&& displaystring && !strcasecmp(displaystring, key1)
+ 					&& key2==pbw->getx11drawable())
+ 				||
+ 				// If key1 is NULL, match Pbuffer drawable ID instead of X Window ID
+diff --exclude .git -Nur a/rr/pbdrawable.cpp b/rr/pbdrawable.cpp
+--- a/rr/pbdrawable.cpp	2011-08-23 20:43:24.000000000 +0200
++++ b/rr/pbdrawable.cpp	2011-12-15 17:35:49.411403088 +0100
+@@ -213,7 +213,7 @@
+ 
+ 	glGetIntegerv(GL_READ_FRAMEBUFFER_BINDING_EXT, &fbr);
+ 	glGetIntegerv(GL_DRAW_FRAMEBUFFER_BINDING_EXT, &fbw);
+-	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
++	if(fbr || fbw) glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
+ 	_glGetIntegerv(GL_READ_BUFFER, &readbuf);
+ 	_glGetIntegerv(GL_RENDER_MODE, &oldrendermode);
+ 
+@@ -392,7 +392,7 @@
+ 
+ 	glGetIntegerv(GL_READ_FRAMEBUFFER_BINDING_EXT, &fbr);
+ 	glGetIntegerv(GL_DRAW_FRAMEBUFFER_BINDING_EXT, &fbw);
+-	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
++	if(fbr || fbw) glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
+ 	_glGetIntegerv(GL_READ_BUFFER, &readbuf);
+ 	_glGetIntegerv(GL_DRAW_BUFFER, &drawbuf);
+ 	_glGetIntegerv(GL_RENDER_MODE, &oldrendermode);
+diff --exclude .git -Nur a/rr/rrglframe.h b/rr/rrglframe.h
+--- a/rr/rrglframe.h	2008-05-22 00:02:15.000000000 +0200
++++ b/rr/rrglframe.h	2011-12-15 17:35:49.411403088 +0100
+@@ -16,11 +16,7 @@
+ 
+ // Bitmap drawn using OpenGL
+ 
+-#ifdef INFAKER
+- #include "faker-sym.h"
+- #define XCloseDisplay _XCloseDisplay
+- #define XOpenDisplay _XOpenDisplay
+-#elif defined(XDK)
++#ifdef XDK
+  #include "xdk-sym.h"
+  #define glGetError _glGetError
+  #define glGetIntegerv _glGetIntegerv
