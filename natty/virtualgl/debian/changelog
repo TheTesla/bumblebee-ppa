@@ -1,3 +1,9 @@
+virtualgl (2.3.1-1~nattyppa3) natty; urgency=low
+
+  * Upstream patches: Fix startup failure on BadDrawable of some Wine programs.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 20 Dec 2011 11:35:48 +0100
+
 virtualgl (2.3.1-1~nattyppa2) natty; urgency=low
 
   * debian/control:
