@@ -70,7 +70,7 @@ Package: virtualgl-libs-dbg
 Priority: extra
 Architecture: i386 amd64
 Section: debug
-Depends: virtualgl (=${binary:Version}), ${misc:Depends}
+Depends: virtualgl-libs (=${binary:Version}), ${misc:Depends}
 Description: Library files for virtualgl - debugging symbols
  This package contains the libraries for virtualgl which are loaded when
  running vglrun.
