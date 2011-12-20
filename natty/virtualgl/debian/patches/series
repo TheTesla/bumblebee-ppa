@@ -1,1 +1,2 @@
 remove-glxinfo.patch
+virtualgl-fix-windows-deletion.patch
