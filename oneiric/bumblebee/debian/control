@@ -2,17 +2,20 @@ Source: bumblebee
 Section: misc
 Priority: optional
 Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
-Build-Depends: debhelper (>= 7.0.50~)
-Standards-Version: 3.9.1
+Build-Depends: debhelper (>= 7.0.50~), libbsd-dev (>= 0.2.0), pkg-config,
+ libx11-dev, libglib2.0-dev
+Standards-Version: 3.9.2
 Homepage: https://launchpad.net/~bumblebee
 Vcs-Git: git://github.com/Bumblebee-Project/Bumblebee.git
 Vcs-Browser: https://github.com/Bumblebee-Project/Bumblebee
 
 Package: bumblebee
-Architecture: any
-Depends: ${misc:Depends}, virtualgl, nvidia-current (>= 260.19.12~)
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}, virtualgl, bbswitch-dkms
+Recommends: nvidia-current (>= 260.19.12~)
 Description: nVidia Optimus support
  Bumblebee aims to provide support for nVidia Optimus laptops. These laptops
  are built in such a way that the nVidia graphics card can usually not be used.
  With Bumblebee, a X server for the nVidia card is started and frames are
- transferred to the Intel GPU using VirtualGL.
+ transferred to the Intel GPU using VirtualGL. Power saving is accomplished with
+ the bbswitch kernel module. Supported drivers are nvidia and nouveau.

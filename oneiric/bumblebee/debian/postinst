@@ -7,22 +7,6 @@ set -e
 
 case "$1" in
   configure)
-    # perhaps this section can be retrieved from stages/ubuntu/configure?
-    # We should not mess too much with blacklisting, we unload the drivers anyway.
-    blacklist=/etc/modprobe/nouveau-blacklist.conf
-    # the md5sum of "blacklist nouveau\n"
-    sum=cddff2da6f6e96b8a48943c8ce62a238
-    if echo "$sum $blacklist" | md5sum -c --status 2>/dev/null; then
-        rm -f "$blacklist"
-    fi
-
-    NVIDIABUSID=$(lspci -d 10de: -n | grep '030[02]:' | cut -d' ' -f1 | tr . :)
-    re_busid='^( *BusID +")[^"]*'
-
-    for driver in nvidia nouveau; do
-        sed -E -i /etc/bumblebee/xorg.conf.$driver \
-            -e "s,$re_busid,\1$NVIDIABUSID,"
-    done
     groupadd bumblebee || true
 
     # Repair GL on the intel display
@@ -36,13 +20,6 @@ case "$1" in
         gl_conf /usr/lib/mesa/ld.so.conf 2>/dev/null || true
 
     ldconfig
-
-    update-rc.d bumblebee defaults
-    if [ -x /usr/sbin/invoke-rc.d ]; then
-        invoke-rc.d bumblebee start
-    else
-        /etc/init.d/bumblebee start
-    fi
     ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
