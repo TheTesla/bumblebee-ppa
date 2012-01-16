@@ -8,18 +8,6 @@ set -e
 case "$1" in
   configure)
     groupadd bumblebee || true
-
-    # Repair GL on the intel display
-    for arch in x86_64-linux-gnu i386-linux-gnu; do
-        update-alternatives --force --set \
-            ${arch}_gl_conf /usr/lib/$arch/mesa/ld.so.conf 2>/dev/null || true
-    done
-
-    # versions before Oneiric without multiarch
-    update-alternatives --force --set \
-        gl_conf /usr/lib/mesa/ld.so.conf 2>/dev/null || true
-
-    ldconfig
     ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)

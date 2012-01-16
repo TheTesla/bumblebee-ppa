@@ -21,3 +21,12 @@ Description: nVidia Optimus support
  With Bumblebee, a X server for the nVidia card is started and frames are
  transferred to the Intel GPU using VirtualGL. Power saving is accomplished with
  the bbswitch kernel module. Supported drivers are nvidia and nouveau.
+
+Package: bumblebee-nvidia
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, nvidia-current (>= 260.19.12~),
+ bumblebee (= ${binary:Version})
+Description: nVidia Optimus support using the proprietary NVIDIA driver
+ This package blacklists conflicting drivers such that those will not conflict
+ with the proprietary NVIDIA driver. The library paths are set to use the Mesa
+ graphics library in order to have accelerated 3D graphics.

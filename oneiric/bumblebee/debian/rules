@@ -13,6 +13,12 @@ override_dh_auto_configure:
 		CONF_LDPATH_NVIDIA=/usr/lib/nvidia-current:/usr/lib32/nvidia-current \
 		CONF_MODPATH_NVIDIA=/usr/lib/nvidia-current/xorg,/usr/lib/xorg/modules
 
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/bumblebee/
+
 override_dh_install:
-	cp scripts/upstart/bumblebeed.conf debian/bumblebee.upstart
+	cp scripts/upstart/bumblebeed.conf debian/bumblebee.bumblebeed.upstart
 	dh_install
+
+override_dh_installinit:
+	dh_installinit --name=bumblebeed
