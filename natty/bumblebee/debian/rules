@@ -4,13 +4,24 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-INSTALL_OPTS=--sbindir=/usr/sbin --bindir=/usr/bin \
-	--libdir=/usr/lib/bumblebee --driver=nouveau,nvidia
 %:
 	dh $@ 
 
-build:
-	./install $(INSTALL_OPTS) --actions=build
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		CONF_DRIVER_MODULE_NVIDIA=nvidia-current \
+		CONF_LDPATH_NVIDIA=/usr/lib/nvidia-current:/usr/lib32/nvidia-current \
+		CONF_MODPATH_NVIDIA=/usr/lib/nvidia-current/xorg,/usr/lib/xorg/modules
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/bumblebee/
+	dh_installdirs usr/share/bumblebee/default-conf
+	mv debian/bumblebee/etc/bumblebee/* \
+		debian/bumblebee/usr/share/bumblebee/default-conf/
 
 override_dh_install:
-	./install $(INSTALL_OPTS) --actions=install --dest-dir=debian/bumblebee
+	cp scripts/upstart/bumblebeed.conf debian/bumblebee.bumblebeed.upstart
+	dh_install
+
+override_dh_installinit:
+	dh_installinit --name=bumblebeed

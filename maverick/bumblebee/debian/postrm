@@ -1,5 +1,5 @@
 #!/bin/sh
-# postrm script for #PACKAGE#
+# postrm script for bumblebee
 #
 # see: dh_installdeb(1)
 
@@ -8,7 +8,10 @@ set -e
 
 case "$1" in
   purge)
-    update-rc.d bumblebee remove
+    groupdel bumblebee || true
+    for file in bumblebee.conf xorg.conf.nvidia xorg.conf.nouveau; do
+        rm -f /etc/bumblebee/$file
+    done
     ;;
   remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     ;;
