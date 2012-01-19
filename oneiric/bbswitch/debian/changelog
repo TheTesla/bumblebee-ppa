@@ -1,3 +1,11 @@
+bbswitch (0.4.1-1) oneiric; urgency=low
+
+  * New upstream release:
+   - Corrected a small error that yielded an confusing error message "The
+     discrete card could not be enabled by a _DSM call".
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 19 Jan 2012 18:49:37 +0100
+
 bbswitch (0.4-1) oneiric; urgency=low
 
   * New upstream release.
