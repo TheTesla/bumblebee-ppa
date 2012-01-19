@@ -1,3 +1,35 @@
+bumblebee (3.0-1~nattyppa1) natty; urgency=low
+
+  * New upstream release.
+    - Rewritten in the C programming language
+    - Improved power management which also survives suspend (enabled by default
+      if available).
+    - acpi_call has been replaced with bbswitch and vga_switcheroo.
+    - Improved error detection and reporting.
+    - New configuration format which groups settings for the daemon, optirun
+      and drivers.
+    - Renamed the Bumblebee Daemon from "bumblebee" to "bumblebeed"
+    - Manual pages for optirun and bumblebeed.
+    - Switch to Upstart startup mechanism.
+    - Logging is done to syslog.
+    - Dropped -32, -f, --debug-log options from optirun.
+    - Replaced optirun option --failsafe={Y|N} by --failsafe and --no-failsafe.
+    - Temporary removed EcoMode which means that programs will always run on
+      the discrete video card (if requested) even if on battery.
+    - Updated bash_completion with new optirun options.
+    - Recovery from drivers getting loaded while the card is off which would
+      result in "No such device" errors (nvidia).
+  * debian/control:
+    - Support nouveau by making nvidia a recommended package.
+    - Bump Standards-Version to 3.9.2.
+    - Add Conflicts and Replaces for ironhide.
+  * Do not prompt for configuration override.
+    - Store the default configuration in /usr/share/bumblebee/default-conf/.
+  * debian/postrm:
+    - Remove group 'bumblebee' on purge.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 19 Jan 2012 18:27:37 +0100
+
 bumblebee (2.4.1-1~nattyppa1) natty; urgency=low
 
   * Added the new bugreport tool that was forgotten in 2.4.0
