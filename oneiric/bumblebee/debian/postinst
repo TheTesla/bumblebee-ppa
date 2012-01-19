@@ -8,6 +8,11 @@ set -e
 case "$1" in
   configure)
     groupadd bumblebee || true
+    for file in bumblebee.conf xorg.conf.nvidia xorg.conf.nouveau; do
+        if [ ! -f /etc/bumblebee/$file ]; then
+            cp -p /usr/share/bumblebee/default-conf/$file /etc/bumblebee/
+        fi
+    done
     ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
