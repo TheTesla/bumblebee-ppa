@@ -5,6 +5,14 @@
 
 set -e
 
+rm_conffile() {
+    local PKGNAME="$1" # Unused
+    local CONFFILE="$2"
+    if [ -f "$CONFFILE".dpkg-del ]; then
+        rm -f "$CONFFILE".dpkg-del
+    fi
+}
+
 case "$1" in
   configure)
     groupadd bumblebee || true
@@ -13,6 +21,11 @@ case "$1" in
             cp -p /usr/share/bumblebee/default-conf/$file /etc/bumblebee/
         fi
     done
+    if dpkg --compare-versions "$2" le 2.4.2; then
+        rm_conffile bumblebee /etc/bumblebee/bumblebee.conf
+        rm_conffile bumblebee /etc/bumblebee/xorg.conf.nvidia
+        rm_conffile bumblebee /etc/bumblebee/xorg.conf.nouveau
+    fi
     ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
