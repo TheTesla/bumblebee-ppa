@@ -14,7 +14,7 @@ Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}, virtualgl, bbswitch-dkms
 Conflicts: ironhide
 Replaces: ironhide
-Recommends: nvidia-current (>= 260.19.12~)
+Recommends: bumblebee-nvidia (= ${binary:Version})
 Description: nVidia Optimus support
  Bumblebee aims to provide support for nVidia Optimus laptops. These laptops
  are built in such a way that the nVidia graphics card can usually not be used.
