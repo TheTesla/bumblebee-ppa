@@ -30,3 +30,11 @@ Description: nVidia Optimus support using the proprietary NVIDIA driver
  This package blacklists conflicting drivers such that those will not conflict
  with the proprietary NVIDIA driver. The library paths are set to use the Mesa
  graphics library in order to have accelerated 3D graphics.
+
+Package: bumblebee-dbg
+Priority: extra
+Architecture: i386 amd64
+Section: debug
+Depends: bumblebee (= ${binary:Version})
+Description: nVidia Optimus support - debugging symbols
+ This package contains the debugging symbols for bumblebee.

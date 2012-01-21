@@ -25,3 +25,6 @@ override_dh_install:
 
 override_dh_installinit:
 	dh_installinit --name=bumblebeed
+
+override_dh_strip:
+	dh_strip --dbg-package=bumblebee-dbg
