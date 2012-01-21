@@ -35,6 +35,6 @@ Package: bumblebee-dbg
 Priority: extra
 Architecture: i386 amd64
 Section: debug
-Depends: bumblebee (= ${binary:Version})
+Depends: ${misc:Depends}, bumblebee (= ${binary:Version})
 Description: nVidia Optimus support - debugging symbols
  This package contains the debugging symbols for bumblebee.
