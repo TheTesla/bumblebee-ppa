@@ -16,6 +16,9 @@ continued. If you are a novice, you are recommended to reinstall Ubuntu.
 MSG
         exit 1
     fi
+    dpkg-maintscript-helper rm_conffile /etc/bumblebee/bumblebee.conf "3.0-1~maverickppa1" bumblebee -- "$@"
+    dpkg-maintscript-helper rm_conffile /etc/bumblebee/xorg.conf.nvidia "3.0-1~maverickppa1" bumblebee -- "$@"
+    dpkg-maintscript-helper rm_conffile /etc/bumblebee/xorg.conf.nouveau "3.0-1~maverickppa1" bumblebee -- "$@"
     ;;
 
   abort-upgrade)

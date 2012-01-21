@@ -5,7 +5,6 @@
 
 set -e
 
-
 case "$1" in
   purge)
     groupdel bumblebee || true
@@ -22,6 +21,9 @@ case "$1" in
     ;;
 esac
 
+dpkg-maintscript-helper rm_conffile /etc/bumblebee/bumblebee.conf "3.0-1~maverickppa1" bumblebee -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/bumblebee/xorg.conf.nvidia "3.0-1~maverickppa1" bumblebee -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/bumblebee/xorg.conf.nouveau "3.0-1~maverickppa1" bumblebee -- "$@"
 #DEBHELPER#
 
 exit 0
