@@ -1,36 +1,102 @@
-bumblebee (2.4.1-1+git20111102.932b245~nattyppa2) natty; urgency=low
+bumblebee (3.0-1~nattyppa2) natty; urgency=low
 
-  * Use new build system
-    - Supply own options for ./configure to fix failure to build
+  * Trigger update of initial ramdisk to get conflicting drivers blacklisted.
+  * debian/control:
+    - Recommend nvidia-bumblebee instead of nvidia-current.
+    - Fix lintian warnings: debhelper version
+  * Include debugging symbols in bumblebee-dbg.
 
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Wed, 02 Nov 2011 23:17:25 +0100
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Sat, 21 Jan 2012 15:48:59 +0100
 
-bumblebee (2.4.1-1+git20111102.90e98d2~nattyppa1) natty; urgency=low
+bumblebee (3.0-1~nattyppa1) natty; urgency=low
 
-  * New upstream snapshot
-    - Fix race condition, allowing STOP_SERVICE_ON_EXIT=Y to work when optirun
-      is started after another optirun has quit.
-    - Detect PCI Bus ID when needed, this should enable detection in case wrong
-      ACPI calls hide the device.
-    - Fix invalid attempt to unload a driver if none was loaded.
+  * New upstream release.
+    - Rewritten in the C programming language
+    - Improved power management which also survives suspend (enabled by default
+      if available).
+    - acpi_call has been replaced with bbswitch and vga_switcheroo.
+    - Improved error detection and reporting.
+    - New configuration format which groups settings for the daemon, optirun
+      and drivers.
+    - Renamed the Bumblebee Daemon from "bumblebee" to "bumblebeed"
+    - Manual pages for optirun and bumblebeed.
+    - Switch to Upstart startup mechanism.
+    - Logging is done to syslog.
+    - Dropped -32, -f, --debug-log options from optirun.
+    - Replaced optirun option --failsafe={Y|N} by --failsafe and --no-failsafe.
+    - Temporary removed EcoMode which means that programs will always run on
+      the discrete video card (if requested) even if on battery.
+    - Updated bash_completion with new optirun options.
+    - Recovery from drivers getting loaded while the card is off which would
+      result in "No such device" errors (nvidia).
+  * debian/control:
+    - Support nouveau by making nvidia a recommended package.
+    - Bump Standards-Version to 3.9.2.
+    - Add Conflicts and Replaces for ironhide.
+  * Do not prompt for configuration override.
+    - Store the default configuration in /usr/share/bumblebee/default-conf/.
+  * debian/postrm:
+    - Remove group 'bumblebee' on purge.
 
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Wed, 02 Nov 2011 18:31:36 +0100
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 19 Jan 2012 18:27:37 +0100
 
-bumblebee (2.4.0-2+git20110915.a112960d~nattyppa2) natty; urgency=low
+bumblebee (2.4.1-1~nattyppa1) natty; urgency=low
 
-  * Git checkout from commit a112960df3
-  * Added nouveau support in the package:
-    - Removed nouveau blacklist
+  * Added the new bugreport tool that was forgotten in 2.4.0
+  * Fixed a little issue in cleanup
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 15 Sep 2011 20:05:58 +0200
+
+bumblebee (2.4.0-1~nattyppa1) natty; urgency=low
+
+  * New upstream release
+  * Backend support for ACPI/ Power Management, disabled by default
+  * Backend support for nouveau, disabled by default (nouveau package is often too old):
+    - Not blacklisted anymore
     - Install both drivers, with nvidia as default
-  * New bugreport tool included
+  * Enhanced cleanup script
 
- -- Bruno Pagani <bruno.n.pagani@gmail.com>  Wed, 14 Sep 2011 18:58:48 +0200
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 15 Sep 2011 19:45:38 +0200
 
-bumblebee (2.4.0-1+git20110903.b2074620~nattyppa1) natty; urgency=low
+bumblebee (2.3.1-1~nattyppa2) natty; urgency=low
 
-  * First dev snapshot from git
-  * Snapshot for version 2.4:
-    - Added ACPI framework (backend support for ACPI)
-    - Added backend support for nouveau
+  * debian/postinst: ignore non-existing alternatives and try to set 64-bit
+    alternatives on 32-bit systems (Closes GH-57)
 
- -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sat, 03 Sep 2011 08:57:32 +0200
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 28 Aug 2011 16:41:49 +0200
+
+bumblebee (2.3.1-1~nattyppa1) natty; urgency=low
+
+  * Some fixes
+    - Fixed an issue people with DFP-0 monitor were encountering
+    - Fixed an issue with 32bit Ubuntu running a multiarch X.org server
+      (i.e. xorg-edgers users)
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 22 Aug 2011 22:59:35 +0200
+
+bumblebee (2.3.0-1~nattyppa1) natty; urgency=low
+
+  * Initial release
+    - Settings are automatically detected, therefore bumblebee-configuration
+      has been removed.
+    - Power management ("acpi calls") have temporary been removed because of
+      its instability.
+    - No sudo is needed anymore, the bumblebee daemon will start the X server
+      on request.
+    - optirun32 and optirun64 have been removed, optirun -32 have been
+      deprecated since the use of 32-bit libraries are automatically detected,
+    - Added --help options for optirun and bumblebee
+    - Trimmed xorg.conf allowing the system to autodetect settings
+    - Cleaned up the code, syntax errors do not occur anymore on exceptions
+    - Removed VGL_READBACK option as this setting should not be changed. It can
+      still be set as environment variable if needed
+    - Removed VGL_LOG as it is rarely needed to change. It's also more flexible
+      to change it using the --debug-log option of optirun
+    - Errors are logged to /var/log/bumblebee.log
+    - Better error handling if X fails to start or a driver fails to (un)load
+    - Fallback setting FALLBACK_START to configure starting of apps even if
+      nvidia cannot be loaded
+    - Improved bugreport tool
+    - Improved X security by enabling host-based authentication
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 21 Aug 2011 23:00:05 +0200

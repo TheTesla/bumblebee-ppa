@@ -1,3 +1,55 @@
+virtualgl (2.3.1-1~lucidppa3) lucid; urgency=low
+
+  * Upstream patches: Fix startup failure on BadDrawable of some Wine programs.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 20 Dec 2011 11:35:48 +0100
+
+virtualgl (2.3.1-1~lucidppa2) lucid; urgency=low
+
+  * debian/control:
+    - Add debug package virtualgl-dbg.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 15 Dec 2011 18:30:57 +0100
+
+virtualgl (2.3.1-1~lucidppa1) lucid; urgency=low
+
+  * Apply upstream patch for v2.3.1
+    - Workaround for a crash in CoreBreach
+  * debian/rules:
+    - Include debugging symbols in package virtualgl-dbg
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 15 Dec 2011 17:44:24 +0100
+
+virtualgl (2.3-1~lucidppa1) lucid; urgency=low
+
+  * New upstream release.
+    - Removed patches vgl-2.2.90-head.patch, vgl-2.2.90-head-fix-rrerror.patch
+      and rrfakerut.cpp-fix-link-error.patch
+    - Workaround for an issue whereby using very large fonts with glXUseXFont()
+      would cause Pixmap allocation failures with certain X servers.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Wed, 14 Dec 2011 10:51:56 +0100
+
+virtualgl (2.2.90-1~lucidppa7) lucid; urgency=low
+
+  * Sync with upstream
+    - Fix "terminate called after throwing an instance of 'rrerror'" error when
+      exiting virtualgl.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Tue, 04 Oct 2011 10:54:48 +0200
+
+virtualgl (2.2.90-1~lucidppa5) lucid; urgency=low
+
+  * debian/patches/vgl-2.2.90-head.patch: Sync with HEAD at 23 August 2011
+    - Fixed a GL_INVALID_OPERATION error that would occur after a call to
+      glXSwapBuffers() when a context with the OpenGL Core Profile was being
+      used.
+    - glXChooseFBConfig() and glXChooseFBConfigSGIX() were erroneously
+      returning an error when a NULL attribute list argument was passed to
+      them. They now behave correctly.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 22 Sep 2011 18:31:19 +0200
+
 virtualgl (2.2.90-1~lucidppa4) lucid; urgency=low
 
   * Do not depend on ia32-libs

@@ -50,3 +50,6 @@ ifeq ($(DEB_BUILD_ARCH), amd64)
 override_dh_shlibdeps:
 	dh_shlibdeps --exclude=debian/virtualgl/usr/lib32
 endif
+
+override_dh_strip:
+	dh_strip --dbg-package=virtualgl-dbg

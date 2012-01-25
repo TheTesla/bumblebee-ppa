@@ -1,14 +1,16 @@
 #!/bin/sh
-# postrm script for #PACKAGE#
+# postrm script for bumblebee
 #
 # see: dh_installdeb(1)
 
 set -e
 
-
 case "$1" in
   purge)
-    update-rc.d bumblebee remove
+    groupdel bumblebee || true
+    for file in bumblebee.conf xorg.conf.nvidia xorg.conf.nouveau; do
+        rm -f /etc/bumblebee/$file
+    done
     ;;
   remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     ;;
@@ -19,6 +21,9 @@ case "$1" in
     ;;
 esac
 
+dpkg-maintscript-helper rm_conffile /etc/bumblebee/bumblebee.conf "3.0-1~maverickppa1" bumblebee -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/bumblebee/xorg.conf.nvidia "3.0-1~maverickppa1" bumblebee -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/bumblebee/xorg.conf.nouveau "3.0-1~maverickppa1" bumblebee -- "$@"
 #DEBHELPER#
 
 exit 0

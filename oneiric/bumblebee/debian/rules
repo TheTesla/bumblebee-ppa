@@ -8,13 +8,23 @@
 	dh $@ 
 
 override_dh_auto_configure:
-	./configure --prefix=/usr --confdir=/etc --driver=nouveau,nvidia \
-		--nv-lib-path=/usr/lib/nvidia-current \
-		--nv-lib32-path=/usr/lib32/nvidia-current \
-		--xorg-module-path=/usr/lib/nvidia-current/xorg
+	dh_auto_configure -- \
+		CONF_DRIVER_MODULE_NVIDIA=nvidia-current \
+		CONF_LDPATH_NVIDIA=/usr/lib/nvidia-current:/usr/lib32/nvidia-current \
+		CONF_MODPATH_NVIDIA=/usr/lib/nvidia-current/xorg,/usr/lib/xorg/modules
 
 override_dh_auto_install:
-	make install DESTDIR=$(CURDIR)/debian/bumblebee
-	cd $(CURDIR)/debian/bumblebee && \
-		install -D -m 755 usr/share/bumblebee/bumblebee.handler etc/init.d/bumblebee && \
-		install -D -m 644 usr/share/bumblebee/optirun.bash_completion etc/bash_completion.d/optirun
+	dh_auto_install --destdir=debian/bumblebee/
+	dh_installdirs usr/share/bumblebee/default-conf
+	mv debian/bumblebee/etc/bumblebee/* \
+		debian/bumblebee/usr/share/bumblebee/default-conf/
+
+override_dh_install:
+	cp scripts/upstart/bumblebeed.conf debian/bumblebee.bumblebeed.upstart
+	dh_install
+
+override_dh_installinit:
+	dh_installinit --name=bumblebeed
+
+override_dh_strip:
+	dh_strip --dbg-package=bumblebee-dbg

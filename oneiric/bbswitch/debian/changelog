@@ -1,0 +1,22 @@
+bbswitch (0.4.1-1) oneiric; urgency=low
+
+  * New upstream release:
+   - Corrected a small error that yielded an confusing error message "The
+     discrete card could not be enabled by a _DSM call".
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 19 Jan 2012 18:49:37 +0100
+
+bbswitch (0.4-1) oneiric; urgency=low
+
+  * New upstream release.
+    - Support for systems with a 3D display controller.
+    - Support for systems with an ACPI handle containing the nvidia DSM handle
+      on a different device.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 15 Jan 2012 19:19:58 +0100
+
+bbswitch (0.2-1) oneiric; urgency=low
+
+  * Initial release.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 01 Jan 2012 16:21:20 +0100

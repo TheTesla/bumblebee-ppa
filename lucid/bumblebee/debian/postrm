@@ -1,14 +1,25 @@
 #!/bin/sh
-# postrm script for #PACKAGE#
+# postrm script for bumblebee
 #
 # see: dh_installdeb(1)
 
 set -e
 
+rm_conffile() {
+    local PKGNAME="$1" # Unused
+    local CONFFILE="$2"
+
+    if [ -f "$CONFFILE".dpkg-del ]; then
+        mv -f "$CONFFILE".dpkg-del "$CONFFILE"
+    fi
+}
 
 case "$1" in
   purge)
-    update-rc.d bumblebee remove
+    groupdel bumblebee || true
+    for file in bumblebee.conf xorg.conf.nvidia xorg.conf.nouveau; do
+        rm -f /etc/bumblebee/$file
+    done
     ;;
   remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     ;;
@@ -19,6 +30,15 @@ case "$1" in
     ;;
 esac
 
+case "$1" in
+  abort-install|abort-upgrade)
+    if dpkg --compare-versions "$2" le 2.4.2; then
+        rm_conffile bumblebee /etc/bumblebee/bumblebee.conf
+        rm_conffile bumblebee /etc/bumblebee/xorg.conf.nvidia
+        rm_conffile bumblebee /etc/bumblebee/xorg.conf.nouveau
+    fi
+    ;;
+esac
 #DEBHELPER#
 
 exit 0

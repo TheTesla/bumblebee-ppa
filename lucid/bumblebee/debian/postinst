@@ -5,43 +5,26 @@
 
 set -e
 
+rm_conffile() {
+    local PKGNAME="$1" # Unused
+    local CONFFILE="$2"
+    if [ -f "$CONFFILE".dpkg-del ]; then
+        rm -f "$CONFFILE".dpkg-del
+    fi
+}
+
 case "$1" in
   configure)
-    # perhaps this section can be retrieved from stages/ubuntu/configure?
-    # We should not mess too much with blacklisting, we unload the drivers anyway.
-    blacklist=/etc/modprobe/nouveau-blacklist.conf
-    # the md5sum of "blacklist nouveau\n"
-    sum=cddff2da6f6e96b8a48943c8ce62a238
-    if echo "$sum $blacklist" | md5sum -c --status 2>/dev/null; then
-        rm -f "$blacklist"
-    fi
-
-    NVIDIABUSID=$(lspci -d 10de: -n | grep '030[02]:' | cut -d' ' -f1 | tr . :)
-    re_busid='^( *BusID +")[^"]*'
-
-    for driver in nvidia nouveau; do
-        sed -E -i /etc/bumblebee/xorg.conf.$driver \
-            -e "s,$re_busid,\1$NVIDIABUSID,"
-    done
     groupadd bumblebee || true
-
-    # Repair GL on the intel display
-    for arch in x86_64-linux-gnu i386-linux-gnu; do
-        update-alternatives --force --set \
-            ${arch}_gl_conf /usr/lib/$arch/mesa/ld.so.conf 2>/dev/null || true
+    for file in bumblebee.conf xorg.conf.nvidia xorg.conf.nouveau; do
+        if [ ! -f /etc/bumblebee/$file ]; then
+            cp -p /usr/share/bumblebee/default-conf/$file /etc/bumblebee/
+        fi
     done
-
-    # versions before Oneiric without multiarch
-    update-alternatives --force --set \
-        gl_conf /usr/lib/mesa/ld.so.conf 2>/dev/null || true
-
-    ldconfig
-
-    update-rc.d bumblebee defaults
-    if [ -x /usr/sbin/invoke-rc.d ]; then
-        invoke-rc.d bumblebee start
-    else
-        /etc/init.d/bumblebee start
+    if dpkg --compare-versions "$2" le 2.4.2; then
+        rm_conffile bumblebee /etc/bumblebee/bumblebee.conf
+        rm_conffile bumblebee /etc/bumblebee/xorg.conf.nvidia
+        rm_conffile bumblebee /etc/bumblebee/xorg.conf.nouveau
     fi
     ;;
 
