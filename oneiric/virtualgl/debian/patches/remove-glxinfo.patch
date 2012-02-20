@@ -1,6 +1,6 @@
 Remove installation of glxinfo as glxinfo from mesa is more recent anyway
---- a/mesademos/CMakeLists.txt
-+++ b/mesademos/CMakeLists.txt
+--- a/glxdemos/CMakeLists.txt
++++ b/glxdemos/CMakeLists.txt
 @@ -12,14 +12,6 @@
  		${X11_Xext_LIB} m)
  endforeach()
