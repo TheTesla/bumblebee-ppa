@@ -1,0 +1,5 @@
+bbswitch (0.4.1-1) precise; urgency=low
+
+  * Initial release for Ubuntu Precise Pangolin
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 1 Mar 2012 22:36:10 +0100
