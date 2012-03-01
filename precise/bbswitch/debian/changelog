@@ -1,5 +1,6 @@
-bbswitch (0.4.1-1) precise; urgency=low
+bbswitch (0.4.1-2) precise; urgency=low
 
   * Initial release for Ubuntu Precise Pangolin
+   - 0.4.1-2 because 0.4.1-1 was a copy from oneiric
 
- -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 1 Mar 2012 22:36:10 +0100
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 1 Mar 2012 23:15:10 +0100
