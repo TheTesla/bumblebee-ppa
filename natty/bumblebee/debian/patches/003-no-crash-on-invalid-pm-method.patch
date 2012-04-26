@@ -1,3 +1,82 @@
+commit b04cd01bac1562d8c83b2ef68b493e3cad7e24b6
+Author: Lekensteyn <lekensteyn@gmail.com>
+Date:   Thu Feb 2 11:34:13 2012 +0100
+
+    bumblebeed: Add --pm-method option, update --help
+
+diff --git a/src/bbconfig.c b/src/bbconfig.c
+index bac60e3..1799ec6 100644
+--- a/src/bbconfig.c
++++ b/src/bbconfig.c
+@@ -103,7 +103,7 @@ void set_string_value(char ** configstring, char * newvalue) {
+  * @param value The string to be converted
+  * @return An index in the PM methods array
+  */
+-static enum bb_pm_method bb_pm_method_from_string(char *value) {
++enum bb_pm_method bb_pm_method_from_string(char *value) {
+   /* loop backwards through all possible values. If no valid value is found,
+    * assume the first element ("none") */
+   enum bb_pm_method method_index = PM_METHODS_COUNT;
+@@ -169,7 +169,15 @@ void print_usage(int exit_val) {
+                           configuration file\n\
+   -m, --module-path PATH  ModulePath to use for Xorg (only useful for nvidia)\n\
+   -k, --driver-module NAME    Name of kernel module to be loaded if different\n\
+-                                from the driver\n", out);
++                                from the driver\n\
++      --pm-method METHOD  method to use for disabling the discrete video card,\n\
++                            valid values are auto, bbswitch, switcheroo and\n\
++                            none. auto selects a sensible method,\n\
++                            bbswitch (kernel module) is available for nvidia\n\
++                            and nouveau drivers,\n\
++                            switcheroo (vga_switcheroo) is for nouveau and\n\
++                            radeon drivers and none disables PM completely\n",
++            out);
+ #ifdef WITH_PIDFILE
+     fputs("\
+       --pidfile         file in which the process ID is written\n\
+diff --git a/src/bbconfig.h b/src/bbconfig.h
+index 83b2e13..fc236d9 100644
+--- a/src/bbconfig.h
++++ b/src/bbconfig.h
+@@ -67,7 +67,8 @@ enum {
+     OPT_STATUS,
+     OPT_PIDFILE,
+     OPT_USE_SYSLOG,
+-    OPT_DEBUG
++    OPT_DEBUG,
++    OPT_PM_METHOD,
+ };
+ 
+ /* Verbosity levels */
+@@ -173,3 +174,5 @@ GKeyFile *bbconfig_parse_conf(void);
+ void bbconfig_parse_conf_driver(GKeyFile *bbcfg, char *driver);
+ 
+ gboolean bb_bool_from_string(char* str);
++
++enum bb_pm_method bb_pm_method_from_string(char *value);
+diff --git a/src/bumblebeed.c b/src/bumblebeed.c
+index 5687af4..c57533a 100644
+--- a/src/bumblebeed.c
++++ b/src/bumblebeed.c
+@@ -358,6 +358,7 @@ const struct option *bbconfig_get_lopts(void) {
+     {"pidfile", 1, 0, OPT_PIDFILE},
+ #endif
+     {"use-syslog", 0, 0, OPT_USE_SYSLOG},
++    {"pm-method", 1, 0, OPT_PM_METHOD},
+     BBCONFIG_COMMON_LOPTS
+   };
+   return longOpts;
+@@ -392,6 +393,9 @@ int bbconfig_parse_options(int opt, char *value) {
+     case 'k'://kernel module
+       set_string_value(&bb_config.module_name, value);
+       break;
++    case OPT_PM_METHOD:
++      bb_config.pm_method = bb_pm_method_from_string(value);
++      break;
+ #ifdef WITH_PIDFILE
+     case OPT_PIDFILE:
+       set_string_value(&bb_config.pid_file, value);
+
 commit 559464ab33e64b5b2f26b8644e01479f75e97120
 Author: Lekensteyn <lekensteyn@gmail.com>
 Date:   Thu Feb 2 11:41:35 2012 +0100
