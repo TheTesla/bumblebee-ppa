@@ -1,3 +1,17 @@
+bumblebee (3.0-1~lucidppa3) lucid; urgency=low
+
+  * patches/001-no-set-ldpath.patch:
+    - Allow nouveau to function properly even with nvidia installed.
+  * patches/002-ignore-empty-kerneldriver.patch:
+    - Properly treat an empty KernelDriver setting as "use the Driver setting".
+  * patches/003-no-crash-on-invalid-pm-method.patch:
+    - Do not crash on invalid PmMethod or --pm-method.
+  * patches/004-remove-switcheroo-restriction.patch:
+    - Allow vgaswitcheroo to be used for drivers other than nouveau. This may be
+      useful for gmux and others.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Fri, 27 Apr 2012 00:30:06 +0200
+
 bumblebee (3.0-1~lucidppa2) lucid; urgency=low
 
   * Trigger update of initial ramdisk to get conflicting drivers blacklisted.
