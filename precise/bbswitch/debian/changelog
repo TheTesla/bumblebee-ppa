@@ -1,3 +1,11 @@
+bbswitch (0.4.2-1) precise; urgency=low
+
+  * New upstream release.
+    - Make /proc/acpi/bbswitch world-writable.
+    - Fix crash when reporting a failure during ACPI method evaluation.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Fri, 27 Apr 2012 00:40:33 +0200
+
 bbswitch (0.4.1-2) precise; urgency=low
 
   * Initial release for Ubuntu Precise Pangolin
