@@ -1,0 +1,4 @@
+001-no-set-ldpath.patch
+002-ignore-empty-kerneldriver.patch
+003-no-crash-on-invalid-pm-method.patch
+004-remove-switcheroo-restriction.patch

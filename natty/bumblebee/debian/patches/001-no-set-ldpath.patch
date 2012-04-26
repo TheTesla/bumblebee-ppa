@@ -1,0 +1,21 @@
+commit 7302f1d62975146cea36b90ba23663427f507c45
+Author: Lekensteyn <lekensteyn@gmail.com>
+Date:   Mon Jan 23 15:43:53 2012 +0100
+
+    Do not set the a nvidia ldpath for non-nvidia drivers by default
+    
+    The third "we really need a str_isequal function"
+
+diff --git a/src/driver.c b/src/driver.c
+index 7d74406..f57f894 100644
+--- a/src/driver.c
++++ b/src/driver.c
+@@ -65,7 +65,7 @@ void driver_detect(void) {
+     }
+   }
+ 
+-  if (strcmp(bb_config.driver, "nvidia")) {
++  if (strcmp(bb_config.driver, "nvidia") == 0) {
+     set_string_value(&bb_config.ld_path, CONF_LDPATH_NVIDIA);
+     set_string_value(&bb_config.mod_path, CONF_MODPATH_NVIDIA);
+   }
