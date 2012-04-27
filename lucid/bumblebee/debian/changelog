@@ -9,6 +9,7 @@ bumblebee (3.0-1~lucidppa3) lucid; urgency=low
   * patches/004-remove-switcheroo-restriction.patch:
     - Allow vgaswitcheroo to be used for drivers other than nouveau. This may be
       useful for gmux and others.
+  * Restore OpenGL alternatives configuration on uninstallation.
 
  -- Peter Lekensteyn <lekensteyn@gmail.com>  Fri, 27 Apr 2012 00:30:06 +0200
 
