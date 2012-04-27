@@ -1,4 +1,4 @@
-virtualgl (2.3.1-1~preciseppa6) oneiric; urgency=low
+virtualgl (2.3.1-1~preciseppa6) precise; urgency=low
 
   * debian/patches/004-fltk-fix-compiler-warnings.patch:
     - Fix build error.
