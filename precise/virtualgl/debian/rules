@@ -20,7 +20,7 @@ endif
 
 override_dh_auto_configure:
 	cmake -G "Unix Makefiles" \
-	-DTJPEG_LIBRARY=/usr/lib/$(DEB_HOST_MULTIARCH)/libturbojpeg.a \
+	-DTJPEG_LIBRARY=/usr/lib/$(DEB_HOST_MULTIARCH)/libturbojpeg.so \
 	-DCMAKE_INSTALL_PREFIX=/usr \
 	-DVGL_FAKELIBDIR=$(FAKELIBDIR) \
 	-DVGL_DOCDIR=/usr/share/doc/virtualgl -DVGL_INCLUDEDIR=/usr/include \
