@@ -47,7 +47,7 @@ Priority: optional
 Architecture: i386 amd64
 Section: misc
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, libturbojpeg
 Homepage: http://www.virtualgl.org/
 Description: Library files for virtualgl
  This package contains the libraries for virtualgl which are loaded when

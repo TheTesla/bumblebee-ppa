@@ -1,5 +1,6 @@
-virtualgl (2.3.1-1~preciseppa6.2) precise; urgency=low
+virtualgl (2.3.1-1~preciseppa6.3) precise; urgency=low
 
+  * Add dependency on libturbojpeg.
   * Link against shared TurboJPEG library to overcome a build failure.
 
  -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 29 Apr 2012 11:16:31 +0200
