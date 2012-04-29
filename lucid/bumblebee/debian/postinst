@@ -5,6 +5,13 @@
 
 set -e
 
+# group that allows users to use Bumblebee
+BB_GROUP=bumblebee
+
+# add members of these groups automatically to group "bumblebee" for new
+# installations
+USE_GROUPS='adm sudo admin'
+
 rm_conffile() {
     local PKGNAME="$1" # Unused
     local CONFFILE="$2"
@@ -15,7 +22,6 @@ rm_conffile() {
 
 case "$1" in
   configure)
-    groupadd bumblebee || true
     for file in bumblebee.conf xorg.conf.nvidia xorg.conf.nouveau; do
         if [ ! -f /etc/bumblebee/$file ]; then
             cp -p /usr/share/bumblebee/default-conf/$file /etc/bumblebee/
@@ -25,6 +31,19 @@ case "$1" in
         rm_conffile bumblebee /etc/bumblebee/bumblebee.conf
         rm_conffile bumblebee /etc/bumblebee/xorg.conf.nvidia
         rm_conffile bumblebee /etc/bumblebee/xorg.conf.nouveau
+    fi
+
+    # only add a group and members if the configured group does match the
+    # default group and if the group is missing
+    if grep -qx ServerGroup=$BB_GROUP /etc/bumblebee/bumblebee.conf &&
+        ! getent group $BB_GROUP > /dev/null; then
+        groupadd $BB_GROUP
+        users=$(getent group $USE_GROUPS | cut -d: -f4 | tr , '\n' | sort -u)
+        echo "Adding members from group(s) '$USE_GROUPS' to '$BB_GROUP':"
+        echo $users
+        for user in $users; do
+            gpasswd -a $user $BB_GROUP
+        done
     fi
     ;;
 
