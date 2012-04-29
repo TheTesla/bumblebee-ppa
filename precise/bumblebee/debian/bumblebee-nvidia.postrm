@@ -17,8 +17,6 @@ case "$1" in
     update-alternatives --force --auto gl_conf 2>/dev/null || true
 
     ldconfig
-    # update initial ramdisk to skip blacklist
-    update-initramfs -u
     ;;
   upgrade|failed-upgrade|abort-upgrade|disappear)
     ;;
