@@ -1,3 +1,15 @@
+bumblebee (3.0-1~oneiricppa4) oneiric; urgency=low
+
+  * debian/patches/006-set-vgl-readback-pbo.patch:
+    - Fix performance regression from 2.4 on some machines.
+  * debian/postinst:
+    - Add users from the sudo, adm and admin group to the members of bumblebee
+      to ease installation.
+  * Prevent both the nouveau and nvidia drivers from loading at startup, this
+    should random failures to disable the video card.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 29 Apr 2012 23:19:53 +0200
+
 bumblebee (3.0-1~oneiricppa3) oneiric; urgency=low
 
   * patches/001-no-set-ldpath.patch:
