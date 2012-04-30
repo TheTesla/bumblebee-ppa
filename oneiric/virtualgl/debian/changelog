@@ -1,3 +1,10 @@
+virtualgl (2.3.1-2~oneiricppa1) oneiric; urgency=low
+
+  * Added virtualgl-libs-ia32 that installs the 32-bit multiarch package of
+    virtualgl-libs.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 30 Apr 2012 15:15:33 +0200
+
 virtualgl (2.3.1-1~oneiricppa4) oneiric; urgency=low
 
   * Code snapshot, svn rev 4814:

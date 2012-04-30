@@ -53,6 +53,17 @@ Description: Library files for virtualgl
  running vglrun.
 Multi-Arch: same
 
+Package: virtualgl-libs-ia32
+Priority: optional
+Architecture: i386
+Section: misc
+Pre-Depends: ${misc:Pre-Depends}
+Depends: virtualgl-libs
+Description: Library files for virtualgl (32-bit)
+ This package depends on 32-bit libraries for virtualgl. It can safely be
+ removed after installation.
+Multi-Arch: foreign
+
 Package: virtualgl-dbg
 Priority: extra
 Architecture: i386 amd64
