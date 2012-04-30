@@ -1,29 +1,25 @@
-bumblebee (3.0-1~lucidppa4) lucid; urgency=low
+bumblebee (3.0-2~lucidppa1) lucid; urgency=low
 
-  * debian/patches/006-set-vgl-readback-pbo.patch:
-    - Fix performance regression from 2.4 on some machines.
   * debian/postinst:
     - Add users from the sudo, adm and admin group to the members of bumblebee
       to ease installation.
   * Prevent both the nouveau and nvidia drivers from loading at startup, this
     should random failures to disable the video card.
-
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 29 Apr 2012 23:19:53 +0200
-
-bumblebee (3.0-1~lucidppa3) lucid; urgency=low
-
-  * patches/001-no-set-ldpath.patch:
-    - Allow nouveau to function properly even with nvidia installed.
-  * patches/002-ignore-empty-kerneldriver.patch:
-    - Properly treat an empty KernelDriver setting as "use the Driver setting".
-  * patches/003-no-crash-on-invalid-pm-method.patch:
-    - Do not crash on invalid PmMethod or --pm-method.
-  * patches/004-remove-switcheroo-restriction.patch:
-    - Allow vgaswitcheroo to be used for drivers other than nouveau. This may be
-      useful for gmux and others.
+  * debian/patches:
+    - 001-no-set-ldpath.patch: Allow nouveau to function properly even with
+      nvidia installed.
+    - 002-ignore-empty-kerneldriver.patch: Properly treat an empty KernelDriver
+      setting as "use the Driver setting".
+    - 003-add-pm-method-option.patch: Support --pm-method option.
+    - 004-no-crash-on-invalid-pm-method.patch: Do not crash on invalid
+      PmMethod or --pm-method.
+    - 005-remove-switcheroo-restriction.patch: Allow vgaswitcheroo to be used
+      for drivers other than nouveau. This may be useful for gmux and others.
+    - 006-set-vgl-readback-pbo.patch: Fix performance regression from 2.4 on
+      some machines.
   * Restore OpenGL alternatives configuration on uninstallation.
 
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Fri, 27 Apr 2012 00:30:06 +0200
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 30 Apr 2012 14:31:54 +0200
 
 bumblebee (3.0-1~lucidppa2) lucid; urgency=low
 
