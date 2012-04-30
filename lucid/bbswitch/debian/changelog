@@ -1,3 +1,10 @@
+bbswitch (0.4.2-2~lucidppa2) lucid; urgency=low
+
+  * Relaxed debhelper and compat from 8 to 7
+   - lucid does not have version 8
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 30 Apr 2012 16:52:37 +0200
+
 bbswitch (0.4.2-2~lucidppa1) lucid; urgency=low
 
   * bbswitch version number rules changes
