@@ -1,4 +1,4 @@
-bumblebee (3.0-1~preciseppa4) precise; urgency=low
+bumblebee (3.0.0-3~preciseppa4) precise; urgency=low
 
   * debian/patches/006-set-vgl-readback-pbo.patch:
     - Fix performance regression from 2.4 on some machines.
@@ -10,7 +10,7 @@ bumblebee (3.0-1~preciseppa4) precise; urgency=low
 
  -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 29 Apr 2012 23:19:53 +0200
 
-bumblebee (3.0-1~preciseppa3) precise; urgency=low
+bumblebee (3.0.0-2~preciseppa3) precise; urgency=low
 
   * patches/001-no-set-ldpath.patch:
     - Allow nouveau to function properly even with nvidia installed.
@@ -26,8 +26,9 @@ bumblebee (3.0-1~preciseppa3) precise; urgency=low
 
  -- Peter Lekensteyn <lekensteyn@gmail.com>  Fri, 27 Apr 2012 00:30:06 +0200
 
-bumblebee (3.0-1~oneiricppa2) oneiric; urgency=low
+bumblebee (3.0.0-1~preciseppa1) precise; urgency=low
 
+  * Initial Precise release
   * Trigger update of initial ramdisk to get conflicting drivers blacklisted.
   * debian/control:
     - Fix lintian warnings: debhelper version
