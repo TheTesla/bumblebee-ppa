@@ -1,3 +1,11 @@
+virtualgl (2.3.1-2~lucidppa1) lucid; urgency=low
+
+  * Code snapshot, svn rev 4814:
+    - A lot code cleanup and reorganizing.
+    - Possibly fix for crashing SDL programs.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 30 Apr 2012 15:29:28 +0200
+
 virtualgl (2.3.1-1~lucidppa3) lucid; urgency=low
 
   * Upstream patches: Fix startup failure on BadDrawable of some Wine programs.

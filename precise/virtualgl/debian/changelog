@@ -1,24 +1,14 @@
-virtualgl (2.3.1-1~preciseppa6.3) precise; urgency=low
-
-  * Add dependency on libturbojpeg.
-  * Link against shared TurboJPEG library to overcome a build failure.
-
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Sun, 29 Apr 2012 11:16:31 +0200
-
-virtualgl (2.3.1-1~preciseppa6) precise; urgency=low
+virtualgl (2.3.1-2~preciseppa1) precise; urgency=low
 
   * debian/patches/004-fltk-fix-compiler-warnings.patch:
     - Fix build error.
-
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Fri, 27 Apr 2012 22:48:11 +0200
-
-virtualgl (2.3.1-1~preciseppa5) precise; urgency=low
-
   * Added virtualgl-libs-ia32 that installs the 32-bit multiarch package of
     virtualgl-libs.
   * Build against libjpeg-turbo in the official repositories.
+  * Link against shared TurboJPEG library to overcome a build failure.
+  * Add dependency on libturbojpeg to virtualgl-libs.
 
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Thu, 26 Apr 2012 23:57:55 +0200
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 30 Apr 2012 14:53:52 +0200
 
 virtualgl (2.3.1-1~oneiricppa4) oneiric; urgency=low
 
