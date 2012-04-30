@@ -4,7 +4,7 @@
 # Author : Lekensteyn <lekensteyn@gmail.com>
 # License: GPLv3+
 
-DISTS=(lucid maverick natty oneiric precise)
+DISTS=(lucid natty oneiric precise)
 
 cd "$(dirname "$(dirname "$(readlink -f "$0")")")"
 distsdir="$PWD"

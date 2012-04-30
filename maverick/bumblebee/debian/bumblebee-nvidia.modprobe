@@ -1,4 +1,0 @@
-# installed by bumblebee-nvidia
-
-# do not automatically load nouveau as it may prevent nvidia from loading
-blacklist nouveau
