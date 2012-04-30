@@ -1,0 +1,7 @@
+bbswitch (0.4.2-2~lucidppa1) lucid; urgency=low
+
+  * bbswitch version number rules changes
+   - It does now follow the same rules than the other packages,
+     including to be separated by distro
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 30 Apr 2012 14:27:37 +0200
