@@ -1,6 +1,1 @@
-001-no-set-ldpath.patch
-002-ignore-empty-kerneldriver.patch
-003-add-pm-method-option.patch
-004-no-crash-on-invalid-pm-method.patch
-005-remove-switcheroo-restriction.patch
 006-set-vgl-readback-pbo.patch
