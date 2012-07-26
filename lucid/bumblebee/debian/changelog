@@ -1,3 +1,20 @@
+bumblebee (3.0.1-1~lucidppa1) lucid; urgency=low
+
+  * New upstream release
+    - Busy socket polling in optirun has received a temporary fix. This solves
+      issues like "NVRM: GPU at... has fallen off the bus", hard shutdown,
+      "Failed to initialize the NVIDIA GPU", and maybe some others.
+    - Some background changes (protocol)
+    - Some others minor bugfixes
+  * debian/patches:
+    - drop 001-no-set-ldpath.patch [upstream]
+    - drop 002-ignore-empty-kerneldriver.patch [upstream]
+    - drop 003-add-pm-method-option.patch [upstream]
+    - drop 004-no-crash-on-invalid-pm-method.patch [upstream]
+    - drop 005-remove-switcheroo-restriction.patch [upstream]
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 26 Jul 2012 22:42:54 +0200
+
 bumblebee (3.0-2~lucidppa1) lucid; urgency=low
 
   * debian/postinst:
