@@ -1,0 +1,22 @@
+bbswitch (0.4.2-2~preciseppa1) precise; urgency=low
+
+  * bbswitch version number rules changes
+   - It does now follow the same rules than the other packages,
+     including to be separated by distro
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 30 Apr 2012 14:27:37 +0200
+
+bbswitch (0.4.2-1) precise; urgency=low
+
+  * New upstream release.
+    - Make /proc/acpi/bbswitch world-writable.
+    - Fix crash when reporting a failure during ACPI method evaluation.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Fri, 27 Apr 2012 00:40:33 +0200
+
+bbswitch (0.4.1-2) precise; urgency=low
+
+  * Initial release for Ubuntu Precise Pangolin
+   - 0.4.1-2 because 0.4.1-1 was a copy from oneiric
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 1 Mar 2012 23:15:10 +0100

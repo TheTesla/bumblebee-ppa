@@ -1,0 +1,49 @@
+bumblebee (3.0.1-1~preciseppa1) precise; urgency=low
+
+  * New upstream release
+    - Busy socket polling in optirun has received a temporary fix. This solves
+      issues like "NVRM: GPU at... has fallen off the bus", hard shutdown,
+      "Failed to initialize the NVIDIA GPU", and maybe some others.
+    - Some background changes (protocol)
+    - Some others minor bugfixes
+  * debian/patches:
+    - drop 001-no-set-ldpath.patch [upstream]
+    - drop 002-ignore-empty-kerneldriver.patch [upstream]
+    - drop 003-add-pm-method-option.patch [upstream]
+    - drop 004-no-crash-on-invalid-pm-method.patch [upstream]
+    - drop 005-remove-switcheroo-restriction.patch [upstream]
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 26 Jul 2012 22:42:54 +0200
+
+bumblebee (3.0-2~preciseppa1) precise; urgency=low
+
+  * debian/postinst:
+    - Add users from the sudo, adm and admin group to the members of bumblebee
+      to ease installation.
+  * Prevent both the nouveau and nvidia drivers from loading at startup, this
+    should random failures to disable the video card.
+  * debian/patches:
+    - 001-no-set-ldpath.patch: Allow nouveau to function properly even with
+      nvidia installed.
+    - 002-ignore-empty-kerneldriver.patch: Properly treat an empty KernelDriver
+      setting as "use the Driver setting".
+    - 003-add-pm-method-option.patch: Support --pm-method option.
+    - 004-no-crash-on-invalid-pm-method.patch: Do not crash on invalid
+      PmMethod or --pm-method.
+    - 005-remove-switcheroo-restriction.patch: Allow vgaswitcheroo to be used
+      for drivers other than nouveau. This may be useful for gmux and others.
+    - 006-set-vgl-readback-pbo.patch: Fix performance regression from 2.4 on
+      some machines.
+  * Restore OpenGL alternatives configuration on uninstallation.
+  * Recommend 32-bit virtualgl libraries.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 30 Apr 2012 14:31:54 +0200
+
+bumblebee (3.0-1~oneiricppa2) oneiric; urgency=low
+
+  * Trigger update of initial ramdisk to get conflicting drivers blacklisted.
+  * debian/control:
+    - Fix lintian warnings: debhelper version
+  * Include debugging symbols in bumblebee-dbg.
+
+ -- Peter Lekensteyn <lekensteyn@gmail.com>  Sat, 21 Jan 2012 15:48:59 +0100
