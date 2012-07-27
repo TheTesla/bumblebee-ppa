@@ -6,13 +6,14 @@ Build-Depends: debhelper (>= 7.0.50~), cmake (>= 2.8), libjpeg-turbo (>= 1.1.1),
  libx11-dev, libxext-dev, libgl1-mesa-dev, libglu1-mesa-dev, libxv-dev,
  libc6-dev-i386 [amd64], g++-multilib [amd64], ia32-libs [amd64]
 Standards-Version: 3.8.4
+Homepage: http://www.virtualgl.org/
+Vcs-Browser: http://virtualgl.svn.sourceforge.net/viewvc/virtualgl/vgl/
 
 Package: virtualgl
 Priority: optional
 Architecture: i386 amd64
 Section: misc
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Homepage: http://www.virtualgl.org/
 Description: Toolkit for displaying OpenGL applications to thin clients
  VirtualGL is a toolkit that allows most Unix/Linux OpenGL applications to be
  remotely displayed with hardware 3D acceleration to thin clients, regardless
