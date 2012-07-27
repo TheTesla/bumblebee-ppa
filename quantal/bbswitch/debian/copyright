@@ -1,13 +1,14 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Name: bbswitch
-Source: <https://github.com/Bumblebee-Project/bbswitch>
+Source: https://github.com/Bumblebee-Project/bbswitch
 
 Files: *
-Copyright: 2011-2012 Peter Lekensteyn <lekensteyn@gmail.com>
+Copyright: 2012 Peter Lekensteyn <lekensteyn@gmail.com>
 License: GPL-3.0+
 
 Files: debian/*
 Copyright: 2012 Peter Lekensteyn <lekensteyn@gmail.com>
+           2012 Bruno Pagani <bruno.n.pagani@gmail.com>
 License: GPL-3.0+
 
 License: GPL-3.0+
