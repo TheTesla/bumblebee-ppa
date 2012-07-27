@@ -4,6 +4,9 @@ Priority: optional
 Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
 Build-Depends: debhelper (>= 8)
 Standards-Version: 3.9.2
+Homepage: https://github.com/mkottman/acpi_call
+Vcs-Git: git://github.com/Bumblebee-Project/acpi_call.git
+Vcs-Browser: https://github.com/Bumblebee-Project/acpi_call
 
 Package: acpi-call-modules-_KVERS_
 Architecture: any
