@@ -5,6 +5,8 @@ Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
 Build-Depends: debhelper (>= 8.1.3~), autoconf (>= 2.56), automake (>= 1.7),
  libtool (>= 1.4), nasm (>= 2.01), gcc (>= 4.1)
 Standards-Version: 3.9.2
+Homepage: http://www.libjpeg-turbo.org/
+Vcs-Browser: http://libjpeg-turbo.svn.sourceforge.net/viewvc/libjpeg-turbo/
 
 Package: libjpeg-turbo
 Priority: optional
@@ -12,7 +14,6 @@ Architecture: i386 amd64
 Section: misc
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Homepage: http://www.libjpeg-turbo.org/
 Description: SIMD-accelerated JPEG codec providing libjpeg and TurboJPEG APIs
  libjpeg-turbo is a derivative of libjpeg which uses SIMD instructions (MMX,
  SSE2, etc.) to accelerate baseline JPEG compression and decompression on x86
