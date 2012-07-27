@@ -2,8 +2,8 @@ Source: bbswitch
 Section: kernel
 Priority: extra
 Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
-Build-Depends: debhelper (>= 8.0.0), dkms
-Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 8.1.0~), dkms
+Standards-Version: 3.9.1
 Homepage: https://github.com/Bumblebee-Project/bbswitch
 Vcs-Git: git://github.com/Bumblebee-Project/bbswitch.git
 Vcs-Browser: https://github.com/Bumblebee-Project/bbswitch
