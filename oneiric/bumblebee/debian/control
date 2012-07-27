@@ -11,6 +11,7 @@ Vcs-Browser: https://github.com/Bumblebee-Project/Bumblebee
 
 Package: bumblebee
 Architecture: i386 amd64
+Pre-Depends: dpkg (>= 1.15.7.2~)
 Depends: ${shlibs:Depends}, ${misc:Depends}, virtualgl, bbswitch-dkms
 Conflicts: ironhide
 Replaces: ironhide
