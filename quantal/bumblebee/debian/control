@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
 Build-Depends: debhelper (>= 9.0.0~), libbsd-dev (>= 0.2.0), pkg-config,
  libx11-dev, libglib2.0-dev, help2man
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: https://launchpad.net/~bumblebee
 Vcs-Git: git://github.com/Bumblebee-Project/Bumblebee.git
 Vcs-Browser: https://github.com/Bumblebee-Project/Bumblebee
