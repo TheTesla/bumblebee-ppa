@@ -1,19 +1,5 @@
-virtualgl (2.3.1-2~preciseppa1) precise; urgency=low
+virtualgl (2.3.1-2~quantalppa1) quantal; urgency=low
 
-  * debian/patches/004-fltk-fix-compiler-warnings.patch:
-    - Fix build error.
-  * Added virtualgl-libs-ia32 that installs the 32-bit multiarch package of
-    virtualgl-libs.
-  * Build against libjpeg-turbo in the official repositories.
-  * Link against shared TurboJPEG library to overcome a build failure.
-  * Add dependency on libturbojpeg to virtualgl-libs.
+  * Initial release for Quantal
 
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 30 Apr 2012 14:53:52 +0200
-
-virtualgl (2.3.1-1~oneiricppa4) oneiric; urgency=low
-
-  * Code snapshot, svn rev 4814:
-    - A lot code cleanup and reorganizing.
-    - Possibly fix for crashing SDL programs.
-
- -- Peter Lekensteyn <lekensteyn@gmail.com>  Mon, 20 Feb 2012 12:28:20 +0100
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Wed, 1 Aug 2012 18:48:18 +0200
