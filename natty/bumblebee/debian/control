@@ -28,9 +28,9 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, nvidia-current (>= 260.19.12~),
  bumblebee (= ${binary:Version})
 Description: nVidia Optimus support using the proprietary NVIDIA driver
- This package ensures that the proprietary NVIDIA driver is installed in a way
- such that 3D acceleration does not break. It does so by configuring the OpenGL
- library path to use the Mesa graphics library.
+ This metapackage ensures that the proprietary NVIDIA driver is installed in a
+ way such that 3D acceleration does not break. It does so by configuring the
+ OpenGL library path to use the Mesa graphics library.
 
 Package: bumblebee-dbg
 Priority: extra
