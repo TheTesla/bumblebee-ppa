@@ -1,1 +1,2 @@
 006-set-vgl-readback-pbo.patch
+007-nvidia-fallback-probe.patch

@@ -1,0 +1,23 @@
+diff --git a/src/driver.c b/src/driver.c
+index f57f894..3b342d5 100644
+--- a/src/driver.c
++++ b/src/driver.c
+@@ -65,6 +65,18 @@ void driver_detect(void) {
+     }
+   }
+ 
++  /* hack: probe for a driver if the configured driver does not work */
++  if (strcmp(bb_config.driver, "nvidia") == 0 &&
++      !module_is_available(bb_config.module_name)) {
++    if (module_is_available("nvidia")) {
++      set_string_value(&bb_config.module_name, "nvidia");
++    } else if (module_is_available("nvidia-current")) {
++      set_string_value(&bb_config.module_name, "nvidia-current");
++    } else if (module_is_available("nvidia-current-updates")) {
++      set_string_value(&bb_config.module_name, "nvidia-current-updates");
++    }
++  }
++
+   if (strcmp(bb_config.driver, "nvidia") == 0) {
+     set_string_value(&bb_config.ld_path, CONF_LDPATH_NVIDIA);
+     set_string_value(&bb_config.mod_path, CONF_MODPATH_NVIDIA);
