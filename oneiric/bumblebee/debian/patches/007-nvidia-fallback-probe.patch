@@ -1,8 +1,23 @@
 diff --git a/src/driver.c b/src/driver.c
-index f57f894..3b342d5 100644
+index f57f894..c0e4c95 100644
 --- a/src/driver.c
 +++ b/src/driver.c
-@@ -65,6 +65,18 @@ void driver_detect(void) {
+@@ -49,6 +49,14 @@ void driver_detect(void) {
+     set_string_value(&bb_config.module_name, CONF_DRIVER_MODULE_NVIDIA);
+     bb_log(LOG_DEBUG, "Detected nvidia driver (module %s)\n",
+             CONF_DRIVER_MODULE_NVIDIA);
++  } else if (module_is_available("nvidia")) {
++    set_string_value(&bb_config.driver, "nvidia");
++    set_string_value(&bb_config.module_name, "nvidia");
++    bb_log(LOG_DEBUG, "Detected nvidia driver (module nvidia)\n");
++  } else if (module_is_available("nvidia-current-updates")) {
++    set_string_value(&bb_config.driver, "nvidia");
++    set_string_value(&bb_config.module_name, "nvidia-current-updates");
++    bb_log(LOG_DEBUG, "Detected nvidia driver (module nvidia-current-updates)\n");
+   } else if (module_is_available("nouveau")) {
+     set_string_value(&bb_config.driver, "nouveau");
+     set_string_value(&bb_config.module_name, "nouveau");
+@@ -65,6 +73,18 @@ void driver_detect(void) {
      }
    }
  
