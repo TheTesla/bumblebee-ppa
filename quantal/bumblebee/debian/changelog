@@ -1,3 +1,23 @@
+bumblebee (3.0.1-2~quantalppa1) quantal; urgency=low
+  * debian/patches:
+    - add 007-nvidia-fallback-probe.patch: The KernelDriver name could either
+      be nvidia, nvidia-current or nvidia-current-updates, depending on where
+      you get it from (xorg-edgers, ubuntu-x-swat/x-updates), and which version
+      you have. We use nvidia-current as default because this is the most
+      common value, but as it may change, we try the other ones in case it
+      fails.
+  * updated buildscript in order to respect standards:
+    - Standards-Version set to 3.9.3
+    - compat set to 9
+    - debhelper dependency set to 9.0.0~
+    - updated copyright to 2012 and added myself to it
+    - removed useless prerm script
+    - removed useless call to ldconfig in bumblebee-nvidia
+    - set bumblebee-nvidia as a meta-package
+    - fixed lintian error with setting Pre-Depends on dpkg
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 16 Aug 2012 17:22:42 +0200
+
 bumblebee (3.0.1-1~quantalppa1) quantal; urgency=low
 
   * Initial release for Quantal
