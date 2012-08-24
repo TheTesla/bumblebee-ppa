@@ -16,6 +16,7 @@ case "$1" in
     # versions before Oneiric without multiarch
     update-alternatives --force --auto gl_conf 2>/dev/null || true
 
+    ldconfig
     ;;
   upgrade|failed-upgrade|abort-upgrade|disappear)
     ;;
