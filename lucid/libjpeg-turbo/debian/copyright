@@ -3,12 +3,14 @@ Upstream-Name: libjpeg-turbo
 Source: http://www.libjpeg-turbo.org/
 
 Files: *
-Copyright: 2012 dcommander <dcommander@users.sourceforge.net>
+Copyright: 1991-2010 Thomas G. Lane
+           1991-2010 Guido Vollbeding
+           2004-2012 dcommander <dcommander@users.sourceforge.net>
 License: LGPL-2.0
 
 Files: debian/*
-Copyright: 2012 Peter Lekensteyn <lekensteyn@gmail.com>
-           2012 Bruno Pagani <bruno.n.pagani@gmail.com>
+Copyright: 2011-2012 Peter Lekensteyn <lekensteyn@gmail.com>
+           2011-2012 Bruno Pagani <bruno.n.pagani@gmail.com>
 License: LGPL-2.0
 
 License: LGPL-2.0

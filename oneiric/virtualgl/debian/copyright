@@ -3,12 +3,12 @@ Upstream-Name: virtualgl
 Source: http://www.virtualgl.org/
 
 Files: *
-Copyright: 2012 dcommander <dcommander@users.sourceforge.net>
+Copyright: 2004-2012 dcommander <dcommander@users.sourceforge.net>
 License: LGPL-2.0
 
 Files: debian/*
-Copyright: 2012 Peter Lekensteyn <lekensteyn@gmail.com>
-           2012 Bruno Pagani <bruno.n.pagani@gmail.com>
+Copyright: 2011-2012 Peter Lekensteyn <lekensteyn@gmail.com>
+           2011-2012 Bruno Pagani <bruno.n.pagani@gmail.com>
 License: LGPL-2.0
 
 License: LGPL-2.0
