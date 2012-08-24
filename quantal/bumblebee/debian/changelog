@@ -1,3 +1,11 @@
+bumblebee (3.0.1-3~quantalppa1) quantal; urgency=low
+  * debian/patches:
+    - updated 007-nvidia-fallback-probe.patch: Also fix auto-detect.
+  * updated buildscript:
+    - re-added call to ldconfig in bumblebee-nvidia
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Fri, 24 Aug 2012 15:50:20 +0200
+
 bumblebee (3.0.1-2~quantalppa1) quantal; urgency=low
   * debian/patches:
     - add 007-nvidia-fallback-probe.patch: The KernelDriver name could either
