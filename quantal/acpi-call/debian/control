@@ -3,7 +3,7 @@ Section: kernel
 Priority: optional
 Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
 Build-Depends: debhelper (>= 9.0.0~), bzip2
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Homepage: https://github.com/mkottman/acpi_call
 Vcs-Git: git://github.com/Bumblebee-Project/acpi_call.git
 Vcs-Browser: https://github.com/Bumblebee-Project/acpi_call

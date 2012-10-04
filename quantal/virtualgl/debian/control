@@ -5,7 +5,7 @@ Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
 Build-Depends: debhelper (>= 9.0.0~), cmake (>= 2.8),
  libjpeg-turbo8-dev, libturbojpeg,
  libx11-dev, libxext-dev, libgl1-mesa-dev, libglu1-mesa-dev, libxv-dev
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Homepage: http://www.virtualgl.org/
 Vcs-Browser: http://virtualgl.svn.sourceforge.net/viewvc/virtualgl/vgl/
 
