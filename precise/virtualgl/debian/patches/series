@@ -1,4 +1,1 @@
-virtualgl-fix-windows-deletion.patch
-trunk-rev4814-sdl-fixes.patch
 remove-glxinfo.patch
-004-fltk-fix-compiler-warnings.patch
