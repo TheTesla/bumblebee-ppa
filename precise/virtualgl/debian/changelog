@@ -1,3 +1,23 @@
+virtualgl (2.3.2-1~preciseppa1) precise; urgency=low
+
+  * New upstream release.
+    - Removed patches trunk-rev4814-sdl-fixes.patch
+      virtualgl-fix-windows-deletion.patch and
+      004-fltk-fix-compiler-warnings.patch
+    - Advertise GLX_ARB_create_context_profile extension support
+    - Use a separate OpenGL context to perform pixel readback. This fix a lot
+      of issues, including "GL_ARB_pixel_buffer_object extension not available"
+      when trying to enable PBO readback with applications that use a 3.x or
+      later OpenGL core profile.
+    - glXUseXFont() has been extended to work with Pbuffers. VirtualGL would
+      previously abort with an error message if the 3D application attempted
+      to render text to a Pbuffer that it created.
+    - Previously, 3D applications running in VirtualGL could not successfully
+      use XGetImage() to obtain the rendered 3D pixels from a GLX pixmap. This
+      has been fixed.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Thu, 04 Oct 2012 15:47:00 +0200
+
 virtualgl (2.3.1-2~preciseppa1) precise; urgency=low
 
   * debian/patches/004-fltk-fix-compiler-warnings.patch:
