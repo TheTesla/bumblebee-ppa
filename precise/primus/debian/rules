@@ -9,7 +9,7 @@ export DH_OPTIONS
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 DEB_HOST_ARCH      ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
-PRIMUS_libGLa="'"'"/usr/lib/nvidia-current/libGL.so.1:/usr/lib32/nvidia-current/libGL.so.1"'"'"
+PRIMUS_libGLa=/usr/lib/nvidia-current/libGL.so.1:/usr/lib32/nvidia-current/libGL.so.1
 
 ifeq ($(DEB_HOST_ARCH), amd64)
     # Building for 64-bit
@@ -38,7 +38,7 @@ override_dh_install:
 
 override_dh_auto_build:
 	dh_auto_build -- LIBDIR=$(BUILD_LIBDIR) CXX=$(CXX) \
-	  PRIMUS_libGLd="'"'"/usr/lib/$$$$LIB/mesa/libGL.so.1"'"'" \
+	  PRIMUS_libGLd='/usr/lib/$$LIB/mesa/libGL.so.1' \
 	  PRIMUS_libGLa=$(PRIMUS_libGLa)
 
 override_dh_strip:
