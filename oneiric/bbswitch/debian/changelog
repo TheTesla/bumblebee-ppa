@@ -1,3 +1,11 @@
+bbswitch (0.5-1~oneiricppa1) oneiric; urgency=low
+
+  * New upstream release.
+    - Add support for Linux 3.6.
+    - Spam less to the kernel log; do not print DSM method call results.
+
+ -- Peter Wu <lekensteyn@gmail.com>  Fri, 02 Nov 2012 11:29:02 +0100
+
 bbswitch (0.4.2-2~oneiricppa1) oneiric; urgency=low
 
   * bbswitch version number rules changes
