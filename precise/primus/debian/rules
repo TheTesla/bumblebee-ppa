@@ -38,7 +38,7 @@ override_dh_install:
 
 override_dh_auto_build:
 	dh_auto_build -- LIBDIR=$(BUILD_LIBDIR) CXX=$(CXX) \
-	  PRIMUS_libGLd='/usr/lib/$$LIB/mesa/libGL.so.1' \
+	  PRIMUS_libGLd='/usr/lib/$$$$LIB/mesa/libGL.so.1' \
 	  PRIMUS_libGLa=$(PRIMUS_libGLa)
 
 override_dh_strip:

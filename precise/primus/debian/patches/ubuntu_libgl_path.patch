@@ -1,5 +1,5 @@
 diff --git a/primusrun b/primusrun
-index 0b349e5..4473a56 100755
+index 0b349e5..7eab78d 100755
 --- a/primusrun
 +++ b/primusrun
 @@ -13,17 +13,20 @@
@@ -7,7 +7,7 @@ index 0b349e5..4473a56 100755
  # "Accelerating" libGL
  # $LIB will be interpreted by the dynamic linker
 -# export PRIMUS_libGLa=${PRIMUS_libGLa:-'/usr/$LIB/nvidia-bumblebee/libGL.so.1'}
-+# export PRIMUS_libGLa=${PRIMUS_libGLa:-'/usr/lib/nvidia-current/libGL.so.1:/usr/lib32/nvidia-current/libGL.so.1'}
++export PRIMUS_libGLa=${PRIMUS_libGLa:-'/usr/lib/nvidia-current/libGL.so.1:/usr/lib32/nvidia-current/libGL.so.1'}
  
  # "Displaying" libGL
 -# export PRIMUS_libGLd=${PRIMUS_libGLd:-'/usr/$LIB/libGL.so.1'}
@@ -21,7 +21,7 @@ index 0b349e5..4473a56 100755
  # in default search paths.  Add its path manually after the primus library
 -# PRIMUS_libGL=${PRIMUS_libGL}:/usr/\$LIB/opengl/nvidia/lib
 +case $PRIMUS_libGLa in
-+/usr/lib*/nvidia-current*|'') # nvidia is used by default
++/usr/lib*/nvidia-current*)
 +PRIMUS_libGL=${PRIMUS_libGL}:${PRIMUS_libGLa///libGL.so.1}
 +;; esac
  
