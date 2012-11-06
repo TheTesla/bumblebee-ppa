@@ -3,7 +3,7 @@ Section: misc
 Priority: optional
 Maintainer: Alexander Monakov <amonakov@gmail.com>
 Uploaders: Dmitry Zhurikhin <zhurikhin@gmail.com>
-Build-Depends: debhelper (>= 8.0.0), mesa-common-dev
+Build-Depends: debhelper (>= 9.20120115), mesa-common-dev
 Standards-Version: 3.9.3
 Homepage: https://github.com/amonakov/primus
 Vcs-Git: git://github.com/amonakov/primus.git
