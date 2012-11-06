@@ -1,0 +1,51 @@
+diff --git a/src/bumblebeed.c b/src/bumblebeed.c
+index d9c3f26..3bcdc2b 100644
+--- a/src/bumblebeed.c
++++ b/src/bumblebeed.c
+@@ -48,6 +48,7 @@
+ #include "pci.h"
+ #include "driver.h"
+ #include "switch/switching.h"
++#include "module.h"
+ 
+ /**
+  * Change GID and umask of the daemon
+@@ -478,6 +479,19 @@ int main(int argc, char* argv[]) {
+     g_key_file_free(bbcfg);
+   }
+   bbconfig_parse_opts(argc, argv, PARSE_STAGE_OTHER);
++
++  /* hack: probe for a driver if the configured driver does not work */
++  if (strcmp(bb_config.driver, "nvidia") == 0 &&
++      !module_is_available(bb_config.module_name)) {
++    if (module_is_available("nvidia")) {
++      set_string_value(&bb_config.module_name, "nvidia");
++    } else if (module_is_available("nvidia-current")) {
++      set_string_value(&bb_config.module_name, "nvidia-current");
++    } else if (module_is_available("nvidia-current-updates")) {
++      set_string_value(&bb_config.module_name, "nvidia-current-updates");
++    }
++  }
++
+   check_pm_method();
+ 
+   /* dump the config after detecting the driver */
+diff --git a/src/driver.c b/src/driver.c
+index f57f894..5b2bc39 100644
+--- a/src/driver.c
++++ b/src/driver.c
+@@ -49,6 +49,14 @@ void driver_detect(void) {
+     set_string_value(&bb_config.module_name, CONF_DRIVER_MODULE_NVIDIA);
+     bb_log(LOG_DEBUG, "Detected nvidia driver (module %s)\n",
+             CONF_DRIVER_MODULE_NVIDIA);
++  } else if (module_is_available("nvidia")) {
++    set_string_value(&bb_config.driver, "nvidia");
++    set_string_value(&bb_config.module_name, "nvidia");
++    bb_log(LOG_DEBUG, "Detected nvidia driver (module nvidia)\n");
++  } else if (module_is_available("nvidia-current-updates")) {
++    set_string_value(&bb_config.driver, "nvidia");
++    set_string_value(&bb_config.module_name, "nvidia-current-updates");
++    bb_log(LOG_DEBUG, "Detected nvidia driver (module nvidia-current-updates)\n");
+   } else if (module_is_available("nouveau")) {
+     set_string_value(&bb_config.driver, "nouveau");
+     set_string_value(&bb_config.module_name, "nouveau");
