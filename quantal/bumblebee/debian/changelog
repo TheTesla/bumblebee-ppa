@@ -1,3 +1,11 @@
+bumblebee (3.0.1-3~quantalppa2) quantal; urgency=low
+
+  * debian/control:
+    - relaxed version dependency on nvidia-current to allow users to install
+      others parckages that provides it.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Wed, 5 Dec 2012 20:54:20 +0100
+
 bumblebee (3.0.1-3~quantalppa1) quantal; urgency=low
   * debian/patches:
     - updated 007-nvidia-fallback-probe.patch: Also fix auto-detect.

@@ -25,7 +25,7 @@ Description: nVidia Optimus support
 
 Package: bumblebee-nvidia
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, nvidia-current (>= 260.19.12~),
+Depends: ${shlibs:Depends}, ${misc:Depends}, nvidia-current,
  bumblebee (= ${binary:Version})
 Description: nVidia Optimus support using the proprietary NVIDIA driver
  This metapackage ensures that the proprietary NVIDIA driver is installed in a
