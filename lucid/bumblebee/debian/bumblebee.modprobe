@@ -15,3 +15,4 @@ blacklist nvidia-304
 blacklist nvidia-310
 blacklist nvidia-304-updates
 blacklist nvidia-310-updates
+blacklist nvidia-313
