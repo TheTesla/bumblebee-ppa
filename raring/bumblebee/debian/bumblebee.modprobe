@@ -7,3 +7,11 @@ blacklist nouveau
 blacklist nvidia
 blacklist nvidia-current
 blacklist nvidia-current-updates
+# new in precise
+blacklist nvidia-experimental-304
+blacklist nvidia-experimental-310
+# new in raring
+blacklist nvidia-304
+blacklist nvidia-310
+blacklist nvidia-304-updates
+blacklist nvidia-310-updates
