@@ -29,7 +29,10 @@ script
 		# it is possibly not installed. If no driver is installed (no
 		# /usr/lib/nvidia-*), assume that the auto-detection will use
 		# nouveau instead and do not override paths.
-		if [ ! -e "$libpath/libGL.so" -a -n "$pkgname" ]; then
+		if [ ! -e "$libpath/libGL.so" -a -n "$pkgname" ] &&
+			modprobe -nq "$pkgname"; then
+			# assume nvidia driver even if nouveau is already loaded
+			libopts="$libopts --driver nvidia"
 			libopts="$libopts --driver-module $pkgname"
 			libopts="$libopts --ldpath /usr/lib/$pkgname:/usr/lib32/$pkgname""
 			libopts="$libopts --module-path /usr/lib/$pkgname/xorg,/usr/lib/xorg/modules"
