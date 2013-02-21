@@ -23,13 +23,14 @@ script
 
 		# pick the first available nvidia installation (not necessary
 		# the latest, e.g. nvidia-current over nvidia-experimental-310)
-		pkgname=$(ls -1d /usr/lib/nvidia-*/libGL.so | cut -d/ -f4 | head -1)
+		pkgname=$(ls -1d /usr/lib/nvidia*/libGL.so | cut -d/ -f4 | head -1)
 
 		# When the default library path does not contain nvidia drivers,
 		# it is possibly not installed. If no driver is installed (no
 		# /usr/lib/nvidia-*), assume that the auto-detection will use
 		# nouveau instead and do not override paths.
 		if [ ! -e "$libpath/libGL.so" -a -n "$pkgname" ]; then
+			libopts="$libopts --driver-module $pkgname"
 			libopts="$libopts --ldpath /usr/lib/$pkgname:/usr/lib32/$pkgname""
 			libopts="$libopts --module-path /usr/lib/$pkgname/xorg,/usr/lib/xorg/modules"
 		fi
