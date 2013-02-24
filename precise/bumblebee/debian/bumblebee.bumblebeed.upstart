@@ -29,7 +29,7 @@ script
 		# it is possibly not installed. If no driver is installed (no
 		# /usr/lib/nvidia-*), assume that the auto-detection will use
 		# nouveau instead and do not override paths.
-		if [ ! -e "$libpath/libGL.so" -a -n "$pkgname" ] &&
+		if [ ! -e "$libpath/libGL.so" -a -n "$pkgname" ] && \
 			modprobe -nq "$pkgname"; then
 			# assume nvidia driver even if nouveau is already loaded
 			libopts="$libopts --driver nvidia"
@@ -40,5 +40,5 @@ script
 	fi
 
 	# don't use --daemon as Upstart gets confused by that.
-	exec '/usr/local/sbin/bumblebeed' --use-syslog $libopts
+	exec '/usr/sbin/bumblebeed' --use-syslog $libopts
 end script
