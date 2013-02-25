@@ -1,3 +1,9 @@
+primus (20130225-1~quantalppa2) quantal; urgency=low
+
+  * Bump version number for Launchpad
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 25 Feb 2013 20:21:22 +0100
+
 primus (20130225-1~quantalppa1) quantal; urgency=low
 
   * Initial release
