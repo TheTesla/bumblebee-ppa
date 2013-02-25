@@ -1,4 +1,4 @@
-bumblebee (3.1-1~raringppa2) raring; urgency=low
+bumblebee (3.1-2~raringppa1) raring; urgency=low
 
   * debian/patches
     008-primus-libs-fix: under raring, $LIB expand to lib/arch/, not just arch/.
