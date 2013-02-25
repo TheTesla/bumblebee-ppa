@@ -1,3 +1,10 @@
+bumblebee (3.1-1~raringppa2) raring; urgency=low
+
+  * debian/patches
+    008-primus-libs-fix: under raring, $LIB expand to lib/arch/, not just arch/.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 25 Feb 2013 20:02:53 +0100
+
 bumblebee (3.1-1~raringppa1) raring; urgency=low
 
   * New upstream release
