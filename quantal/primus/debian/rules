@@ -31,9 +31,9 @@ override_dh_auto_clean:
 
 override_dh_install:
 	# Make all the paths explicitly
-	mkdir -p debian/primus/usr/bin/ debian/primus-lib/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
+	mkdir -p debian/primus/usr/bin/ debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
 	cp primusrun debian/primus/usr/bin/
-	cp -r $(BUILD_LIBDIR)/* debian/primus-lib/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
+	cp -r $(BUILD_LIBDIR)/* debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
 	dh_install
 
 override_dh_auto_build:
@@ -42,4 +42,4 @@ override_dh_auto_build:
 	  PRIMUS_libGLa=$(PRIMUS_libGLa)
 
 override_dh_strip:
-	dh_strip --dbg-package=primus-lib-dbg
+	dh_strip --dbg-package=primus-libs-dbg
