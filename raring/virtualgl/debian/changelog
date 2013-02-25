@@ -1,0 +1,5 @@
+virtualgl (2.3.2-1~raringppa1) raring; urgency=low
+
+  * Initial release for Quantal
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 6 Nov 2012 21:44:06 +0100

@@ -20,7 +20,7 @@ override_dh_auto_install:
 		debian/bumblebee/usr/share/bumblebee/default-conf/
 
 override_dh_install:
-	cp scripts/upstart/bumblebeed.conf debian/bumblebee.bumblebeed.upstart
+	#cp scripts/upstart/bumblebeed.conf debian/bumblebee.bumblebeed.upstart
 	dh_install
 
 override_dh_installinit:

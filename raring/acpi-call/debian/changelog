@@ -1,0 +1,5 @@
+acpi-call (1.1.1-1~raringppa1) raring; urgency=low
+
+  * Initial release for Raring
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 6 Nov 2012 21:39:49 +0100

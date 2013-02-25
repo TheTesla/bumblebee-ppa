@@ -4,7 +4,7 @@
 # Author : Lekensteyn <lekensteyn@gmail.com>
 # License: GPLv3+
 
-DISTS=(lucid natty oneiric precise quantal)
+DISTS=(lucid oneiric precise quantal raring)
 
 cd "$(dirname "$(dirname "$(readlink -f "$0")")")"
 distsdir="$PWD"

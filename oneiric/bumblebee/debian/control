@@ -16,6 +16,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, virtualgl, bbswitch-dkms
 Conflicts: ironhide
 Replaces: ironhide
 Recommends: bumblebee-nvidia (= ${binary:Version}), virtualgl-libs-ia32 [amd64]
+Suggests: primus
 Description: nVidia Optimus support
  Bumblebee aims to provide support for nVidia Optimus laptops. These laptops
  are built in such a way that the nVidia graphics card can usually not be used.
@@ -25,7 +26,7 @@ Description: nVidia Optimus support
 
 Package: bumblebee-nvidia
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, nvidia-current (>= 260.19.12~),
+Depends: ${shlibs:Depends}, ${misc:Depends}, nvidia-current,
  bumblebee (= ${binary:Version})
 Description: nVidia Optimus support using the proprietary NVIDIA driver
  This metapackage ensures that the proprietary NVIDIA driver is installed in a
