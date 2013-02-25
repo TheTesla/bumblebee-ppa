@@ -1,5 +1,6 @@
 primus (20130225-1~preciseppa1) precise; urgency=low
 
   * Initial release
+    - Based on upstream 31108a29db
 
- -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 25 Feb 2013 19:37:35 +0100
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 25 Feb 2013 20:12:30 +0100
