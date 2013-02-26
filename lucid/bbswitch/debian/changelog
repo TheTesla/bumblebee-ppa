@@ -1,3 +1,10 @@
+bbswitch (0.5-2~lucidppa1) lucid; urgency=low
+
+  * patches/pr-warn-compatibility.patch:
+    - Fix module build failure because of ancient kernel.
+
+ -- Peter Wu <lekensteyn@gmail.com>  Tue, 26 Feb 2013 20:38:18 +0100
+
 bbswitch (0.5-1~lucidppa1) lucid; urgency=low
 
   * New upstream release.
