@@ -1,7 +1,16 @@
+bumblebee (3.1-2~raringppa2) raring; urgency=low
+
+  * Ubuntu changes:
+    - support for all exisisting flavors of nvidia driver under Raring
+  * debian/*:
+    - minor cleaning
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sun, 10 Mar 2013 20:30:40 +0100
+
 bumblebee (3.1-2~raringppa1) raring; urgency=low
 
   * debian/patches
-    008-primus-libs-fix: under raring, $LIB expand to lib/arch/, not just arch/.
+     008-primus-libs-fix: under raring, $LIB expand to lib/arch/, not just arch/.
 
  -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 25 Feb 2013 20:02:53 +0100
 
