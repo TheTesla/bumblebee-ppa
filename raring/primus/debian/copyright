@@ -1,10 +1,10 @@
-Format: http://dep.debian.net/deps/dep5
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: primus
 Source: https://github.com/amonakov/primus
 
 Files: *
 Copyright: 2012 Alexander Monakov <amonakov@gmail.com> 
-License: 
+License: ISC
  Permission to use, copy, modify, and/or distribute this software for any
  purpose with or without fee is hereby granted, provided that the above
  copyright notice and this permission notice appear in all copies.
