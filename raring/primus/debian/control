@@ -11,7 +11,7 @@ Vcs-Git: git://github.com/amonakov/primus.git
 Vcs-Browser: https://github.com/amonakov/primus
 
 Package: primus
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee,
  primus-libs (= ${binary:Version})
 Description: nVidia Optimus support through offloading via GLX forking
