@@ -4,7 +4,7 @@ Uploaders: Bruno Pagani <bruno.n.pagani@gmail.com>,
  Dmitry Zhurikhin <zhurikhin@gmail.com>
 Section: misc
 Priority: optional
-Build-Depends: debhelper (>= 9.20120909), mesa-common-dev
+Build-Depends: debhelper (>= 9), mesa-common-dev
 Standards-Version: 3.9.4
 Homepage: https://github.com/amonakov/primus
 Vcs-Git: git://github.com/amonakov/primus.git
