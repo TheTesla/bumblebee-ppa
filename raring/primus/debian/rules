@@ -20,7 +20,7 @@ else
 endif
 
 %:
-	dh $@
+	dh $@ --with bash-completion
 
 # Where to put the resulting library during build
 BUILD_LIBDIR ?= lib
