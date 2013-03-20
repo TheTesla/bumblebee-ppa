@@ -1,9 +1,9 @@
 Source: primus
+Section: utils
+Priority: optional
 Maintainer: The Bumblebee Project <bumblebee@lists.launchpad.net>
 Uploaders: Bruno Pagani <bruno.n.pagani@gmail.com>,
  Dmitry Zhurikhin <zhurikhin@gmail.com>
-Section: misc
-Priority: optional
 Build-Depends: debhelper (>= 9), mesa-common-dev
 Standards-Version: 3.9.4
 Homepage: https://github.com/amonakov/primus
