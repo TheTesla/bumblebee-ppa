@@ -15,15 +15,20 @@ else
 	PRIMUS_libGLd=/usr/lib/$(DEB_HOST_MULTIARCH)/libGL.so.1
 endif
 
-%:
-	dh $@ --with bash-completion
-
 # Where to put the resulting library during build
 BUILD_LIBDIR ?= lib
 
-override_dh_auto_clean:
+%:
+	dh $@ --with bash-completion
+
+override_dh_clean:
 	rm -rf $(BUILD_LIBDIR)
-	dh_auto_clean
+	dh_clean
+
+override_dh_auto_build:
+	dh_auto_build -- LIBDIR=$(BUILD_LIBDIR) \
+	    PRIMUS_libGLd=$(PRIMUS_libGLd) \
+	    PRIMUS_libGLa=$(PRIMUS_libGLa)
 
 override_dh_install:
 	# Make all the paths explicitly
@@ -31,11 +36,6 @@ override_dh_install:
 	cp primusrun debian/primus/usr/bin/
 	cp -r $(BUILD_LIBDIR)/* debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
 	dh_install
-
-override_dh_auto_build:
-	dh_auto_build -- LIBDIR=$(BUILD_LIBDIR) CXX=$(CXX) \
-	  PRIMUS_libGLd='/usr/$$$$LIB/mesa/libGL.so.1' \
-	  PRIMUS_libGLa=$(PRIMUS_libGLa)
 
 override_dh_strip:
 	dh_strip --dbg-package=primus-libs-dbg
