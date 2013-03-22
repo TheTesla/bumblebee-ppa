@@ -26,3 +26,5 @@ override_dh_auto_install:
 	dh_install -p$(pkgname) Makefile usr/src/$(name)-$(version)
 	dh_install -p$(pkgname) bbswitch.c usr/src/$(name)-$(version)
 
+override_dh_installchangelogs:
+	dh_installchangelogs NEWS
