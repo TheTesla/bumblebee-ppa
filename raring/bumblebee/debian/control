@@ -13,8 +13,8 @@ Vcs-Browser: https://github.com/Bumblebee-Project/Bumblebee
 
 Package: bumblebee
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, virtualgl, bbswitch-dkms
-Recommends: bumblebee-nvidia (= ${binary:Version}), virtualgl-libs-ia32 [amd64]
+Depends: ${shlibs:Depends}, ${misc:Depends}, bbswitch-dkms
+Recommends: bumblebee-nvidia (= ${binary:Version}), virtualgl | primus, virtualgl-libs-ia32 [amd64] | primus-libs-ia32 [amd64]
 Suggests: primus
 Description: NVIDIA Optimus support
  Bumblebee aims to provide support for NVIDIA Optimus laptops. These laptops
