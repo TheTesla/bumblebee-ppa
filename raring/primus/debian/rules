@@ -8,7 +8,7 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 # Ubuntu and Debian's packaging of nvidia's proprietary driver differ greatly
 ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
-	PRIMUS_libGLa=/usr/lib/nvidia-current/libGL.so.1:/usr/lib32/nvidia-current/libGL.so.1
+	PRIMUS_libGLa=/usr/lib/nvidia-304/libGL.so.1:/usr/lib32/nvidia-304/libGL.so.1
 	PRIMUS_libGLd=/usr/lib/$(DEB_HOST_MULTIARCH)/mesa/libGL.so.1
 else
 	PRIMUS_libGLa=/usr/lib/$(DEB_HOST_MULTIARCH)/nvidia/libGL.so.1
