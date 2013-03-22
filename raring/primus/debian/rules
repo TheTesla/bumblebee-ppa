@@ -32,8 +32,9 @@ override_dh_auto_build:
 
 override_dh_install:
 	# Make all the paths explicitly
-	mkdir -p debian/primus/usr/bin/ debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
-	cp primusrun debian/primus/usr/bin/
+	mkdir -p debian/primus/usr/bin/ debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/ debian/primus/usr/share/primus/
+	install -m 755 debian/scripts/primusrun-nouveau debian/primus/usr/share/primus/
+	install -m 755 debian/scripts/primusrun-nvidia debian/primus/usr/share/primus/
 	cp -r $(BUILD_LIBDIR)/* debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
 	dh_install
 
