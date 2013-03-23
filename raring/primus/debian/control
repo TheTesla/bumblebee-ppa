@@ -14,6 +14,7 @@ Package: primus
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee,
  primus-libs (= ${binary:Version})
+Recommends: primus-libs-ia32 [amd64]
 Suggests: primus-nvidia
 Description: nVidia Optimus support through offloading via GLX forking
  Primus is a shared library that provides OpenGL and GLX APIs and implements
