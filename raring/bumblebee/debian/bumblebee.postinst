@@ -14,12 +14,6 @@ USE_GROUPS='adm sudo admin'
 
 case "$1" in
   configure)
-    for file in bumblebee.conf xorg.conf.nvidia xorg.conf.nouveau; do
-        if [ ! -f /etc/bumblebee/$file ]; then
-            cp -p /usr/share/bumblebee/default-conf/$file /etc/bumblebee/
-        fi
-    done
-
     # only add a group and members if the configured group does match the
     # default group and if the group is missing
     if grep -qx ServerGroup=$BB_GROUP /etc/bumblebee/bumblebee.conf &&

@@ -9,6 +9,7 @@ set -e
 case "$1" in
   purge)
     groupdel bumblebee || true
+    # keep this as old versions did not mark these files as conffiles
     for file in bumblebee.conf xorg.conf.nvidia xorg.conf.nouveau; do
         rm -f /etc/bumblebee/$file
     done

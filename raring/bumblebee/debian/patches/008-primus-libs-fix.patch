@@ -1,3 +1,9 @@
+Description: Fix primus $LIB expanding
+ In Ubuntu Raring, $LIB expand to lib/arch/, not just arch/.
+Origin: upstream, https://github.com/Bumblebee-Project/bumblebee-ppa/commit/7f6dabbc2beb2447b67db1ac46e1fea85a26650b
+Author: Bruno Pagani <bruno.n.pagani@gmail.com>
+Last-Update: 2013-02-25
+
 --- a/src/optirun.c
 +++ b/src/optirun.c
 @@ -186,7 +186,7 @@ static int run_primus(int argc, char **argv) {

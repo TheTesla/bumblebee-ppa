@@ -7,15 +7,30 @@ set -e
 
 case "$1" in
   configure)
-    # Repair GL on the intel display
-    for arch in x86_64-linux-gnu i386-linux-gnu; do
-        update-alternatives --force --set \
-            ${arch}_gl_conf /usr/lib/$arch/mesa/ld.so.conf 2>/dev/null || true
-    done
+  # Ubuntu and Debian's packaging of nvidia's proprietary driver differ greatly
+  # Also, do not rely solely on dpkg-vendor (see LP: #1061769)
+    if (which dpkg-vendor >/dev/null && dpkg-vendor --derives-from Ubuntu) || \
+      [ -e /etc/dpkg/origins/ubuntu ]; then
 
-    # versions before Oneiric without multiarch
-    update-alternatives --force --set \
+      # == Ubuntu specific section ==
+      # Repair GL on the intel display
+      for arch in x86_64-linux-gnu i386-linux-gnu; do
+        update-alternatives --force --set \
+          ${arch}_gl_conf /usr/lib/$arch/mesa/ld.so.conf 2>/dev/null || true
+      done
+
+      # versions before Oneiric without multiarch
+      update-alternatives --force --set \
         gl_conf /usr/lib/mesa/ld.so.conf 2>/dev/null || true
+
+    else
+
+      # == Debian specific section ==
+      # Repair GL on the intel display
+      update-alternatives --force --set \
+        glx /usr/lib/mesa-diverted 2>/dev/null || true
+
+    fi
 
     ldconfig
     # this has a chance of crashing the machine with mainline kernels...
