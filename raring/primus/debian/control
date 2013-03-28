@@ -16,7 +16,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee,
  primus-libs (= ${binary:Version})
 Recommends: primus-libs-ia32 [amd64]
 Suggests: primus-nvidia
-Description: nVidia Optimus support through offloading via GLX forking
+Description: client-side GPU offloading for NVIDIA Optimus
  Primus is a shared library that provides OpenGL and GLX APIs and implements
  low-overhead local-only client-side OpenGL offloading via GLX forking,
  similar to VirtualGL. It intercepts GLX calls and redirects GL rendering to a
@@ -25,24 +25,17 @@ Description: nVidia Optimus support through offloading via GLX forking
  supposed to be rendered on in the first place.
  .
  Basically primus gives better performance than virtualgl as bumblebee back-end.
+ .
+ Primus is currently intended to be used alongside Bumblebee and provides a
+ drop-in replacement for optirun (i.e. "primusrun").
 
 Package: primus-nvidia
 Section: contrib/utils
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee-nvidia,
  primus-libs (>= ${source:Version}), primus (>= ${binary:Version})
-Description: client-side GPU offloading for NVIDIA Optimus (proprietary NVIDIA)
- Primus is a shared library that provides OpenGL and GLX APIs and implements
- low-overhead local-only client-side OpenGL offloading via GLX forking,
- similar to VirtualGL. It intercepts GLX calls and redirects GL rendering
- to a secondary X display, presumably driven by a faster GPU. On swapping
- buffers, rendered contents are read back using a PBO and copied onto
- the drawable it was supposed to be rendered on in the first place.
- .
- Primus is currently intended to be used alongside Bumblebee and provides a
- drop-in replacement for optirun (i.e. "primusrun").
- .
- This package implements GPU offloading using the proprietary "nvidia" driver.
+Description: client-side GPU offloading for Bumblebee (proprietary NVIDIA)
+ This metapackage sets primusrun to use the proprietary NVIDIA driver.
 
 Package: primus-libs
 Architecture: i386 amd64
@@ -69,4 +62,4 @@ Description: Shared libraries for primus - debugging symbols
  This package contains the libraries for primus which are loaded when running
  primusrun.
  .
- This package contains the debugging symbols for virtualgl-libs.
+ This package contains the debugging symbols for primus-libs.

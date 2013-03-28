@@ -1,2 +1,0 @@
-# Intentional; primus-nvidia's purpose is to bump priority of primusrun-nvidia
-primus-nvidia: empty-binary-package
