@@ -1,3 +1,16 @@
+bbswitch (0.6-1~preciseppa1) precise; urgency=low
+
+  * New upstream release
+    - Add workaround for Linux 3.8 regression (not present in earlier or latter
+      versions) that prevented the video card from turned off unless a driver
+      was loaded before.
+    - Compatibility with grsec patches.
+    - Add 'skip_optimus_dsm' module option so users of Lenovo T410s can use
+      bbswitch by setting this option to true.
+    - Clarify license (GPLv3).
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Fri, 29 Mar 2013 00:41:46 +0100
+
 bbswitch (0.5-1~preciseppa1) precise; urgency=low
 
   * New upstream release.

@@ -1,16 +1,19 @@
 Source: bbswitch
 Section: kernel
 Priority: extra
-Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
-Build-Depends: debhelper (>= 9.20120608), dkms
+Maintainer: The Bumblebee Project <bumblebee@lists.launchpad.net>
+Uploaders: Peter Lekensteyn <lekensteyn@gmail.com>,
+ Bruno Pagani <bruno.n.pagani@gmail.com>
+Build-Depends: debhelper (>= 9), dkms
 Standards-Version: 3.9.4
 Homepage: https://github.com/Bumblebee-Project/bbswitch
-Vcs-Git: git://github.com/Bumblebee-Project/bbswitch.git
 Vcs-Browser: https://github.com/Bumblebee-Project/bbswitch
+Vcs-Git: git://github.com/Bumblebee-Project/bbswitch.git
 
 Package: bbswitch-dkms
 Architecture: all
 Depends: ${misc:Depends}, dkms
+Suggests: bumblebee
 Description: Interface for toggling the power on nVidia Optimus video cards
  bbswitch is a kernel module which automatically detects the required ACPI
  calls for two kinds of Optimus laptops. It has been verified to work with

@@ -1,7 +1,1 @@
-PACKAGE_NAME="bbswitch"
-PACKAGE_VERSION="#MODULE_VERSION#"
-CLEAN="make clean"
-MAKE[0]="make KVERSION=$kernelver"
-BUILT_MODULE_NAME[0]="bbswitch"
-DEST_MODULE_LOCATION[0]="/kernel/drivers/acpi"
-AUTOINSTALL="yes"
+dkms/dkms.conf
