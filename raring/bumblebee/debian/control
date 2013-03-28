@@ -23,6 +23,7 @@ Description: NVIDIA Optimus support
  the bbswitch kernel module. Supported drivers are nvidia and nouveau.
 
 Package: bumblebee-nvidia
+Section: contrib/utils
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee (= ${binary:Version}),
  nvidia-glx | nvidia-304 | nvidia-304-updates | nvidia-experimental-304 |
