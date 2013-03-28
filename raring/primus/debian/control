@@ -34,7 +34,7 @@ Section: contrib/utils
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee-nvidia,
  primus-libs (>= ${source:Version}), primus (>= ${binary:Version})
-Description: client-side GPU offloading for Bumblebee (proprietary NVIDIA)
+Description: client-side GPU offloading for Bumblebee (proprietary NVIDIA driver)
  This metapackage sets primusrun to use the proprietary NVIDIA driver.
 
 Package: primus-libs
