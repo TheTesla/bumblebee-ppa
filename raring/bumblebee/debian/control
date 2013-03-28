@@ -1,6 +1,6 @@
 Source: bumblebee
 Section: utils
-Priority: optional
+Priority: extra
 Maintainer: The Bumblebee Project <bumblebee@lists.launchpad.net>
 Uploaders: Peter Lekensteyn <lekensteyn@gmail.com>,
  Bruno Pagani <bruno.n.pagani@gmail.com>
@@ -8,14 +8,13 @@ Build-Depends: debhelper (>= 9), libbsd-dev (>= 0.2.0), pkg-config,
  libx11-dev, libglib2.0-dev, help2man
 Standards-Version: 3.9.4
 Homepage: https://launchpad.net/~bumblebee
-Vcs-Git: git://github.com/Bumblebee-Project/Bumblebee.git
 Vcs-Browser: https://github.com/Bumblebee-Project/Bumblebee
+Vcs-Git: git://github.com/Bumblebee-Project/Bumblebee.git
 
 Package: bumblebee
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}, bbswitch-dkms, virtualgl | primus
 Recommends: bumblebee-nvidia (= ${binary:Version})
-Suggests: primus
 Description: NVIDIA Optimus support
  Bumblebee aims to provide support for NVIDIA Optimus laptops. These laptops
  are built in such a way that the NVIDIA graphics card can usually not be used.
@@ -37,7 +36,6 @@ Description: NVIDIA Optimus support using the proprietary NVIDIA driver
 Package: bumblebee-dbg
 Architecture: i386 amd64
 Section: debug
-Priority: extra
 Depends: ${misc:Depends}, bumblebee (= ${binary:Version})
 Description: NVIDIA Optimus support - debugging symbols
  This package contains the debugging symbols for bumblebee.

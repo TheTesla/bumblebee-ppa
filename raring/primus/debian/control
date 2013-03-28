@@ -1,14 +1,14 @@
 Source: primus
 Section: utils
-Priority: optional
+Priority: extra
 Maintainer: The Bumblebee Project <bumblebee@lists.launchpad.net>
 Uploaders: Bruno Pagani <bruno.n.pagani@gmail.com>,
  Dmitry Zhurikhin <zhurikhin@gmail.com>
 Build-Depends: debhelper (>= 9), mesa-common-dev
 Standards-Version: 3.9.4
 Homepage: https://github.com/amonakov/primus
-Vcs-Git: git://github.com/amonakov/primus.git
 Vcs-Browser: https://github.com/amonakov/primus
+Vcs-Git: git://github.com/amonakov/primus.git
 
 Package: primus
 Architecture: all
@@ -63,7 +63,6 @@ Description: Shared libraries for primus (32-bit)
 Package: primus-libs-dbg
 Architecture: i386 amd64
 Section: debug
-Priority: extra
 Depends: primus-libs (=${binary:Version}), ${misc:Depends}
 Multi-Arch: same
 Description: Shared libraries for primus - debugging symbols

@@ -1,18 +1,18 @@
 Source: virtualgl
-Section: misc
-Priority: optional
-Maintainer: Peter Lekensteyn <lekensteyn@gmail.com>
-Build-Depends: debhelper (>= 9.20120608), cmake (>= 2.8),
- libjpeg-turbo8-dev, libturbojpeg,
- libx11-dev, libxext-dev, libgl1-mesa-dev, libglu1-mesa-dev, libxv-dev
+Section: utils
+Priority: extra
+Maintainer: The Bumblebee Project <bumblebee@lists.launchpad.net>
+Uploaders: Peter Lekensteyn <lekensteyn@gmail.com>,
+ Bruno Pagani <bruno.n.pagani@gmail.com>
+Build-Depends: debhelper (>= 9), cmake (>= 2.8), libjpeg-turbo8-dev,
+ libturbojpeg, libx11-dev, libxext-dev, libgl1-mesa-dev, libglu1-mesa-dev,
+ libxv-dev
 Standards-Version: 3.9.4
 Homepage: http://www.virtualgl.org/
 Vcs-Browser: http://virtualgl.svn.sourceforge.net/viewvc/virtualgl/vgl/
 
 Package: virtualgl
-Priority: optional
 Architecture: i386 amd64
-Section: misc
 Depends: ${shlibs:Depends}, ${misc:Depends}, virtualgl-libs
 Recommends: virtualgl-libs-ia32 [amd64]
 Description: Toolkit for displaying OpenGL applications to thin clients
@@ -45,30 +45,23 @@ Description: Toolkit for displaying OpenGL applications to thin clients
  Ertl 2000.)
 
 Package: virtualgl-libs
-Priority: optional
 Architecture: i386 amd64
-Section: misc
-Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, libturbojpeg
-Homepage: http://www.virtualgl.org/
+Multi-Arch: same
 Description: Library files for virtualgl
  This package contains the libraries for virtualgl which are loaded when
  running vglrun.
-Multi-Arch: same
 
 Package: virtualgl-libs-ia32
-Priority: optional
 Architecture: i386
-Section: misc
 Pre-Depends: ${misc:Pre-Depends}
 Depends: virtualgl-libs
+Multi-Arch: foreign
 Description: Library files for virtualgl (32-bit)
  This package depends on 32-bit libraries for virtualgl. It can safely be
  removed after installation.
-Multi-Arch: foreign
 
 Package: virtualgl-dbg
-Priority: extra
 Architecture: i386 amd64
 Section: debug
 Depends: virtualgl (=${binary:Version}), ${misc:Depends}
@@ -81,13 +74,12 @@ Description: Toolkit for displaying OpenGL applications to thin clients - debug 
  This package contains the debugging symbols for virtualgl.
 
 Package: virtualgl-libs-dbg
-Priority: extra
 Architecture: i386 amd64
 Section: debug
 Depends: virtualgl-libs (=${binary:Version}), ${misc:Depends}
+Multi-Arch: same
 Description: Library files for virtualgl - debugging symbols
  This package contains the libraries for virtualgl which are loaded when
  running vglrun.
  .
  This package contains the debugging symbols for virtualgl-libs.
-Multi-Arch: same
