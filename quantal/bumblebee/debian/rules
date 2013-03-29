@@ -8,20 +8,21 @@
 	dh $@ 
 
 override_dh_auto_configure:
+# Ubuntu and Debian's packaging of nvidia's proprietary driver differ greatly
+ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
 	dh_auto_configure -- \
 		CONF_DRIVER_MODULE_NVIDIA=nvidia-current \
 		CONF_LDPATH_NVIDIA=/usr/lib/nvidia-current:/usr/lib32/nvidia-current \
 		CONF_MODPATH_NVIDIA=/usr/lib/nvidia-current/xorg,/usr/lib/xorg/modules
+else
+	dh_auto_configure -- \
+		CONF_DRIVER_MODULE_NVIDIA=nvidia \
+		CONF_LDPATH_NVIDIA=/usr/lib/x86_64-linux-gnu/nvidia:/usr/lib/i386-linux-gnu/nvidia:/usr/lib/nvidia \
+		CONF_MODPATH_NVIDIA=/usr/lib/nvidia,/usr/lib/xorg/modules
+endif
 
 override_dh_auto_install:
 	dh_auto_install --destdir=debian/bumblebee/
-	dh_installdirs usr/share/bumblebee/default-conf
-	mv debian/bumblebee/etc/bumblebee/* \
-		debian/bumblebee/usr/share/bumblebee/default-conf/
-
-override_dh_install:
-	#cp scripts/upstart/bumblebeed.conf debian/bumblebee.bumblebeed.upstart
-	dh_install
 
 override_dh_installinit:
 	dh_installinit --name=bumblebeed
