@@ -8,7 +8,18 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 # Ubuntu and Debian's packaging of nvidia's proprietary driver differ greatly
 ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
-	PRIMUS_libGLa=/usr/lib/nvidia-304/libGL.so.1:/usr/lib32/nvidia-304/libGL.so.1
+	PRIMUS_libGLa=/usr/lib/nvidia-current/libGL.so.1:/usr/lib32/nvidia-current/libGL.so.1\
+:/usr/lib/nvidia/libGL.so.1:/usr/lib32/nvidia/libGL.so.1\
+:/usr/lib/nvidia-current-updates/libGL.so.1:/usr/lib32/nvidia-current-updates/libGL.so.1\
+:/usr/lib/nvidia-304/libGL.so.1:/usr/lib32/nvidia-304/libGL.so.1\
+:/usr/lib/nvidia-304-updates/libGL.so.1:/usr/lib32/nvidia-304-updates/libGL.so.1\
+:/usr/lib/nvidia-experimental-304/libGL.so.1:/usr/lib32/nvidia-experimental-304/libGL.so.1\
+:/usr/lib/nvidia-310/libGL.so.1:/usr/lib32/nvidia-310/libGL.so.1\
+:/usr/lib/nvidia-310-updates/libGL.so.1:/usr/lib32/nvidia-310-updates/libGL.so.1\
+:/usr/lib/nvidia-experimental-310/libGL.so.1:/usr/lib32/nvidia-experimental-310/libGL.so.1\
+:/usr/lib/nvidia-313/libGL.so.1:/usr/lib32/nvidia-313/libGL.so.1\
+:/usr/lib/nvidia-313-updates/libGL.so.1:/usr/lib32/nvidia-313-updates/libGL.so.1\
+:/usr/lib/nvidia-experimental-313/libGL.so.1:/usr/lib32/nvidia-experimental-313/libGL.so.1
 	PRIMUS_libGLd=/usr/lib/$(DEB_HOST_MULTIARCH)/mesa/libGL.so.1
 else
 	PRIMUS_libGLa=/usr/lib/$(DEB_HOST_MULTIARCH)/nvidia/libGL.so.1
