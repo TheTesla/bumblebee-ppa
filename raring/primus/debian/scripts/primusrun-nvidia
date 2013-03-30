@@ -16,7 +16,7 @@
 if (which dpkg-vendor >/dev/null && dpkg-vendor --derives-from Ubuntu) || \
     [ -e /etc/dpkg/origins/ubuntu ]; then
     # Ubuntu
-    export PRIMUS_libGLa=${PRIMUS_libGLa:-'/usr/lib/nvidia-current/libGL.so.1:/usr/lib32/nvidia-current/libGL.so.1'}
+    export PRIMUS_libGLa=${PRIMUS_libGLa:-'/usr/lib/nvidia-current/libGL.so.1:/usr/lib32/nvidia-current/libGL.so.1:/usr/lib/nvidia-current-updates/libGL.so.1:/usr/lib32/nvidia-current-updates/libGL.so.1:/usr/lib/nvidia/libGL.so.1:/usr/lib32/nvidia/libGL.so.1:/usr/lib/nvidia-304/libGL.so.1:/usr/lib32/nvidia-304/libGL.so.1:/usr/lib/nvidia-304-updates/libGL.so.1:/usr/lib32/nvidia-304-updates/libGL.so.1:/usr/lib/nvidia-experimental-304/libGL.so.1:/usr/lib32/nvidia-experimental-304/libGL.so.1:/usr/lib/nvidia-310/libGL.so.1:/usr/lib32/nvidia-310/libGL.so.1:/usr/lib/nvidia-310-updates/libGL.so.1:/usr/lib32/nvidia-310-updates/libGL.so.1:/usr/lib/nvidia-experimental-310/libGL.so.1:/usr/lib32/nvidia-experimental-310/libGL.so.1:/usr/lib/nvidia-313/libGL.so.1:/usr/lib32/nvidia-313/libGL.so.1:/usr/lib/nvidia-313-updates/libGL.so.1:/usr/lib32/nvidia-313-updates/libGL.so.1:/usr/lib/nvidia-experimental-313/libGL.so.1:/usr/lib32/nvidia-experimental-313/libGL.so.1'}
 else
     # Debian
     export PRIMUS_libGLa=${PRIMUS_libGLa:-'/usr/$LIB/nvidia/libGL.so.1'}
