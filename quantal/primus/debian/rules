@@ -31,8 +31,8 @@ override_dh_auto_build:
 
 override_dh_install:
 	# Make all the paths explicitly
-	mkdir -p debian/primus/usr/bin/ debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/ debian/primus/usr/share/primus/
-	install -m 755 debian/scripts/primusrun debian/primus/usr/share/primus/
+	mkdir -p debian/primus/usr/bin/ debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
+	install -m 755 debian/scripts/primusrun debian/primus/usr/bin/
 	cp -r $(BUILD_LIBDIR)/* debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
 	dh_install
 
