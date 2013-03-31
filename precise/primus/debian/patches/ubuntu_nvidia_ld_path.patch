@@ -1,0 +1,20 @@
+Description: Fix LD_LIBRARY_PATH for nvidia on Ubuntu
+ Packaging of nvidia on Ubuntu is a mess.
+Origin: upstream, https://github.com/Bumblebee-Project/bumblebee-ppa/pull/10#issuecomment-15689124
+Author: Alexander Monakov <amonakov@gmail.com>
+Last-Update: 2013-03-31
+
+--- a/libglfork.cpp
++++ b/libglfork.cpp
+@@ -178,6 +178,11 @@ struct EarlyInitializer {
+        }
+        setenv("PRIMUS_libGLa", bblibs, 1);
+        delete[] bblibs;
++       // Add nVidia libraries to LD_LIBRARY_PATH
++       char *ld_l_p = getenv("LD_LIBRARY_PATH"), *new_ld_l_p = new char[strlen(ld_l_p) + strlen(c + 7) + 2];
++       sprintf(new_ld_l_p, "%s:%s", ld_l_p, c + 7);
++       setenv("LD_LIBRARY_PATH", new_ld_l_p, 1);
++       delete[] new_ld_l_p;
+       }
+     }
+     send(sock, "C", 1, 0);

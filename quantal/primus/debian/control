@@ -15,7 +15,6 @@ Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee,
  primus-libs (= ${binary:Version})
 Recommends: primus-libs-ia32 [amd64]
-Suggests: primus-nvidia
 Description: client-side GPU offloading for NVIDIA Optimus
  Primus is a shared library that provides OpenGL and GLX APIs and implements
  low-overhead local-only client-side OpenGL offloading via GLX forking,
@@ -28,14 +27,6 @@ Description: client-side GPU offloading for NVIDIA Optimus
  .
  Primus is currently intended to be used alongside Bumblebee and provides a
  drop-in replacement for optirun (i.e. "primusrun").
-
-Package: primus-nvidia
-Section: contrib/utils
-Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee-nvidia,
- primus-libs (>= ${source:Version}), primus (>= ${binary:Version})
-Description: client-side GPU offloading for Bumblebee (proprietary NVIDIA driver)
- This metapackage sets primusrun to use the proprietary NVIDIA driver.
 
 Package: primus-libs
 Architecture: i386 amd64
