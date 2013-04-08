@@ -11,7 +11,7 @@ Vcs-Browser: https://github.com/amonakov/primus
 Vcs-Git: git://github.com/amonakov/primus.git
 
 Package: primus
-Architecture: all
+Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee,
  primus-libs (= ${binary:Version})
 Recommends: primus-libs-ia32 [amd64]
