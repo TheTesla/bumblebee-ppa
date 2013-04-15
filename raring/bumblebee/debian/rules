@@ -13,12 +13,14 @@ ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
 	dh_auto_configure -- \
 		CONF_DRIVER_MODULE_NVIDIA=nvidia-current \
 		CONF_LDPATH_NVIDIA=/usr/lib/nvidia-current:/usr/lib32/nvidia-current \
-		CONF_MODPATH_NVIDIA=/usr/lib/nvidia-current/xorg,/usr/lib/xorg/modules
+		CONF_MODPATH_NVIDIA=/usr/lib/nvidia-current/xorg,/usr/lib/xorg/modules \
+		CONF_PRIMUS_LD_PATH=/usr/lib/x86_64-linux-gnu/primus:/usr/lib/i386-linux-gnu/primus
 else
 	dh_auto_configure -- \
 		CONF_DRIVER_MODULE_NVIDIA=nvidia \
 		CONF_LDPATH_NVIDIA=/usr/lib/x86_64-linux-gnu/nvidia:/usr/lib/i386-linux-gnu/nvidia:/usr/lib/nvidia \
-		CONF_MODPATH_NVIDIA=/usr/lib/nvidia,/usr/lib/xorg/modules
+		CONF_MODPATH_NVIDIA=/usr/lib/nvidia,/usr/lib/xorg/modules \
+		CONF_PRIMUS_LD_PATH=/usr/lib/x86_64-linux-gnu/primus:/usr/lib/i386-linux-gnu/primus
 endif
 
 override_dh_auto_install:
