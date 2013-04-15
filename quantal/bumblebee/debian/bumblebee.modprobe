@@ -19,3 +19,7 @@ blacklist nvidia-experimental-310
 blacklist nvidia-313
 blacklist nvidia-313-updates
 blacklist nvidia-experimental-313
+# 319
+blacklist nvidia-319
+blacklist nvidia-319-updates
+blacklist nvidia-experimental-319
