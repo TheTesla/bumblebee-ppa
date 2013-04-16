@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: The Bumblebee Project <bumblebee@lists.launchpad.net>
 Uploaders: Bruno Pagani <bruno.n.pagani@gmail.com>,
  Dmitry Zhurikhin <zhurikhin@gmail.com>
-Build-Depends: debhelper (>= 9), mesa-common-dev
+Build-Depends: debhelper (>= 9), bash-completion, mesa-common-dev
 Standards-Version: 3.9.4
 Homepage: https://github.com/amonakov/primus
 Vcs-Browser: https://github.com/amonakov/primus
