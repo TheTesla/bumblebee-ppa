@@ -21,10 +21,6 @@ case "$1" in
           ${arch}_gl_conf /usr/lib/$arch/mesa/ld.so.conf 2>/dev/null || true
       done
 
-      # versions before Oneiric without multiarch
-      update-alternatives --force --set \
-        gl_conf /usr/lib/mesa/ld.so.conf 2>/dev/null || true
-
       # assume first device to be discrete in nvidia/nvidia
       busid=$(lspci -d10de: -nn | grep '\[030[02]\]' | cut -d' ' -f1 | tr . : | head -1)
       if [ -z "$busid" ]; then

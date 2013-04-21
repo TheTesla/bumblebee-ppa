@@ -19,10 +19,6 @@ case "$1" in
           ${arch}_gl_conf /usr/lib/$arch/mesa/ld.so.conf 2>/dev/null || true
       done
 
-      # versions before Oneiric without multiarch
-      update-alternatives --force --set \
-        gl_conf /usr/lib/mesa/ld.so.conf 2>/dev/null || true
-
     else
 
       # == Debian specific section ==

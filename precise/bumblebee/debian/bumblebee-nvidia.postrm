@@ -19,9 +19,6 @@ case "$1" in
         update-alternatives --force --auto ${arch}_gl_conf 2>/dev/null || true
       done
 
-      # versions before Oneiric without multiarch
-      update-alternatives --force --auto gl_conf 2>/dev/null || true
-
     else
 
       # == Debian specific section ==
