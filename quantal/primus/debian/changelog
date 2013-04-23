@@ -1,3 +1,14 @@
+primus (20130422-1~quantalppa1) quantal; urgency=low
+
+  * New upstream released:
+    - Rebase on upstream 30063b0af4
+    - primus now queries the daemon for driver settings
+
+  * debian/*:
+    - fully reworked packaging scripts, synced with Ubuntu upstream Debian.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 22 Apr 2013 23:57:23 +0200
+
 primus (20130225-1~quantalppa2) quantal; urgency=low
 
   * Bump version number for Launchpad
