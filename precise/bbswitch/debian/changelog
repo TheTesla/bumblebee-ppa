@@ -1,3 +1,10 @@
+bbswitch (0.6-1~preciseppa2) precise; urgency=low
+
+  * debian/*:
+    - fully reworked packaging scripts, synced with Ubuntu upstream Debian.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 22 Apr 2013 23:53:32 +0200
+
 bbswitch (0.6-1~preciseppa1) precise; urgency=low
 
   * New upstream release
