@@ -1,3 +1,36 @@
+bumblebee (3.2-1~quantalppa1) quantal; urgency=low
+
+  * New upstream release:
+    - implemented -b none option for optirun to disable injection of any render
+      offloading bridge (primus or VirtualGL). Use this to invoke
+      nvidia-settings (optirun -b none nvidia-settings -c :8).
+    - implemented --no-xorg option for optirun to disable starting secondary X
+      server. Use this to run CUDA or OpenCL applications that do not need the
+      graphics rendering capabilities. Implies -b none.
+    - added support for passing -configdir to X, defaulting to
+      /etc/bumblebee/xorg.conf.d, --xconfdir option added to bumblebeed and
+      XorgConfDir added to bumblebee.conf; this finally fixes a long-standing
+      annoyance with SNA config option for the Intel driver.
+    - minor changes in xorg.conf files: unified Device[01] toDiscreteNvidia,
+      moved BusID to xorg.conf.d/busid.conf.
+    - added --primus-ldpath and PrimusLibraryPath options to set
+      PRIMUS_LD_LIBRARY_PATH.
+    - we do not depend on primusrun script anymore for primus backend, note
+      that primusrun and optirun -b primus will have different behavior, the
+      first one will power on the discrete GPU when needed, while the second
+      one will do it immediately; the difference in behavior is most noticeable
+      with WebGL content in Firefox.
+    - added /usr/$LIB/mesa/libGL.so.1 to default primus libGLd for supporting
+      Ubuntu 13.04.
+    - fixed --pidfile documentation.
+    - fixed a "buffer overflow" issue in bumblebeed.
+    - removed accesses to PCI config space from the daemon process.
+
+  * debian/*:
+    - fully reworked packaging scripts, synced with Ubuntu upstream Debian.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 23 Apr 2013 17:54:09 +0200
+
 bumblebee (3.1-1~quantalppa1) quantal; urgency=low
 
   * New upstream release
