@@ -1,7 +1,7 @@
 virtualgl (2.3.2-1~quantalppa2) quantal; urgency=low
 
   * debian/*:
-    - fully reworked packaging scripts.
+    - reworked packaging scripts.
 
  -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 23 Apr 2013 18:22:26 +0200
 

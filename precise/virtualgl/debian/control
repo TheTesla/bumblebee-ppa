@@ -55,7 +55,7 @@ Description: Library files for virtualgl
 Package: virtualgl-libs-ia32
 Architecture: i386
 Pre-Depends: ${misc:Pre-Depends}
-Depends: virtualgl-libs
+Depends: virtualgl-libs, ${misc:Depends}
 Multi-Arch: foreign
 Description: Library files for virtualgl (32-bit)
  This package depends on 32-bit libraries for virtualgl. It can safely be
