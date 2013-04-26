@@ -12,7 +12,7 @@ Vcs-Git: git://github.com/amonakov/primus.git
 
 Package: primus
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee,
+Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee, socat,
  primus-libs (= ${binary:Version})
 Recommends: primus-libs-ia32 [amd64]
 Description: client-side GPU offloading for NVIDIA Optimus
