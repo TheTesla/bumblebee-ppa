@@ -1,3 +1,12 @@
+primus (20130427-1~raringppa1) raring; urgency=low
+
+  * New upstream release:
+    - rebase on 31ca47e644
+
+  * Fixed adding nvidia-tls to the path
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sat, 27 Apr 2013 00:48:34 +0200
+
 primus (20130422-1~raringppa1) raring; urgency=low
 
   * New upstream released:
