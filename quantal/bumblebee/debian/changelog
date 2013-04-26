@@ -1,3 +1,9 @@
+bumblebee (3.2.1-1~quantalppa2) quantal; urgency=low
+
+  * Remove bumblebee xorg.conf.d/busid.conf if it exists
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sat, 27 Apr 2013 00:37:28 +0200
+
 bumblebee (3.2.1-1~quantalppa1) quantal; urgency=low
 
   * New upstream release:

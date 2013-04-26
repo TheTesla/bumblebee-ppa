@@ -26,6 +26,18 @@ case "$1" in
             gpasswd -a $user $BB_GROUP
         done
     fi
+
+    # Raring specific issue
+    # Also, do not rely solely on dpkg-vendor (see LP: #1061769)
+    if (which dpkg-vendor >/dev/null && dpkg-vendor --derives-from Ubuntu) || \
+      [ -e /etc/dpkg/origins/ubuntu ]; then
+        # Only for 3.2.1, remove busid.conf if still present.
+        if [ -e /etc/bumblebee/xorg.conf.d/busid.conf ]; then
+            echo "Deleting old /etc/bumblebee/xorg.conf.d/busid.conf"
+            rm /etc/bumblebee/xorg.conf.d/busid.conf
+        fi
+    fi
+
     # rebuild initial ramdisk to include blacklist
     update-initramfs -u
     ;;
