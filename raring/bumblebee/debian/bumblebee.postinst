@@ -42,8 +42,14 @@ case "$1" in
             echo "sudo dpkg-reconfigure bumblebee"
         else
             echo "Selecting $busid as discrete nvidia card. If this is incorrect,"
-            echo "edit the BusID line in $xconffile"
+            echo "edit the BusID line in $xconffile ."
             sed -i $xconffile -r -e "s/^([\t ]*)#([\t ]*BusID[\t ]*)\"[^\"]*\"$/\\1 \\2\"PCI\:$busid\"/"
+        fi
+        
+        # Only for 3.2.1, remove busid.conf if still present.
+        if [ -e /etc/bumblebee/xorg.conf.d/busid.conf ]; then
+            echo "Deleting old /etc/bumblebee/xorg.conf.d/busid.conf"
+            rm /etc/bumblebee/xorg.conf.d/busid.conf
         fi
     fi
 
