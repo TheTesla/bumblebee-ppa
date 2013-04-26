@@ -5,7 +5,7 @@
 
 set -e
 
-xconffile=/etc/bumblebee/xorg.conf.d/busid.conf
+xconffile=/etc/bumblebee/xorg.conf.nouveau
 
 # group that allows users to use Bumblebee
 BB_GROUP=bumblebee
@@ -39,7 +39,7 @@ case "$1" in
         if [ -z "$busid" ]; then
             echo "No Nvidia card found. If you really have an Optimus system,"
             echo "try selecting the Optimus setup in BIOS and run:"
-            echo "dpkg-reconfigure bumblebee-nvidia"
+            echo "sudo dpkg-reconfigure bumblebee"
         else
             echo "Selecting $busid as discrete nvidia card. If this is incorrect,"
             echo "edit the BusID line in $xconffile"
