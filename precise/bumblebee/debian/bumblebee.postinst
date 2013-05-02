@@ -38,8 +38,6 @@ case "$1" in
         fi
     fi
 
-    # rebuild initial ramdisk to include blacklist
-    update-initramfs -u
     ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
