@@ -1,3 +1,12 @@
+bumblebee (3.2.1-1~raringppa2) raring; urgency=low
+
+  * debian/control:
+    - allow nvidia, nvidia-current and nvidia-current-updates to be installed.
+
+  * Use dpkg triggers instead of calling update-initramfs
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Fri, 03 May 2013 19:05:38 +0200
+
 bumblebee (3.2.1-1~raringppa1) raring; urgency=low
 
   * New upstream release:
