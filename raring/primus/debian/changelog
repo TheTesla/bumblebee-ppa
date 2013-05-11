@@ -1,3 +1,13 @@
+primus (20130511-1~raringppa1) raring; urgency=low
+
+  * New upstream release:
+    - rebase on ef73dd1976
+
+  * debian/patches:
+    - drop ubuntu_nvidia_ld_path.patch
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sat, 11 May 2013 22:01:06 +0200
+
 primus (20130427-1~raringppa1) raring; urgency=low
 
   * New upstream release:
