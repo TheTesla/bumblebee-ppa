@@ -1,3 +1,10 @@
+primus (20130519-1~raringppa1) raring; urgency=low
+
+  * New upstream release:
+    - rebase on 7a94ffb917
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sun, 19 May 2013 19:35:56 +0200
+
 primus (20130511-1~raringppa1) raring; urgency=low
 
   * New upstream release:
