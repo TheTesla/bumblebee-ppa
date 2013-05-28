@@ -1,3 +1,12 @@
+bbswitch (0.7-1~raringppa1) raring; urgency=low
+
+  * New upstream release:
+    - Fixes a scary WARNING on Linux 3.9.
+    - Improved debug information when an ACPI method cannot be executed.
+    - Added copyright information, updated author name.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 28 May 2013 22:54:43 +0200
+
 bbswitch (0.6-1~raringppa2) raring; urgency=low
 
   * debian/*:
