@@ -20,7 +20,7 @@ else
 		CONF_DRIVER_MODULE_NVIDIA=nvidia \
 		CONF_LDPATH_NVIDIA=/usr/lib/x86_64-linux-gnu/nvidia:/usr/lib/i386-linux-gnu/nvidia:/usr/lib/nvidia \
 		CONF_MODPATH_NVIDIA=/usr/lib/nvidia,/usr/lib/xorg/modules \
-		CONF_PRIMUS_LD_PATH=/usr/lib/x86_64-linux-gnu/primus:/usr/lib/i386-linux-gnu/primus
+		CONF_PRIMUS_LD_PATH=/usr/lib/x86_64-linux-gnu/primus:/usr/lib/i386-linux-gnu/primus:/usr/lib/primus
 endif
 
 override_dh_auto_install:
