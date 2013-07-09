@@ -13,7 +13,7 @@ Vcs-Git: git://github.com/Bumblebee-Project/Bumblebee.git
 
 Package: bumblebee
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, bbswitch-dkms
+Depends: ${shlibs:Depends}, ${misc:Depends}, bbswitch-dkms | bbswitch-source
 Recommends: bumblebee-nvidia (= ${binary:Version}), virtualgl | primus
 Description: NVIDIA Optimus support
  Bumblebee aims to provide support for NVIDIA Optimus laptops. These laptops
