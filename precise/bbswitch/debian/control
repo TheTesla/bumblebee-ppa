@@ -14,7 +14,7 @@ Package: bbswitch-dkms
 Architecture: all
 Depends: ${misc:Depends}, dkms
 Suggests: bumblebee
-Description: Interface for toggling the power on nVidia Optimus video cards
+Description: Interface for toggling the power on NVIDIA Optimus video cards
  bbswitch is a kernel module which automatically detects the required ACPI
  calls for two kinds of Optimus laptops. It has been verified to work with
  "real" Optimus and "legacy" Optimus laptops (at least, that is what the
@@ -27,7 +27,7 @@ Architecture: all
 Depends: ${misc:Depends}
 Recommends: module-assistant
 Suggests: bumblebee
-Description: Interface for toggling the power on nVidia Optimus video cards
+Description: Interface for toggling the power on NVIDIA Optimus video cards
  bbswitch is a kernel module which automatically detects the required ACPI
  calls for two kinds of Optimus laptops. It has been verified to work with
  "real" Optimus and "legacy" Optimus laptops (at least, that is what the

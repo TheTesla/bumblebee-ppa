@@ -1,6 +1,6 @@
 # Upstart job for Bumblebee daemon
 
-description "Bumblebee supporting nVidia Optimus cards"
+description "Bumblebee supporting NVIDIA Optimus cards"
 author      "Lekensteyn <lekensteyn@gmail.com>"
 
 # XXX: do we need to stop before / after a graphical DE like kdm?
