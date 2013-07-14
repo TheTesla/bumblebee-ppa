@@ -1,3 +1,11 @@
+bumblebee (3.2.1-1~raringppa3) raring; urgency=low
+
+  * Add support for nvidia branch 325
+
+  * Add support for module-assistant version of bbswitch
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sun, 14 Jul 2013 14:46:57 +0200
+
 bumblebee (3.2.1-1~raringppa2) raring; urgency=low
 
   * debian/control:
