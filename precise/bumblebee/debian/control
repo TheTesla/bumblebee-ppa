@@ -26,7 +26,11 @@ Package: bumblebee-nvidia
 Section: contrib/utils
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee (= ${binary:Version}),
- nvidia-glx | nvidia | nvidia-current | nvidia-current-updates |
+# proprietary NVIDIA packages in Debian
+ nvidia-driver | nvidia-kernel-dkms | nvidia-kernel-amd64 | 
+ nvidia-kernel-686-pae | nvidia-kernel-486 |
+# proprietary NVIDIA packages in Ubuntu
+ nvidia | nvidia-current | nvidia-current-updates |
  nvidia-304 | nvidia-304-updates | nvidia-experimental-304 |
  nvidia-310 | nvidia-310-updates | nvidia-experimental-310 |
  nvidia-313 | nvidia-313-updates | nvidia-experimental-313 |
