@@ -1,16 +1,6 @@
 bumblebee (3.2.1-1~quantalppa3) quantal; urgency=low
 
   * debian/control:
-    - allow nvidia-325, nvidia-experimental-325 and nvidia-325-updates to be installed.
-
-  * debian/bumblebee.modprobe
-    - blacklisted nvidia-325
-
- -- SwooshyCueb <swooshycueb@tearmedia.info>  Fri, 04 Jul 2013 01:27:38 -0600
-
-bumblebee (3.2.1-1~quantalppa3) quantal; urgency=low
-
-  * debian/control:
     - allow nvidia, nvidia-current and nvidia-current-updates to be installed.
 
   * Use dpkg triggers instead of calling update-initramfs
