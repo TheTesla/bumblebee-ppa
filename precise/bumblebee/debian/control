@@ -27,7 +27,7 @@ Section: contrib/utils
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee (= ${binary:Version}),
 # proprietary NVIDIA packages in Debian
- nvidia-driver | nvidia-kernel-dkms | nvidia-kernel-amd64 | 
+ nvidia-driver | nvidia-glx | nvidia-kernel-dkms | nvidia-kernel-amd64 | 
  nvidia-kernel-686-pae | nvidia-kernel-486 |
 # proprietary NVIDIA packages in Ubuntu
  nvidia | nvidia-current | nvidia-current-updates |
