@@ -1,3 +1,9 @@
+bbswitch (0.7-1~quantalppa2) quantal; urgency=low
+
+  * Add support for building using module-assistant
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sun, 14 Jul 2013 14:42:15 +0200
+
 bbswitch (0.7-1~quantalppa1) quantal; urgency=low
 
   * New upstream release:
