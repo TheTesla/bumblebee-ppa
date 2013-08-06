@@ -20,7 +20,7 @@ case "$1" in
     # default group and if the group is missing
     if grep -qx ServerGroup=$BB_GROUP /etc/bumblebee/bumblebee.conf &&
         ! getent group $BB_GROUP > /dev/null; then
-        groupadd $BB_GROUP
+        groupadd --system $BB_GROUP
         users=$(getent group $USE_GROUPS | cut -d: -f4 | tr , '\n' | sort -u)
         echo "Adding members from group(s) '$USE_GROUPS' to '$BB_GROUP':"
         echo $users
