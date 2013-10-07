@@ -1,3 +1,11 @@
+bumblebee (3.2.1-1~quantalppa5) quantal; urgency=low
+
+  * Add support for nvidia branch 331
+
+  * Add support for nvidia-driver-binary
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 07 Oct 2013 20:15:30 +0200
+
 bumblebee (3.2.1-1~quantalppa4) quantal; urgency=low
 
   * Add support for nvidia branch 325

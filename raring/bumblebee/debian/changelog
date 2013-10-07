@@ -1,3 +1,11 @@
+bumblebee (3.2.1-1~raringppa4) raring; urgency=low
+
+  * Add support for nvidia branch 331
+
+  * Add support for nvidia-driver-binary
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 07 Oct 2013 20:15:30 +0200
+
 bumblebee (3.2.1-1~raringppa3) raring; urgency=low
 
   * Add support for nvidia branch 325
