@@ -1,3 +1,10 @@
+primus (20130904-1~quantalppa1) quantal; urgency=low
+
+  * New upstream release:
+    - rebase on da6459236b
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 07 Oct 2013 20:35:50 +0200
+
 primus (20130805-1~quantalppa1) quantal; urgency=low
 
   * New upstream release:
