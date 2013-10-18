@@ -1,3 +1,9 @@
+bumblebee (3.2.1-1~raringppa5) raring; urgency=low
+
+  * Blacklist nvidia branch 331
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sat, 19 Oct 2013 00:49:00 +0200
+
 bumblebee (3.2.1-1~raringppa4) raring; urgency=low
 
   * Add support for nvidia branch 331
