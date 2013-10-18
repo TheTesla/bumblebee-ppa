@@ -1,0 +1,128 @@
+bumblebee (3.2.1-1~raringppa4) raring; urgency=low
+
+  * Add support for nvidia branch 331
+
+  * Add support for nvidia-driver-binary
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 07 Oct 2013 20:15:30 +0200
+
+bumblebee (3.2.1-1~raringppa3) raring; urgency=low
+
+  * Add support for nvidia branch 325
+
+  * Add support for module-assistant version of bbswitch
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sun, 14 Jul 2013 14:46:57 +0200
+
+bumblebee (3.2.1-1~raringppa2) raring; urgency=low
+
+  * debian/control:
+    - allow nvidia, nvidia-current and nvidia-current-updates to be installed.
+
+  * Use dpkg triggers instead of calling update-initramfs
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Fri, 03 May 2013 19:05:38 +0200
+
+bumblebee (3.2.1-1~raringppa1) raring; urgency=low
+
+  * New upstream release:
+    - fixed Bumblebee 3.2 not working on a lot of setups. This happened because
+      of "Device" section splitting in xorg conf files.
+    - fixed an issue where an empty XorgModulePath lead to -isolateDecide being
+      removed from Xorg start command line instead of -modulepath.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Fri, 26 Apr 2013 17:12:18 +0200
+
+bumblebee (3.2-1~raringppa1) raring; urgency=low
+
+  * New upstream release:
+    - implemented -b none option for optirun to disable injection of any render
+      offloading bridge (primus or VirtualGL). Use this to invoke
+      nvidia-settings (optirun -b none nvidia-settings -c :8).
+    - implemented --no-xorg option for optirun to disable starting secondary X
+      server. Use this to run CUDA or OpenCL applications that do not need the
+      graphics rendering capabilities. Implies -b none.
+    - added support for passing -configdir to X, defaulting to
+      /etc/bumblebee/xorg.conf.d, --xconfdir option added to bumblebeed and
+      XorgConfDir added to bumblebee.conf; this finally fixes a long-standing
+      annoyance with SNA config option for the Intel driver.
+    - minor changes in xorg.conf files: unified Device[01] toDiscreteNvidia,
+      moved BusID to xorg.conf.d/busid.conf.
+    - added --primus-ldpath and PrimusLibraryPath options to set
+      PRIMUS_LD_LIBRARY_PATH.
+    - we do not depend on primusrun script anymore for primus backend, note
+      that primusrun and optirun -b primus will have different behavior, the
+      first one will power on the discrete GPU when needed, while the second
+      one will do it immediately; the difference in behavior is most noticeable
+      with WebGL content in Firefox.
+    - added /usr/$LIB/mesa/libGL.so.1 to default primus libGLd for supporting
+      Ubuntu 13.04.
+    - fixed --pidfile documentation.
+    - fixed a "buffer overflow" issue in bumblebeed.
+    - removed accesses to PCI config space from the daemon process.
+
+  * debian/*:
+    - fully reworked packaging scripts, synced with Ubuntu upstream Debian.
+
+  * debian/patches:
+    - drop 008-primus-libs-fix [upstream]
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 23 Apr 2013 17:54:09 +0200
+
+bumblebee (3.1-2~raringppa2) raring; urgency=low
+
+  * Ubuntu changes:
+    - support for all exisisting flavors of nvidia driver under Raring
+  * debian/*:
+    - minor cleaning
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Sun, 10 Mar 2013 20:30:40 +0100
+
+bumblebee (3.1-2~raringppa1) raring; urgency=low
+
+  * debian/patches
+     008-primus-libs-fix: under raring, $LIB expand to lib/arch/, not just arch/.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 25 Feb 2013 20:02:53 +0100
+
+bumblebee (3.1-1~raringppa1) raring; urgency=low
+
+  * New upstream release
+    - Support for primus as an alternative to virtualgl as optirun back-end.
+      Added a new Bridge option in bumblebee.conf to set the default back-end
+      (auto as default currently, selects VirtualGL if installed, else primus,
+      detection order may change in 4.0). optirun gained a -b/--bridge option
+      for on-the-fly back-end choice.
+    - Use of non-blocking sockets, replacing former 3.0.1 hotfix for socket
+      polling.
+    - Added an udev rule to fix nvidia card randomly turning on.
+    - Fixed the three remaining compilation warnings.
+    - A little fix for Kepler generation cards was added in xorg.conf.nvidia
+    - A little fix for dual nvidia hybrid systems.
+    - Fixed nouveau not working under X.org 1.13+.
+    - Upstart dependencies changed to fix some issues.
+    - Fixed available drivers detection by supporting module aliases.
+  * Ubuntu changes
+    - Support for all existing flavors of nvidia proprietary drivers with a new
+      modprobe blacklist file and a new upstart initscript for driver detection.
+  * debian/control:
+    - Suggest primus.
+  * debian/pachtes:
+    - drop 006-set-vgl-readback-pbo.patch [upstream]
+    - drop 007-nvidia-fallback-probe.patch: Replaced by the new upstart script.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 25 Feb 2013 01:03:10 +0100
+
+bumblebee (3.0.1-3~raringppa2) raring; urgency=low
+
+  * debian/control:
+    - relaxed version dependency on nvidia-current to allow users to install
+      others parckages that provides it.
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Wed, 5 Dec 2012 20:54:20 +0100
+
+bumblebee (3.0.1-3~raringppa1) raring; urgency=low
+
+  * Initial release for Raring
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 6 Nov 2012 21:42:59 +0100
