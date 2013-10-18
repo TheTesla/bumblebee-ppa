@@ -27,3 +27,7 @@ blacklist nvidia-experimental-319
 blacklist nvidia-325
 blacklist nvidia-325-updates
 blacklist nvidia-experimental-325
+# 331
+blacklist nvidia-331
+blacklist nvidia-331-updates
+blacklist nvidia-experimental-331
