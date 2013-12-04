@@ -1,12 +1,5 @@
-virtualgl (2.3.2-1~raringppa2) raring; urgency=low
+virtualgl (2.3.3-1~saucyppa1) saucy; urgency=low
 
-  * debian/*:
-    - reworked packaging scripts.
+  * Initial release for saucy
 
- -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 23 Apr 2013 18:22:26 +0200
-
-virtualgl (2.3.2-1~raringppa1) raring; urgency=low
-
-  * Initial release for Quantal
-
- -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 6 Nov 2012 21:44:06 +0100
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Wed, 4 Dec 2013 19:47:19 +0200
