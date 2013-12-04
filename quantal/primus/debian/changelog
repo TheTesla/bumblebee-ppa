@@ -1,3 +1,9 @@
+primus (20131127-1~quantalppa2) quantal; urgency=low
+
+  * Fix for GH-27
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Wed, 04 Dec 2013 19:16:52 +0100
+
 primus (20131127-1~quantalppa1) quantal; urgency=low
 
   * New upstream release:
