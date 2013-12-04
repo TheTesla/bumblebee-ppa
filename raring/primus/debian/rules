@@ -13,6 +13,7 @@ else
 	PRIMUS_libGLa=/usr/lib/$(DEB_HOST_MULTIARCH)/libGL.so.1
 	PRIMUS_libGLd=/usr/lib/$(DEB_HOST_MULTIARCH)/libGL.so.1
 endif
+PRIMUS_UPLOAD=1
 
 # Where to put the resulting library during build
 BUILD_LIBDIR ?= lib
@@ -27,7 +28,8 @@ override_dh_clean:
 override_dh_auto_build:
 	dh_auto_build -- LIBDIR=$(BUILD_LIBDIR) \
 	    PRIMUS_libGLd=$(PRIMUS_libGLd) \
-	    PRIMUS_libGLa=$(PRIMUS_libGLa)
+	    PRIMUS_libGLa=$(PRIMUS_libGLa) \
+	    PRIMUS_UPLOAD=$(PRIMUS_UPLOAD)
 
 override_dh_install:
 	# Make all the paths explicitly
