@@ -12,6 +12,7 @@ Vcs-Git: git://github.com/Bumblebee-Project/bbswitch.git
 
 Package: bbswitch-dkms
 Architecture: all
+Multi-Arch: foreign
 Depends: ${misc:Depends}, dkms
 Suggests: bumblebee
 Description: Interface for toggling the power on NVIDIA Optimus video cards
@@ -24,6 +25,7 @@ Description: Interface for toggling the power on NVIDIA Optimus video cards
 
 Package: bbswitch-source
 Architecture: all
+Multi-Arch: foreign
 Depends: ${misc:Depends}
 Recommends: module-assistant
 Suggests: bumblebee
