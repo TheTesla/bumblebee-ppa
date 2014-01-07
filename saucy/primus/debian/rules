@@ -9,9 +9,14 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
 	PRIMUS_libGLa=/usr/lib/$(DEB_HOST_MULTIARCH)/mesa/libGL.so.1
 	PRIMUS_libGLd=/usr/lib/$(DEB_HOST_MULTIARCH)/mesa/libGL.so.1
+	# =1 on 13.04/raring and earlier, 0 (default) on 13.10/saucy and later
+	PRIMUS_UPLOAD=0
 else
 	PRIMUS_libGLa=/usr/lib/$(DEB_HOST_MULTIARCH)/libGL.so.1
 	PRIMUS_libGLd=/usr/lib/$(DEB_HOST_MULTIARCH)/libGL.so.1
+	# PRIMUS_UPLOAD=1 set until Debian's xserver-xorg-video-intel
+	# defaults to SNA acceleration in unstable
+	PRIMUS_UPLOAD=1
 endif
 
 # Where to put the resulting library during build
@@ -27,7 +32,8 @@ override_dh_clean:
 override_dh_auto_build:
 	dh_auto_build -- LIBDIR=$(BUILD_LIBDIR) \
 	    PRIMUS_libGLd=$(PRIMUS_libGLd) \
-	    PRIMUS_libGLa=$(PRIMUS_libGLa)
+	    PRIMUS_libGLa=$(PRIMUS_libGLa) \
+	    PRIMUS_UPLOAD=$(PRIMUS_UPLOAD)
 
 override_dh_install:
 	# Make all the paths explicitly
