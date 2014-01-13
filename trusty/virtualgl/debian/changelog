@@ -1,0 +1,5 @@
+virtualgl (2.3.3-1~trustyppa1) trusty; urgency=low
+
+  * Initial release for Trusty
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Mon, 13 Jan 2014 20:22:24 +0200
