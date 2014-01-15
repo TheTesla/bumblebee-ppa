@@ -11,4 +11,4 @@ virtualgl has not yet been packaged for Ubuntu proper. It is however easy to
 switch to using virtualgl by using upstream's PPAs. Follow the instructions at:
 https://launchpad.net/~bumblebee/+archive/stable
 
- -- Vincent Cheng <Vincentc1208@gmail.com>  Wed, 27 Feb 2013 01:07:57 -0800
+ -- Vincent Cheng <vcheng@debian.org>  Wed, 27 Feb 2013 01:07:57 -0800
