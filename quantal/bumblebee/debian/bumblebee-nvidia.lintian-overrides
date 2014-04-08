@@ -1,2 +1,0 @@
-bumblebee-nvidia: postinst-has-useless-call-to-ldconfig
-bumblebee-nvidia: postrm-has-useless-call-to-ldconfig
