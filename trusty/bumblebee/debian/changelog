@@ -1,3 +1,10 @@
+bumblebee (3.2.1-90~trustyppa1) trusty; urgency=low
+
+  * Bump version number for PPA to override distro version
+  * Add support for nvidia-334 and nvidia-337
+
+ -- Bruno Pagani <bruno.n.pagani@gmail.com>  Tue, 08 Apr 2014 22:59:18 +0200
+
 bumblebee (3.2.1-1~trustyppa1) trusty; urgency=low
 
   * Initial release for Trusty
