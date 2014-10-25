@@ -38,7 +38,9 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee (= ${binary:Version}),
  nvidia-325 | nvidia-325-updates | nvidia-experimental-325 |
  nvidia-331 | nvidia-331-updates | nvidia-experimental-331 |
  nvidia-334 | nvidia-334-updates | nvidia-experimental-334 |
- nvidia-337 | nvidia-337-updates | nvidia-experimental-337
+ nvidia-337 | nvidia-337-updates | nvidia-experimental-337 |
+ nvidia-340 | nvidia-340-updates | nvidia-experimental-340 |
+ nvidia-343 | nvidia-343-updates | nvidia-experimental-343
 Description: NVIDIA Optimus support using the proprietary NVIDIA driver
  This metapackage ensures that the proprietary NVIDIA driver is installed in a
  way such that 3D acceleration does not break. It does so by configuring the

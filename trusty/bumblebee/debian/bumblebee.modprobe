@@ -39,3 +39,11 @@ blacklist nvidia-experimental-334
 blacklist nvidia-337
 blacklist nvidia-337-updates
 blacklist nvidia-experimental-337
+# 340
+blacklist nvidia-340
+blacklist nvidia-340-updates
+blacklist nvidia-experimental-340
+# 343
+blacklist nvidia-343
+blacklist nvidia-343-updates
+blacklist nvidia-experimental-343
