@@ -28,6 +28,10 @@ case "$1" in
 
     fi
 
+    # Do not treat /etc/modprobe.d/bumblebee-nvidia.conf as a conffile
+    # LP: #1242785, https://github.com/Bumblebee-Project/Bumblebee/issues/525
+    rm -f /etc/modprobe.d/bumblebee-nvidia.conf
+
     ldconfig
     ;;
   upgrade|failed-upgrade|abort-upgrade|disappear)

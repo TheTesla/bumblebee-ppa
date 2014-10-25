@@ -13,6 +13,7 @@ Vcs-Git: git://github.com/Bumblebee-Project/Bumblebee.git
 
 Package: bumblebee
 Architecture: i386 amd64
+Pre-Depends: dpkg (>= 1.15.7.2)
 Depends: ${shlibs:Depends}, ${misc:Depends}, bbswitch-dkms | bbswitch-source
 Recommends: bumblebee-nvidia (= ${binary:Version}), virtualgl | primus
 Description: NVIDIA Optimus support
