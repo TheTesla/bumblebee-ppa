@@ -13,6 +13,11 @@ case "$1" in
     for file in bumblebee.conf xorg.conf.nvidia xorg.conf.nouveau; do
         rm -f /etc/bumblebee/$file
     done
+
+    # Do not treat /etc/modprobe.d/bumblebee-nvidia.conf as a conffile
+    # LP: #1242785, https://github.com/Bumblebee-Project/Bumblebee/issues/525
+    rm -f /etc/modprobe.d/bumblebee.conf
+
     ;;
   remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     ;;

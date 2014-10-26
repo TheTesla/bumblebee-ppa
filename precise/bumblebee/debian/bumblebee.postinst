@@ -38,6 +38,10 @@ case "$1" in
         fi
     fi
 
+    # Do not treat /etc/modprobe.d/bumblebee-nvidia.conf as a conffile
+    # LP: #1242785, https://github.com/Bumblebee-Project/Bumblebee/issues/525
+    cp -f /usr/share/bumblebee/default-conf/bumblebee.conf /etc/modprobe.d/bumblebee.conf
+
     ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
