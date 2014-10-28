@@ -6,7 +6,7 @@ Uploaders: Peter Lekensteyn <lekensteyn@gmail.com>,
  Bruno Pagani <bruno.n.pagani@gmail.com>
 Build-Depends: debhelper (>= 9), libbsd-dev (>= 0.2.0), pkg-config,
  libx11-dev, libglib2.0-dev, help2man
-Standards-Version: 3.9.6
+Standards-Version: 3.9.3
 Homepage: https://launchpad.net/~bumblebee
 Vcs-Browser: https://github.com/Bumblebee-Project/Bumblebee
 Vcs-Git: git://github.com/Bumblebee-Project/Bumblebee.git
