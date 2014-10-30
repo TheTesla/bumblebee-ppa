@@ -30,7 +30,7 @@ Description: client-side GPU offloading for NVIDIA Optimus
 
 Package: primus-libs
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, libgl1-mesa-glx
 Multi-Arch: same
 Description: Shared libraries for primus
  This package contains the libraries for primus which are loaded when running
