@@ -1,0 +1,5 @@
+bumblebee (3.2.1-91~vividppa1) vivid; urgency=medium
+
+  * Initial release for vivid.
+
+ -- Vincent Cheng <vcheng@debian.org>  Sat, 25 Jul 2015 22:54:25 -0700

@@ -1,0 +1,5 @@
+virtualgl (2.3.3-1~vividppa1) vivid; urgency=low
+
+  * Initial release for vivid.
+
+ -- Vincent Cheng <vcheng@debian.org>  Sat, 25 Jul 2015 22:46:41 -0700
