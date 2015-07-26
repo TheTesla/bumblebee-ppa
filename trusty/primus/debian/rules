@@ -22,7 +22,7 @@ endif
 BUILD_LIBDIR ?= lib
 
 %:
-	dh $@ --with bash-completion
+	dh $@ 
 
 override_dh_clean:
 	rm -rf $(BUILD_LIBDIR)
