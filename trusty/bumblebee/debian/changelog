@@ -1,3 +1,17 @@
+bumblebee (3.2.1-91~trustyppa1) trusty; urgency=medium
+
+  * Backport changes made to bumblebee's packaging in the main archive up to
+    bumblebee/3.2.1-8. Full changelog can be found at:
+    http://metadata.ftp-master.debian.org/changelogs/main/b/bumblebee/unstable_changelog
+  * User-visible changes:
+    - Add support for nvidia-340, 343, 346, 349, and 352.
+    - Cherry-picked patches from upstream: fix-device-detection.patch,
+      ignore-error-on-X-shutdown.patch, modprobe-r-instead-of-rmmod.patch
+    - Update /usr/share/doc/bumblebee/README.Debian with post-install steps
+      and common issues.
+
+ -- Vincent Cheng <vcheng@debian.org>  Sat, 25 Jul 2015 22:54:25 -0700
+
 bumblebee (3.2.1-90~trustyppa1) trusty; urgency=low
 
   * Bump version number for PPA to override distro version
