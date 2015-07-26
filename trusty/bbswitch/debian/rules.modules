@@ -8,7 +8,7 @@ MA_DIR ?= /usr/share/modass
 
 kdist_clean: prep-deb-files
 	dh_clean
-	$(MAKE) clean KBUILD=$(KSRC) KVERS=$(KVERS)
+	$(MAKE) clean KBUILD=$(KSRC) KVERS=$(KVERS) KDIR=$(KSRC)
 
 kdist_config: prep-deb-files
 
@@ -17,7 +17,7 @@ binary-modules: kdist_config
 	dh_testroot
 	dh_prep
 	# Build and install the module
-	make -C $(KSRC) M=$(CURDIR)
+	make -C $(KSRC) M=$(CURDIR) KDIR=$(KSRC)
 	install -D -m 0644 bbswitch.ko debian/$(PACKAGE)-$(KVERS)/lib/modules/$(KVERS)/kernel/drivers/acpi/bbswitch.ko
 	dh_installdocs
 	dh_installchangelogs
