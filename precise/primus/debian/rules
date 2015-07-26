@@ -14,9 +14,8 @@ ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
 else
 	PRIMUS_libGLa=/usr/lib/$(DEB_HOST_MULTIARCH)/libGL.so.1
 	PRIMUS_libGLd=/usr/lib/$(DEB_HOST_MULTIARCH)/libGL.so.1
-	# PRIMUS_UPLOAD=1 set until Debian's xserver-xorg-video-intel
-	# defaults to SNA acceleration in unstable
-	PRIMUS_UPLOAD=1
+	# =1 on 8/jessie and earlier, 0 (default) on 9/stretch and later
+	PRIMUS_UPLOAD=0
 endif
 
 # Where to put the resulting library during build
