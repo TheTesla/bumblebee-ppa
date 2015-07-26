@@ -1,1 +1,1 @@
-rm_conffile /etc/bash_completion.d/primus 0~20150328-1~
+rm_conffile /etc/bash_completion.d/primus 20150328-1~
