@@ -1,3 +1,14 @@
+bbswitch (0.8-2~preciseppa1) precise; urgency=medium
+
+  * Backport changes made to bbswitch's packaging in the main archive up to
+    bbswitch/0.8-2. Full changelog can be found at:
+    http://metadata.ftp-master.debian.org/changelogs/main/b/bbswitch/unstable_changelog
+  * User-visible changes:
+    - bbswitch-source: allow building for a different kernel than the running
+      one
+
+ -- Vincent Cheng <vcheng@debian.org>  Sat, 25 Jul 2015 22:46:41 -0700
+
 bbswitch (0.8-1~preciseppa1) precise; urgency=low
 
   * New upstream release:
