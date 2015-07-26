@@ -7,6 +7,7 @@ name = bbswitch
 # Parse the package version from the changelog, "borrowed" from acpi_call
 version := $(shell dpkg-parsechangelog | grep '^Version:' | cut -d' ' -f2 |\
  rev | cut -d- -f2- | rev | cut -d':' -f2)
+BUILD_DATE	:= $(shell dpkg-parsechangelog --show-field=Date)
 
 %:
 	dh $@ --with dkms
@@ -33,6 +34,8 @@ override_dh_auto_install:
 	for file in changelog compat control control.modules.in copyright; do \
 		install -m 644 debian/$$file debian/$(name)-source/usr/src/modules/$(name)/debian/; \
 	done
+	find 'debian/$(name)-source/usr/src/modules' -depth -newermt '$(BUILD_DATE)' -print0 | \
+	xargs -0r touch --no-dereference --date='$(BUILD_DATE)'
 	cd debian/$(name)-source/usr/src && tar cfj $(name).tar.bz2 modules && rm -rf modules
 
 override_dh_installchangelogs:
