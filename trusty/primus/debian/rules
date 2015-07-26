@@ -39,6 +39,10 @@ override_dh_install:
 	mkdir -p debian/primus/usr/bin/ debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
 	install -m 755 debian/scripts/primusrun debian/primus/usr/bin/
 	cp -r $(BUILD_LIBDIR)/* debian/primus-libs/usr/lib/$(DEB_HOST_MULTIARCH)/primus/
+	# Install bash-completion file
+	mkdir -p debian/primus/usr/share/bash-completion/completions/
+	mv primus.bash-completion debian/primus/usr/share/bash-completion/completions/primus
+	
 	dh_install
 
 override_dh_strip:
