@@ -25,6 +25,12 @@ endif
 
 override_dh_auto_install:
 	dh_auto_install --destdir=debian/bumblebee/
+	
+	# Install bash-completion file to non-obsolete directory
+	mkdir -p debian/bumblebee/usr/share/bash-completion/completions/
+	mv debian/bumblebee/etc/bash_completion.d/bumblebee \
+	   debian/bumblebee/usr/share/bash-completion/completions/
+	rm -rf debian/bumblebee/etc/bash_completion.d/
 
 override_dh_installinit:
 	dh_installinit --name=bumblebeed
