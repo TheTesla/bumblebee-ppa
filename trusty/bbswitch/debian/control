@@ -27,7 +27,7 @@ Package: bbswitch-source
 Architecture: all
 Multi-Arch: foreign
 Depends: ${misc:Depends}
-Recommends: module-assistant
+Recommends: module-assistant, debhelper
 Suggests: bumblebee
 Description: Interface for toggling the power on NVIDIA Optimus video cards
  bbswitch is a kernel module which automatically detects the required ACPI
