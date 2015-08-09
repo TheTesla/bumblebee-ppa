@@ -51,6 +51,10 @@ case "$1" in
             echo "Deleting old /etc/bumblebee/xorg.conf.d/busid.conf"
             rm /etc/bumblebee/xorg.conf.d/busid.conf
         fi
+        # On Ubuntu modprobe remove line is not present
+        echo "Adding modprobe remove line to /etc/modprobe.d/bumblebee.conf"
+        echo "# Workaround to make sure nvidia-uvm is removed as well" >> /usr/share/bumblebee/default-conf/bumblebee.conf
+        echo "remove nvidia rmmod nvidia-uvm nvidia" >> /usr/share/bumblebee/default-conf/bumblebee.conf
     fi
 
     # Do not treat /etc/modprobe.d/bumblebee-nvidia.conf as a conffile
