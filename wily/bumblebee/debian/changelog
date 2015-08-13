@@ -1,3 +1,9 @@
+bumblebee (3.2.1-92~wilyppa1) wily; urgency=medium
+
+  * Fix module unloading timeout caused by modprobe-r-instead-of-rmmod.patch.
+
+ -- Vincent Cheng <vcheng@debian.org>  Thu, 13 Aug 2015 01:27:20 -0700
+
 bumblebee (3.2.1-91~wilyppa1) wily; urgency=medium
 
   * Initial release for wily.
