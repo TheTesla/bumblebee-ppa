@@ -1,3 +1,9 @@
+bumblebee (3.2.1-93~preciseppa1) precise; urgency=medium
+
+  * Add nvidia-355 in alternate dep and blacklist.
+
+ -- Vincent Cheng <vcheng@debian.org>  Fri, 14 Aug 2015 23:45:47 -0700
+
 bumblebee (3.2.1-92~preciseppa1) precise; urgency=medium
 
   * Fix module unloading timeout caused by modprobe-r-instead-of-rmmod.patch.
