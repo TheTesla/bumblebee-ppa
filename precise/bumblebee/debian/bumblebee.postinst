@@ -40,7 +40,7 @@ case "$1" in
 
     # Do not treat /etc/modprobe.d/bumblebee-nvidia.conf as a conffile
     # LP: #1242785, https://github.com/Bumblebee-Project/Bumblebee/issues/525
-    cp -f /usr/share/bumblebee/default-conf/bumblebee.conf /etc/modprobe.d/bumblebee.conf
+    cp -f /usr/share/bumblebee/modprobe.d/bumblebee.conf /etc/modprobe.d/bumblebee.conf
 
     ;;
 

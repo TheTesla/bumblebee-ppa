@@ -38,8 +38,8 @@ override_dh_install:
 ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
 	# On Ubuntu modprobe remove line is not present, which breaks module
 	# unloading; https://github.com/Bumblebee-Project/Bumblebee/issues/681
-	echo "# Workaround to make sure nvidia-uvm is removed as well" >> debian/bumblebee/usr/share/bumblebee/default-conf/bumblebee.conf
-	echo "remove nvidia rmmod nvidia-uvm nvidia" >> debian/bumblebee/usr/share/bumblebee/default-conf/bumblebee.conf
+	echo "# Workaround to make sure nvidia-uvm is removed as well" >> debian/bumblebee/usr/share/bumblebee/modprobe.d/bumblebee.conf
+	echo "remove nvidia rmmod nvidia-uvm nvidia" >> debian/bumblebee/usr/share/bumblebee/modprobe.d/bumblebee.conf
 endif
 
 override_dh_installinit:

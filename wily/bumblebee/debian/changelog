@@ -11,6 +11,7 @@ bumblebee (3.2.1-94~wilyppa1) UNRELEASED; urgency=medium
     messages
   * Add ignore-failure-to-set-DRM-interface.patch to ignore DRM red
     herring messages
+  * Install modprobe file in bumblebee/modprobe.d
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 19:30:21 +0100
 
