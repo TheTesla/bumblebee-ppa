@@ -13,6 +13,7 @@ bumblebee (3.2.1-94~preciseppa1) UNRELEASED; urgency=medium
     herring messages
   * Install modprobe file in bumblebee/modprobe.d
   * Generate simplified maintainer scripts at build time per-distro
+  * Delete modprobe file when bumblebee is removed
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 19:28:39 +0100
 
