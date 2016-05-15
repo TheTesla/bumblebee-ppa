@@ -72,14 +72,15 @@ EndSection
 Also refer to https://bugs.debian.org/756522 for a brief explanation.
 
 - If optirun errors out and dmesg reports that the GPU has "fallen off the bus"
-on Linux >= 3.10, either stick with an older kernel version (<= 3.9), or add
-rcutree.rcu_idle_gp_delay=1 to your grub command line (in /etc/default/grub,
-then run update-grub and reboot) as a workaround.
+or "nvidia_frontend_open: minor 0, module->open() failed, error -5" on Linux
+>= 3.10 and < 3.19, either stick with an older kernel version (<= 3.9) or
+upgrade to > 3.19, or add rcutree.rcu_idle_gp_delay=1 to your grub command line
+(in /etc/default/grub, then run update-grub and reboot) as a workaround.
 
 This is a known problem upstream and suspected to be an issue with the
-proprietary nvidia driver. Refer to Bumblebee github issue #455,
-https://github.com/Bumblebee-Project/Bumblebee/issues/455.
-
+proprietary nvidia driver. Refer to Bumblebee github issue #455 and #615,
+https://github.com/Bumblebee-Project/Bumblebee/issues/455 and
+https://github.com/Bumblebee-Project/Bumblebee/issues/615.
 
 A more up-to-date list of common issues can be found on the Debian/Ubuntu wiki
 pages relating to bumblebee, i.e.:
