@@ -1,3 +1,9 @@
+bumblebee (3.2.1-94~trustyppa1) UNRELEASED; urgency=medium
+
+  * Sync debian/copyright with Debian 3.1.2-12
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 19:29:47 +0100
+
 bumblebee (3.2.1-93~trustyppa1) trusty; urgency=medium
 
   * Add nvidia-355 in alternate dep and blacklist.
