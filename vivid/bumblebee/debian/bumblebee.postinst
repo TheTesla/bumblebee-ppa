@@ -58,16 +58,6 @@ case "$1" in
     cp -f /usr/share/bumblebee/modprobe.d/bumblebee.conf /etc/modprobe.d/bumblebee.conf
 
     ;;
-
-  abort-upgrade|abort-remove|abort-deconfigure)
-    ;;
-
-  *)
-    echo "postinst called with unknown argument \`$1'" >&2
-    exit 1
-    ;;
 esac
 
 #DEBHELPER#
-
-exit 0

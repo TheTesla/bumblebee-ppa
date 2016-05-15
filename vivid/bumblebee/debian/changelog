@@ -12,6 +12,7 @@ bumblebee (3.2.1-94~vividppa1) UNRELEASED; urgency=medium
   * Add ignore-failure-to-set-DRM-interface.patch to ignore DRM red
     herring messages
   * Install modprobe file in bumblebee/modprobe.d
+  * Generate simplified maintainer scripts at build time per-distro
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 19:29:35 +0100
 
