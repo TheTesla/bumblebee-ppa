@@ -9,6 +9,8 @@ bumblebee (3.2.1-94~vividppa1) UNRELEASED; urgency=medium
   * Add xorg-binary-config.patch for compatibility with xorg-legacy
   * Add ignore-systemd-logind-noise.patch to ignore logind red herring
     messages
+  * Add ignore-failure-to-set-DRM-interface.patch to ignore DRM red
+    herring messages
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 19:29:35 +0100
 

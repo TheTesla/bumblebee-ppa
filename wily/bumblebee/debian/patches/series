@@ -4,3 +4,4 @@ modprobe-r-instead-of-rmmod.patch
 fix-typos.patch
 xorg-binary-config.patch
 ignore-systemd-logind-noise.patch
+ignore-failure-to-set-DRM-interface.patch
