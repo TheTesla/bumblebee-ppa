@@ -79,10 +79,3 @@ Description: NVIDIA Optimus support using the proprietary NVIDIA driver
  This metapackage ensures that the proprietary NVIDIA driver is installed in a
  way such that 3D acceleration does not break. It does so by configuring the
  OpenGL library path to use the Mesa graphics library.
-
-Package: bumblebee-dbg
-Architecture: i386 amd64
-Section: debug
-Depends: ${misc:Depends}, bumblebee (= ${binary:Version})
-Description: NVIDIA Optimus support - debugging symbols
- This package contains the debugging symbols for bumblebee.
