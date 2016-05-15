@@ -1,0 +1,18 @@
+Remove installation of glxinfo as glxinfo from mesa is more recent anyway
+--- a/glxdemos/CMakeLists.txt
++++ b/glxdemos/CMakeLists.txt
+@@ -13,14 +13,6 @@
+ 		${X11_Xext_LIB} m)
+ endforeach()
+ 
+-add_executable(glxinfo glxinfo.c)
+-target_link_libraries(glxinfo ${OPENGL_gl_LIBRARY} ${X11_X11_LIB}
+-	${OPENGL_glu_LIBRARY} m)
+-if(${CMAKE_SYSTEM_NAME} STREQUAL "SunOS")
+-	target_link_libraries(glxinfo Xmu)
+-endif()
+-install(TARGETS glxinfo DESTINATION ${VGL_BINDIR})
+-
+ set(GLXSPHERES glxspheres)
+ if(BITS EQUAL 64)
+ 	set(GLXSPHERES glxspheres64)
