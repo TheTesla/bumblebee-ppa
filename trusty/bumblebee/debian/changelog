@@ -1,4 +1,4 @@
-bumblebee (3.2.1-94~trustyppa1) UNRELEASED; urgency=medium
+bumblebee (3.2.1-94~trustyppa1) trusty; urgency=medium
 
   * Sync debian/copyright with Debian 3.1.2-12
   * Sync debian/control with Debian 3.1.2-12
@@ -15,7 +15,7 @@ bumblebee (3.2.1-94~trustyppa1) UNRELEASED; urgency=medium
   * Generate simplified maintainer scripts at build time per-distro
   * Delete modprobe file when bumblebee is removed
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 19:29:47 +0100
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 20:57:45 +0100
 
 bumblebee (3.2.1-93~trustyppa1) trusty; urgency=medium
 
