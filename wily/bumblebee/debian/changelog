@@ -4,6 +4,7 @@ bumblebee (3.2.1-94~wilyppa1) UNRELEASED; urgency=medium
   * Sync debian/control with Debian 3.1.2-12
   * Mention workaround for #822330 in README.Debian
   * Add 358, 361, 364 to blacklist
+  * Run autoreconf before building
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 19:30:21 +0100
 
