@@ -5,6 +5,7 @@ bumblebee (3.2.1-94~trustyppa1) UNRELEASED; urgency=medium
   * Mention workaround for #822330 in README.Debian
   * Add 358, 361, 364 to blacklist
   * Run autoreconf before building
+  * Add fix-typos.patch, errors found by Lintian
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 19:29:47 +0100
 

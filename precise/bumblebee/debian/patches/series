@@ -1,3 +1,4 @@
 fix-device-detection.patch
 ignore-error-on-X-shutdown.patch
 modprobe-r-instead-of-rmmod.patch
+fix-typos.patch
