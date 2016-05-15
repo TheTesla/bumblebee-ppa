@@ -6,6 +6,7 @@ bumblebee (3.2.1-94~preciseppa1) UNRELEASED; urgency=medium
   * Add 358, 361, 364 to blacklist
   * Run autoreconf before building
   * Add fix-typos.patch, errors found by Lintian
+  * Add xorg-binary-config.patch for compatibility with xorg-legacy
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 19:28:39 +0100
 
