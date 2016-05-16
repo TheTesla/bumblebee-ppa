@@ -1,0 +1,5 @@
+bbswitch (0.8-2~xenialppa1) wily; urgency=medium
+
+  * Initial release for xenial.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 15 May 2016 21:52:54 +0100

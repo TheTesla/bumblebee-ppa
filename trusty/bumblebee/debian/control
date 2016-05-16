@@ -2,10 +2,20 @@ Source: bumblebee
 Section: utils
 Priority: extra
 Maintainer: The Bumblebee Project <bumblebee@lists.launchpad.net>
-Uploaders: Peter Lekensteyn <lekensteyn@gmail.com>,
- Bruno Pagani <bruno.n.pagani@gmail.com>
-Build-Depends: debhelper (>= 9), libbsd-dev (>= 0.2.0), pkg-config,
- libx11-dev, libglib2.0-dev, help2man, dh-systemd (>= 1.4)
+Uploaders:
+ Peter Lekensteyn <lekensteyn@gmail.com>,
+ Bruno Pagani <bruno.n.pagani@gmail.com>,
+ Vincent Cheng <vcheng@debian.org>,
+ Luca Boccassi <luca.boccassi@gmail.com>,
+Build-Depends:
+ debhelper (>= 9),
+ dh-autoreconf,
+ dh-systemd (>= 1.4),
+ help2man,
+ libbsd-dev (>= 0.2.0),
+ libglib2.0-dev,
+ libx11-dev,
+ pkg-config,
 Standards-Version: 3.9.5
 Homepage: https://launchpad.net/~bumblebee
 Vcs-Browser: https://github.com/Bumblebee-Project/Bumblebee
@@ -13,23 +23,42 @@ Vcs-Git: git://github.com/Bumblebee-Project/Bumblebee.git
 
 Package: bumblebee
 Architecture: i386 amd64
-Pre-Depends: dpkg (>= 1.15.7.2)
-Depends: ${shlibs:Depends}, ${misc:Depends}, bbswitch-dkms | bbswitch-source
-Recommends: bumblebee-nvidia (= ${binary:Version}), virtualgl | primus
-Description: NVIDIA Optimus support
- Bumblebee aims to provide support for NVIDIA Optimus laptops. These laptops
- are built in such a way that the NVIDIA graphics card can usually not be used.
- With Bumblebee, a X server for the NVIDIA card is started and frames are
- transferred to the Intel GPU using VirtualGL. Power saving is accomplished with
- the bbswitch kernel module. Supported drivers are nvidia and nouveau.
+Pre-Depends:
+ dpkg (>= 1.15.7.2),
+Depends:
+ bbswitch-dkms | bbswitch-source,
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ virtualgl | primus,
+Suggests:
+ bumblebee-nvidia (= ${binary:Version}),
+Description: NVIDIA Optimus support for Linux
+ Bumblebee is an effort to make NVIDIA Optimus enabled laptops work in
+ GNU/Linux systems. These laptops are built in such a way that the NVIDIA
+ graphics card can be used on demand so that battery life is improved and
+ temperature is kept low.
+ .
+ It disables the discrete graphics card if no client is detected, and starts
+ an X server making use of NVIDIA card if requested then let software GL
+ implementations (such as VirtualGL) copy frames to the visible display that
+ runs on the integrated graphics. The ability to use discrete graphics
+ depends on the driver: open source nouveau and proprietary nvidia.
 
 Package: bumblebee-nvidia
+Architecture: amd64 i386
 Section: contrib/utils
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, bumblebee (= ${binary:Version}),
+Depends:
+ bumblebee (= ${binary:Version}),
+ ${misc:Depends},
+ ${nvidia:Depends},
 # proprietary NVIDIA packages in Debian
- nvidia-driver | nvidia-glx | nvidia-kernel-dkms | nvidia-kernel-amd64 | 
- nvidia-kernel-686-pae | nvidia-kernel-486 |
+ nvidia-driver |
+ nvidia-legacy-340xx-driver |
+ nvidia-legacy-304xx-driver |
+ nvidia-kernel-dkms |
+ nvidia-legacy-340xx-kernel-dkms |
+ nvidia-legacy-304xx-kernel-dkms |
 # proprietary NVIDIA packages in Ubuntu
  nvidia | nvidia-current | nvidia-current-updates | nvidia-driver-binary |
  nvidia-304 | nvidia-304-updates | nvidia-experimental-304 |
@@ -50,10 +79,3 @@ Description: NVIDIA Optimus support using the proprietary NVIDIA driver
  This metapackage ensures that the proprietary NVIDIA driver is installed in a
  way such that 3D acceleration does not break. It does so by configuring the
  OpenGL library path to use the Mesa graphics library.
-
-Package: bumblebee-dbg
-Architecture: i386 amd64
-Section: debug
-Depends: ${misc:Depends}, bumblebee (= ${binary:Version})
-Description: NVIDIA Optimus support - debugging symbols
- This package contains the debugging symbols for bumblebee.
