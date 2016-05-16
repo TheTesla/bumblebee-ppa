@@ -1,3 +1,9 @@
+bumblebee (3.2.1-95~wilyppa1) UNRELEASED; urgency=medium
+
+  * Set Ubuntu default kernel driver to nvidia
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 16 May 2016 23:03:08 +0100
+
 bumblebee (3.2.1-94~wilyppa1) wily; urgency=medium
 
   * Sync debian/copyright with Debian 3.1.2-12
