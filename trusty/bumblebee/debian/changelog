@@ -1,6 +1,7 @@
 bumblebee (3.2.1-95~trustyppa1) UNRELEASED; urgency=medium
 
   * Set Ubuntu default kernel driver to nvidia
+  * Update bumblebee-nvidia dependency to new drivers
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 16 May 2016 23:02:47 +0100
 
