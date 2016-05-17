@@ -17,7 +17,7 @@ MAINTSCRIPTS_GENERATED	+= debian/bumblebee-nvidia.postrm
 
 configure-for-Ubuntu:
 	dh_auto_configure -- \
-		CONF_DRIVER_MODULE_NVIDIA=nvidia-current \
+		CONF_DRIVER_MODULE_NVIDIA=nvidia \
 		CONF_LDPATH_NVIDIA=/usr/lib/nvidia-current:/usr/lib32/nvidia-current \
 		CONF_MODPATH_NVIDIA=/usr/lib/nvidia-current/xorg,/usr/lib/xorg/modules \
 		CONF_PRIMUS_LD_PATH=/usr/lib/x86_64-linux-gnu/primus:/usr/lib/i386-linux-gnu/primus \

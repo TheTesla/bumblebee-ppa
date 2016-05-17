@@ -1,3 +1,10 @@
+bumblebee (3.2.1-95~vividppa1) UNRELEASED; urgency=medium
+
+  * Set Ubuntu default kernel driver to nvidia
+  * Update bumblebee-nvidia dependency to new drivers
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 16 May 2016 23:02:58 +0100
+
 bumblebee (3.2.1-94~vividppa1) vivid; urgency=medium
 
   * Sync debian/copyright with Debian 3.1.2-12
