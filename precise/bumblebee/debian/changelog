@@ -1,3 +1,9 @@
+bumblebee (3.2.1-95~preciseppa2) precise; urgency=medium
+
+  * Revert using dh_strip --dbgsym-migration, fixes FTBS
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 18 May 2016 00:58:07 +0100
+
 bumblebee (3.2.1-95~preciseppa1) precise; urgency=medium
 
   * Set Ubuntu default kernel driver to nvidia
