@@ -1,3 +1,11 @@
+bumblebee (3.2.1-96~xenialppa1) UNRELEASED; urgency=medium
+
+  * Backport libkmod.patch from upstream develop branch and add build-dep
+    on libkmod-dev. Definitively fixes all issues with multiple kernel
+    modules loading/unloading.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Thu, 19 May 2016 19:26:45 +0100
+
 bumblebee (3.2.1-95~xenialppa1) xenial; urgency=medium
 
   * Set Ubuntu default kernel driver to nvidia
