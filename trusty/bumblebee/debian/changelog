@@ -1,11 +1,11 @@
-bumblebee (3.2.1-96~trustyppa1) UNRELEASED; urgency=medium
+bumblebee (3.2.1-96~trustyppa1) trusty; urgency=medium
 
   * Backport libkmod.patch from upstream develop branch and add build-dep
     on libkmod-dev. Definitively fixes all issues with multiple kernel
     modules loading/unloading.
   * Remove Ubuntu modprobe hack from debian/rules
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Thu, 19 May 2016 19:26:15 +0100
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 20 May 2016 01:39:53 +0100
 
 bumblebee (3.2.1-95~trustyppa2) trusty; urgency=medium
 
