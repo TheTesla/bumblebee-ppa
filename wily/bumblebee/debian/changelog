@@ -1,3 +1,12 @@
+bumblebee (3.2.1-96~wilyppa1) wily; urgency=medium
+
+  * Backport libkmod.patch from upstream develop branch and add build-dep
+    on libkmod-dev. Definitively fixes all issues with multiple kernel
+    modules loading/unloading.
+  * Remove Ubuntu modprobe hack from debian/rules
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 20 May 2016 01:40:19 +0100
+
 bumblebee (3.2.1-95~wilyppa2) wily; urgency=medium
 
   * Revert using dh_strip --dbgsym-migration, fixes FTBS
