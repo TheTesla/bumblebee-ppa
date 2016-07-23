@@ -45,14 +45,3 @@ Multi-Arch: foreign
 Description: Shared libraries for primus (32-bit)
  This package depends on 32-bit libraries for primus. It can safely be
  removed after installation.
-
-Package: primus-libs-dbg
-Architecture: i386 amd64
-Section: debug
-Depends: primus-libs (=${binary:Version}), ${misc:Depends}
-Multi-Arch: same
-Description: Shared libraries for primus - debugging symbols
- This package contains the libraries for primus which are loaded when running
- primusrun.
- .
- This package contains the debugging symbols for primus-libs.
