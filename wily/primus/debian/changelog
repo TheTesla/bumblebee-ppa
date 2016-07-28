@@ -1,3 +1,12 @@
+primus (20150328-2~wilyppa1) wily; urgency=medium
+
+  * Add dependency on xserver-xorg-core (>= 2:1.18.3-2) or
+    xserver-xorg-video-intel (>= 2:2.99.917) to primus since we build
+    with PRIMUS_UPLOAD=0 which requires SNA.
+  * Add myself to Uploaders.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 23 Jul 2016 12:40:43 +0100
+
 primus (20150328-1~wilyppa1) wily; urgency=medium
 
   * Initial release for wily.
