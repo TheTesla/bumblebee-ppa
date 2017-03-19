@@ -28,7 +28,7 @@ Pre-Depends:
  dpkg (>= 1.15.7.2),
 Depends:
  bbswitch-dkms | bbswitch-source,
- xserver-xorg-core (>= 2:1.18),
+ xserver-xorg-core (>= 2:1.18) | xserver-xorg-core-hwe-16.04 (>= 2:1.18),
  ${misc:Depends},
  ${shlibs:Depends},
 Recommends:
@@ -79,7 +79,10 @@ Depends:
  nvidia-355 | nvidia-355-updates | nvidia-experimental-355 |
  nvidia-358 | nvidia-358-updates | nvidia-experimental-358 |
  nvidia-361 | nvidia-361-updates | nvidia-experimental-361 |
- nvidia-364 | nvidia-364-updates | nvidia-experimental-364
+ nvidia-364 | nvidia-364-updates | nvidia-experimental-364 |
+ nvidia-367 | nvidia-367-updates | nvidia-experimental-367 |
+ nvidia-375 | nvidia-375-updates | nvidia-experimental-375 |
+ nvidia-378 | nvidia-378-updates | nvidia-experimental-378
 Description: NVIDIA Optimus support using the proprietary NVIDIA driver
  This metapackage ensures that the proprietary NVIDIA driver is installed in a
  way such that 3D acceleration does not break. It does so by configuring the

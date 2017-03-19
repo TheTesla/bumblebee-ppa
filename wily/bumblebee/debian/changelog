@@ -1,3 +1,9 @@
+bumblebee (3.2.1-97~wilyppa1) wily; urgency=medium
+
+  * Add 367, 375 and 378 to dependency list and blacklist
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 19 Mar 2017 12:34:44 +0000
+
 bumblebee (3.2.1-96~wilyppa1) wily; urgency=medium
 
   * Backport libkmod.patch from upstream develop branch and add build-dep
