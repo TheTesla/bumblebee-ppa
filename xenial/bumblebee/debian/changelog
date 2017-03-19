@@ -1,3 +1,10 @@
+bumblebee (3.2.1-97~xenialppa1) xenial; urgency=medium
+
+  * Add 367, 375 and 378 to dependency list and blacklist
+  * Add alternative dependency to xserver-xorg-core-hwe-16.04
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 19 Mar 2017 12:35:00 +0000
+
 bumblebee (3.2.1-96~xenialppa1) xenial; urgency=medium
 
   * Backport libkmod.patch from upstream develop branch and add build-dep

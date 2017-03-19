@@ -1,3 +1,9 @@
+bumblebee (3.2.1-97~trustyppa1) trusty; urgency=medium
+
+  * Add 367, 375 and 378 to dependency list and blacklist
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 19 Mar 2017 12:33:36 +0000
+
 bumblebee (3.2.1-96~trustyppa1) trusty; urgency=medium
 
   * Backport libkmod.patch from upstream develop branch and add build-dep
