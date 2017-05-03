@@ -1,3 +1,9 @@
+bumblebee (3.2.1-98~wilyppa1) wily; urgency=medium
+
+  * Add 381 to dependency list and blacklist
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 01 May 2017 14:46:34 +0100
+
 bumblebee (3.2.1-97~wilyppa1) wily; urgency=medium
 
   * Add 367, 375 and 378 to dependency list and blacklist
