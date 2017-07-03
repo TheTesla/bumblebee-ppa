@@ -1,3 +1,15 @@
+bumblebee (3.2.1-100~vividppa1) vivid; urgency=low
+
+  * Fix typo in blacklist, really support 378
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 02 Jul 2017 10:33:30 +0100
+
+bumblebee (3.2.1-99~vividppa1) vivid; urgency=low
+
+  * Add support for 384
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 01 Jul 2017 19:47:35 +0100
+
 bumblebee (3.2.1-98~vividppa1) vivid; urgency=medium
 
   * Add 381 to dependency list and blacklist
